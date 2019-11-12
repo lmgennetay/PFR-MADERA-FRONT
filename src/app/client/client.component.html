@@ -1,0 +1,25 @@
+<div class="corpsPage flexColumnCenter">
+    <div class="titreSection">CLIENT</div>
+    <form [formGroup]="clientForm" (ngSubmit)="submitClientForm()" class="section flexColumnCenter">
+        <div class="section flexSpaceBetween">
+            <div class="flexStart inputTexte inputTextTaille1">
+                <label for="nom" class="labelForm">Nom</label><input type="text" name="nom" formControlName="nom" class="inputTexteContenu" maxlength="50">
+            </div>
+            <div class="flexStart inputTexte inputTextTaille1">
+                <label for="prenom" class="labelForm">Prénom</label><input type="text" name="prenom" formControlName="prenom" class="inputTexteContenu" maxlength="50">
+            </div>
+        </div>
+        <div class="flexStart inputTexte inputTextTaille2">
+                <label for="adresse" class="labelForm">Adresse</label><input type="text" name="adresse" formControlName="adresse" class="inputTexteContenu" maxlength="100">
+        </div>
+        <div class="section flexSpaceBetween">
+            <div class="flexStart inputTexte inputTextTaille1">
+                    <label for="cp" class="labelForm">Code Postal</label><input type="text" name="cp" formControlName="cp" class="inputTexteContenu" maxlength="5">
+            </div>
+            <div class="flexStart inputTexte inputTextTaille1">
+                <label for="ville" class="labelForm">Ville</label><input type="text" name="ville" formControlName="ville" class="inputTexteContenu" maxlength="100">
+            </div>
+        </div>
+        <button type="submit">Ajouter un client</button>
+    </form>
+</div>

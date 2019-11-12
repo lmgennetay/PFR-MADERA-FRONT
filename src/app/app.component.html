@@ -1,3 +1,8 @@
-<div style="text-align:center">
-</div>
-<app-accueil class="appComponent flexColumnCenter"></app-accueil>
+<header class="flexSpaceBetween">
+    <img src="assets/menu.png" class="btnImage" alt="Menu" (click)="handleClickGauche($event)">
+    <h1>MADERA - DEVIS</h1>
+    <img src="assets/autres.png" class="btnImage" alt="Autres" (click)="handleClickDroite($event)">
+</header>
+<app-menu-gauche *ngIf="openMenuGauche" class="menuComponent menuGauche"></app-menu-gauche>
+<app-menu-droite *ngIf="openMenuDroite" class="menuComponent menuDroite"></app-menu-droite>
+<router-outlet></router-outlet>
