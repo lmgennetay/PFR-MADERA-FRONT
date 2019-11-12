@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  application:
+    {
+      name: 'Projet MADERA',
+      angular: 'Angular 8.2.12',
+      bootstrap: 'Bootstrap 4.3.1',
+    },
+  config: {
+    api: false,
+    url: './assets/params/json/',
+  }
 };
 
 /*

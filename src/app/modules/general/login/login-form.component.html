@@ -1,0 +1,55 @@
+<div class="login-box" style="padding-top: 80px; margin: auto ">
+  <div class="card">
+    <div class="card-body login-card-body">
+      <div class="login-logo" style="text-align: center">
+        <h2>MADERA</h2>
+      </div>
+      <p class="login-box-msg">Connexion aux services</p>
+
+      <form _ngcontent-ganatan-c10="" novalidate="" class="ng-untouched ng-pristine ng-valid">
+
+        <div class="form-group">
+          <label _ngcontent-ganatan-c10="" class="text-info" for="username">Adresse mail</label>
+          <input _ngcontent-ganatan-c10=""  type="email" placeholder="Email" formcontrolname="username" class="text-primary form-control font-weight-bold ng-untouched ng-pristine ng-valid"
+                 id="username">
+          <div *ngIf="username.invalid" class="alert alert-primary mt-2">
+            <div *ngIf="username.errors.required">
+              Veuiller saisir un email.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label _ngcontent-ganatan-c10="" class="text-info" for="password">Mot de passe</label>
+          <input _ngcontent-ganatan-c10=""  type="password" placeholder="Mot de passe" formcontrolname="password" class="text-primary form-control font-weight-bold ng-untouched ng-pristine ng-valid"
+                 id="password">
+          <div *ngIf="password.invalid" class="alert alert-primary mt-2">
+            <div *ngIf="password.errors.required">
+              Veuiller saisir un mot de passe correct.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="icheck-primary">
+            <input type="checkbox" id="remember">
+            <label for="remember">
+              Se souvenir de moi
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button [disabled]="loading" class="btn btn-primary btn-block">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            SE CONNECTER
+          </button>
+        </div>
+      </form>
+
+      <p class="mb-1">
+        <a href="forgot-password.html">Mot de passe oublié</a>
+      </p>
+    </div>
+  </div>
+</div>

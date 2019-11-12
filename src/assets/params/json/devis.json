@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1000,
+      "releaseDate": "10/11/2019",
+      "nameProjet": "Mon premier projet",
+      "firstName": "Vincent",
+      "name": "Lecourt",
+      "addressCustomer1": "30 rue de la touche",
+      "addressCustomer2": "",
+      "addressCustomer3": "",
+      "cp": 37000,
+      "city": "Tours",
+      "phone": "0123456789",
+      "email": "",
+      "addressConstruction1": "",
+      "addressConstruction2": "",
+      "addressConstruction3": "",
+      "cpConstruction": "",
+      "cityConstruction": ""
+    }
+]

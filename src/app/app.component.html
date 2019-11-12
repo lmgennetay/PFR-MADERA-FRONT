@@ -1,3 +1,15 @@
-<div style="text-align:center">
+<div class="app">
+
+  <app-header [title]="title"></app-header>
+
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+
+    </div>
+  </main>
 </div>
-<app-accueil class="appComponent flexColumnCenter"></app-accueil>
