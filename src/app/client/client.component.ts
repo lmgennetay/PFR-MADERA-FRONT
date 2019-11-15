@@ -13,6 +13,8 @@ export class ClientComponent implements OnInit {
   private adresse = "";
   private cp = "";
   private ville = "";
+  private email = "";
+  private tel = "";
 
   constructor(private fb: FormBuilder) { }
 
@@ -22,7 +24,9 @@ export class ClientComponent implements OnInit {
       prenom: [],
       adresse: [],
       cp: [],
-      ville: []
+      ville: [],
+      email: [],
+      tel: []
     });
   }
 
@@ -33,7 +37,9 @@ export class ClientComponent implements OnInit {
     this.adresse = this.clientForm.value.adresse;
     this.cp = this.clientForm.value.cp;
     this.ville = this.clientForm.value.ville;
-    console.warn(this.nom + " " + this.prenom + " " + this.adresse + " " + this.cp + " " + this.ville);
+    this.email = this.clientForm.value.email;
+    this.tel = this.clientForm.value.tel;
+    console.warn(this.nom + " " + this.prenom + " " + this.adresse + " " + this.cp + " " + this.ville + " " + this.email + " " + this.tel);
   }
 
 }
