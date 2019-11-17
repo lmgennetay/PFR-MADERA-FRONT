@@ -28,7 +28,9 @@ export class QuotesFormComponent extends PageFormComponent {
       releaseDate: [null,
         [Validators.required]
       ],
-      nameProjet: [null,[Validators.required]],
+      nameProjet: [null,
+        [Validators.required]
+      ],
       firstName: [null,
         [Validators.required]
       ],

@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/general/login/login-form.module').then(mod => mod.LoginFormModule)
   },
   {
+    path: 'clients',
+    loadChildren: () => import('./modules/application/clients-form/clients-form.module').then(mod => mod.ClientsFormModule)
+  },
+  {
     path: 'devis',
     loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
   },

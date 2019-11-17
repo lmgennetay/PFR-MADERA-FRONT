@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +6,21 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
-  @Input() title: any;
-
-  constructor() { }
-
+  public openMenuGauche = false;
+  public openMenuDroite = false;
+  title = 'madera-front';
+  handleClickGauche(event) {
+    if (this.openMenuGauche == false) {
+      this.openMenuGauche = true;
+    } else {
+      this.openMenuGauche = false;
+    }
+  }
+  handleClickDroite(event) {
+    if (this.openMenuDroite == false) {
+      this.openMenuDroite = true;
+    } else {
+      this.openMenuDroite = false;
+    }
+  }
 }

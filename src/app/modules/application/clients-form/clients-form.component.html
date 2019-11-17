@@ -1,0 +1,50 @@
+<div class="corpsPage flexColumnCenter">
+    <div class="titreSection">CLIENT</div>
+    <form [formGroup]="form" class="section flexColumnCenter">
+      <div class="section flexSpaceBetween">
+        <div class="flexStart inputTexte inputTextTaille1">
+          <label for="id" class="labelForm">Reference</label><input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50">
+        </div>
+        <div class="flexStart inputTexte inputTextTaille1">
+          <label for="releaseDate" class="labelForm">Date de creation</label><input type="text" name="releaseDate" formControlName="releaseDate" id="releaseDate" class="inputTexteContenu" maxlength="50">
+        </div>
+      </div>
+        <div class="section flexSpaceBetween">
+            <div class="flexStart inputTexte inputTextTaille1">
+                <label for="nom" class="labelForm">Nom</label><input type="text" name="nom" formControlName="nom" id="nom" class="inputTexteContenu" maxlength="50">
+            </div>
+            <div class="flexStart inputTexte inputTextTaille1">
+                <label for="prenom" class="labelForm">Prénom</label><input type="text" name="prenom" formControlName="prenom" id="prenom" class="inputTexteContenu" maxlength="50">
+            </div>
+        </div>
+        <div class="flexStart inputTexte inputTextTaille2">
+                <label for="adresse" class="labelForm">Adresse</label><input type="text" name="adresse" formControlName="adresse" id="adresse" class="inputTexteContenu" maxlength="100">
+        </div>
+        <div class="section flexSpaceBetween">
+            <div class="flexStart inputTexte inputTextTaille1">
+                    <label for="cp" class="labelForm">Code Postal</label><input type="text" name="cp" formControlName="cp" id="cp" class="inputTexteContenu" maxlength="5">
+            </div>
+            <div class="flexStart inputTexte inputTextTaille1">
+                <label for="ville" class="labelForm">Ville</label><input type="text" name="ville" formControlName="ville" id="ville" class="inputTexteContenu" maxlength="100">
+            </div>
+        </div>
+        <div class="flexStart inputTexte inputTextTaille2">
+            <label for="email" class="labelForm">Mail</label><input type="text" name="email" formControlName="email" id="email" class="inputTexteContenu" maxlength="100">
+        </div>
+        <div class="section flexSpaceBetween">
+            <div class="flexStart inputTexte inputTextTaille1">
+                    <label for="cp" class="labelForm">Tel</label><input type="text" name="tel" formControlName="tel" id="tel" class="inputTexteContenu" maxlength="5">
+            </div>
+        </div>
+
+        <div class="form-row ">
+          <button type="submit" class="btn btn-primary btn-sm mb-2 ml-3" (click)="onUpdate()"><i class="fas fa-save fa-lg"></i>&nbsp; Enregistrer</button>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group text-center col-md-1">
+            <a href="#" routerLink="/" class="btn btn-primary">Retour</a>
+          </div>
+        </div>
+    </form>
+</div>

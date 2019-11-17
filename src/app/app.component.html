@@ -1,15 +1,6 @@
 <div class="app">
-
-<!--  <app-header [title]="title"> component html</app-header>-->
-
-  <main>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <router-outlet></router-outlet>
-        </div>
-      </div>
-
-    </div>
-  </main>
+  <app-header [title]="title"></app-header>
+  <app-menu-gauche *ngIf="openMenuGauche" class="menuComponent menuGauche"></app-menu-gauche>
+  <app-menu-droite *ngIf="openMenuDroite" class="menuComponent menuDroite"></app-menu-droite>
+  <router-outlet></router-outlet>
 </div>
