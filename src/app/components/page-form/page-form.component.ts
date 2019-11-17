@@ -15,12 +15,10 @@ export class PageFormComponent {
   api: any;
   url: any;
   endpoint: any;
-  datasourceColor: any;
   icon: any;
   form: FormGroup;
   item: any = {};
   titleForm: any = {};
-  datasource: string;
 
   public route: ActivatedRoute;
   public router: Router;
@@ -39,39 +37,29 @@ export class PageFormComponent {
     this.initialize();
     this.createForm();
     this.getItemById();
-
   }
 
   initialize() {
     this.api = this.configService.config.api;
     this.url = this.configService.config.url + this.endpoint;
-    if (this.api) {
-      this.datasourceColor = 'text-primary';
-      this.datasource = 'CRUD API';
-    } else {
-      this.datasource = 'LOCAL JSON (no crud)';
-      this.datasourceColor = 'text-danger';
-    }
   }
 
   createForm() {
   }
 
   getItemById(): void {
-    this.route.params
-      .subscribe(params => {
-        if (params.id !== undefined) {
-          this.itemsService.getItem(this.api, this.url, params.id)
-            .subscribe(data => {
-              if ((data !== null) && (data !== undefined)) {
-                this.item = data;
-                this.setFormValue(this.item);
-              } else {
-                this.resetForm();
-              }
-            });
-        }
-      });
+    this.route.params.subscribe(params => {
+      if (params.id !== undefined) {
+        this.itemsService.getItem(this.api, this.url, params.id).subscribe(data => {
+          if ((data !== null) && (data !== undefined)) {
+            this.item = data;
+            this.setFormValue(this.item);
+          } else {
+            this.resetForm();
+          }
+        });
+      }
+    });
   }
 
   resetForm() {

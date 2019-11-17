@@ -12,8 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ItemsService {
-
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
   filterJsonItem(value: any, id: any) {
     let dataTmp = null;
@@ -152,7 +151,7 @@ export class ItemsService {
     return result;
   }
 
-  addItem(url: any, item: any): Observable<any> {
+  addItem(url: any, item: any): Observable<any> {  console.log(url)
     const body = JSON.stringify(item);
     return this.http.post<any>(url, body, httpOptions).pipe(
       tap((itemData: any) => this.log(`added item w/ id=${item.id}`)),

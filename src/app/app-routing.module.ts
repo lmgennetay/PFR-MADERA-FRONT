@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './modules/general/home/home.component';
+import { AccueilComponent } from './modules/general/accueil/accueil.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: AccueilComponent },
   {
     path: 'login',
     loadChildren: () => import('./modules/general/login/login-form.module').then(mod => mod.LoginFormModule)

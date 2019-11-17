@@ -11,8 +11,8 @@ export const environment = {
       bootstrap: 'Bootstrap 4.3.1',
     },
   config: {
-    api: false,
-    url: './assets/params/json/',
+    api: true,
+    url: 'http://localhost:4000/',
   }
 };
 
