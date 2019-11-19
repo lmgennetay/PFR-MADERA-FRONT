@@ -11,10 +11,14 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'gestionClient', component: GestionClientMenuComponent },
   { path: 'gestionDevis', component: GestionDevisMenuComponent },
-  
+
   {
     path: 'login',
     loadChildren: () => import('./modules/general/login/login-form.module').then(mod => mod.LoginFormModule)
+  },
+  {
+    path: 'listDevis',
+    loadChildren: () => import('./modules/application/quotes-list/quotes-list.module').then(mod => mod.QuotesListModule)
   },
   {
     path: 'ajoutClient',
@@ -22,6 +26,10 @@ const routes: Routes = [
   },
   {
     path: 'ajoutDevis',
+    loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
+  },
+  {
+    path: 'devis/:id',
     loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
   },
   { path: '**', component: NotFoundComponent }

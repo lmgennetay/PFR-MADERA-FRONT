@@ -10,6 +10,7 @@ import { NotFoundComponent } from './modules/general/not-found/not-found.compone
 import { HeaderModule } from './components/header/header.module';
 import { ConfigService } from './services/config/config.service';
 import { PageFormComponent } from './components/page-form/page-form.component';
+import { PageListComponent } from './components/page-list/page-list.component';
 import { GestionClientMenuComponent } from './modules/general/gestion-client-menu/gestion-client-menu.component';
 import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/gestion-devis-menu.component';
 
@@ -20,7 +21,8 @@ import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/
     AccueilComponent,
     PageFormComponent,
     GestionClientMenuComponent,
-    GestionDevisMenuComponent
+    GestionDevisMenuComponent,
+    PageListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,13 @@
 import { Component, Injector } from '@angular/core';
 import { Validators } from '@angular/forms';
-
+import { DatePipe } from '@angular/common';
 import { PageFormComponent } from '../../../components/page-form/page-form.component';
 
 @Component({
   selector: 'app-quotes-form',
   templateUrl: './quotes-form.component.html',
-  styleUrls: ['./quotes-form.component.css']
+  styleUrls: ['./quotes-form.component.css'],
+  providers: [DatePipe]
 })
 
 export class QuotesFormComponent extends PageFormComponent {
@@ -25,7 +26,7 @@ export class QuotesFormComponent extends PageFormComponent {
   createForm() {
     this.form = this.fb.group({
       id: null,
-      releaseDate: [null,
+      releaseDate: [Date.now(),
         [Validators.required]
       ],
       nameProjet: [null,
@@ -62,7 +63,7 @@ export class QuotesFormComponent extends PageFormComponent {
   }
   resetForm() {
     this.item.id = null;
-    this.item.releaseDate = null;
+    this.item.releaseDate = Date.now();
     this.item.nameProjet = null;
     this.item.firstName = null;
     this.item.name = null;

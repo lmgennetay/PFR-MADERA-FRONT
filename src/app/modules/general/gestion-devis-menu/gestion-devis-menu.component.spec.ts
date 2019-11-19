@@ -19,7 +19,7 @@ describe('GestionDevisMenuComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer', () => {
     expect(component).toBeTruthy();
   });
 });
