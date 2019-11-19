@@ -1,5 +1,15 @@
 <header class="flexSpaceBetween">
   <img src="./assets/params/images/menu.png" class="btnImage" alt="Menu" (click)="handleClickGauche($event)">
-  <h1>MADERA - DEVIS</h1>
+  <h1>DEVIS MADERA</h1>
   <img src="./assets/params/images/autres.png" class="btnImage" alt="Autres" (click)="handleClickDroite($event)">
 </header>
+<div id="menu-gauche" class="menuGauche" *ngIf="openMenuGauche">
+  <nav class="flexColumnCenter">
+    <a routerLink="/accueil" routerLinkActive="active">ACCUEIL</a>
+  </nav>
+</div>
+<div id="menu-droite" class="menuDroite" *ngIf="openMenuDroite">
+  <nav class="flexColumnCenter">
+    <a routerLink="/accueil" routerLinkActive="active">ACCUEIL</a>
+  </nav>
+</div>

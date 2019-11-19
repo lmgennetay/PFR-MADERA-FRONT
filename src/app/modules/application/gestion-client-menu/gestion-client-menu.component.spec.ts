@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GestionClientComponent } from './gestion-client.component';
+import { GestionClientComponent } from './gestion-client-menu.component';
 
 describe('GestionClientComponent', () => {
   let component: GestionClientComponent;

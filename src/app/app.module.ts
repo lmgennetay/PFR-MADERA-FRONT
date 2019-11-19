@@ -12,13 +12,15 @@ import { MenuGaucheModule } from './components/menu-gauche/menu-gauche.module';
 import { MenuDroiteModule } from './components/menu-droite/menu-droite.module';
 import { ConfigService } from './services/config/config.service';
 import { PageFormComponent } from './components/page-form/page-form.component';
+import { GestionClientMenuComponent } from './modules/application/gestion-client-menu/gestion-client-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
     AccueilComponent,
-    PageFormComponent
+    PageFormComponent,
+    GestionClientMenuComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, Injector } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 import { PageFormComponent } from '../../../components/page-form/page-form.component';
 
@@ -10,7 +11,7 @@ import { PageFormComponent } from '../../../components/page-form/page-form.compo
 })
 export class ClientsFormComponent extends PageFormComponent {
 
-  constructor(injector: Injector) {
+  constructor(injector: Injector, private location: Location) {
     super(injector);
   }
 
@@ -82,5 +83,9 @@ export class ClientsFormComponent extends PageFormComponent {
   }
   get tel() {
     return this.form.get('tel');
+  }
+
+  backClicked() {
+    this.location.back();
   }
 }
