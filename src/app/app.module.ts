@@ -8,11 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
 // import { HomeComponent } from './modules/general/home/home.component';
 import { HeaderModule } from './components/header/header.module';
-import { MenuGaucheModule } from './components/menu-gauche/menu-gauche.module';
-import { MenuDroiteModule } from './components/menu-droite/menu-droite.module';
 import { ConfigService } from './services/config/config.service';
 import { PageFormComponent } from './components/page-form/page-form.component';
-import { GestionClientMenuComponent } from './modules/application/gestion-client-menu/gestion-client-menu.component';
+import { GestionClientMenuComponent } from './modules/general/gestion-client-menu/gestion-client-menu.component';
+import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/gestion-devis-menu.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +19,14 @@ import { GestionClientMenuComponent } from './modules/application/gestion-client
     NotFoundComponent,
     AccueilComponent,
     PageFormComponent,
-    GestionClientMenuComponent
+    GestionClientMenuComponent,
+    GestionDevisMenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HeaderModule,
-    MenuGaucheModule,
-    MenuDroiteModule
+    HeaderModule
   ],
   providers: [
     ConfigService,

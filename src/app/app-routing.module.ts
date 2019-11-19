@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AccueilComponent } from './modules/general/accueil/accueil.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
-import { GestionClientMenuComponent } from './modules/application/gestion-client-menu/gestion-client-menu.component';
+import { GestionClientMenuComponent } from './modules/general/gestion-client-menu/gestion-client-menu.component';
+import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/gestion-devis-menu.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'accueil', component: AccueilComponent },
   { path: 'gestionClient', component: GestionClientMenuComponent },
+  { path: 'gestionDevis', component: GestionDevisMenuComponent },
   
   {
     path: 'login',
@@ -19,7 +21,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/application/clients-form/clients-form.module').then(mod => mod.ClientsFormModule)
   },
   {
-    path: 'devis',
+    path: 'ajoutDevis',
     loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
   },
   { path: '**', component: NotFoundComponent }

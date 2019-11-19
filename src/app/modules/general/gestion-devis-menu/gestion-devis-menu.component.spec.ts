@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuDroiteComponent } from './menu-droite.component';
+import { GestionDevisMenuComponent } from './gestion-devis-menu.component';
 
-describe('MenuDroiteComponent', () => {
-  let component: MenuDroiteComponent;
-  let fixture: ComponentFixture<MenuDroiteComponent>;
+describe('GestionDevisMenuComponent', () => {
+  let component: GestionDevisMenuComponent;
+  let fixture: ComponentFixture<GestionDevisMenuComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuDroiteComponent ]
+      declarations: [ GestionDevisMenuComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MenuDroiteComponent);
+    fixture = TestBed.createComponent(GestionDevisMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
