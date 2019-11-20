@@ -40,7 +40,7 @@
       <label for="tel" class="labelForm">Tel</label>
       <input type="text" name="tel" formControlName="tel" id="tel" class="inputTexteContenu" maxlength="10">
     </div>
-    <div class="section flexCenter">
+    <div class="section flexCenter flexWrap">
       <button class="button" (click)="backClicked()" [disabled]="!api"><i class="fas fa-arrow-left fa-lg"></i></button>
       <button class="button" (click)="onCreate()" [disabled]="api"><i class="fas fa-save fa-lg"></i></button>
       <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api"><i class="fas fa-save fa-lg"></i></button>

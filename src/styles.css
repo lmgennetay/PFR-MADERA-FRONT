@@ -206,6 +206,10 @@ app-quotes-list, app-search-bar {
   align-items: flex-start;
 }
 
+.flexWrap {
+  flex-wrap: wrap;
+}
+
 /** ########################################
  * Boutons
  * ######################################## */
