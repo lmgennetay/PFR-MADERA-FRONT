@@ -1,170 +1,275 @@
-<form  [formGroup]="form" novalidate="" class="ng-untouched ng-pristine ng-valid" style="padding-top: 80px; margin: auto ">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="form-row">
-        <div class="form-group col-md-1">
-          <label class="text-success" for="id">Reference</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="id" id="id" placeholder="" readonly="" type="text">
+<div class="corpsPage flexColumnCenter">
+  <div class="titreSection">DEVIS</div>
+  <form  [formGroup]="form" novalidate="" class="section flexColumnCenter">
+    <!-- <div class="row"> -->
+      <!-- <div class="col-lg-12"> -->
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="id" class="labelForm">Référence</label>
+          <input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50" disabled>
         </div>
-        <div class="form-group offset-md-9 col-md-2">
-          <label class="text-success" for="releaseDate">Date de creation</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="releaseDate" id="releaseDate" placeholder="" type="date">
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="releaseDate" class="labelForm">Date de création</label>
+          <input type="date" name="releaseDate" formControlName="releaseDate" id="releaseDate" class="inputTexteContenu" maxlength="50">
         </div>
-      </div>
+        <!-- <div class="form-row">
+          <div class="form-group col-md-1">
+            <label class="text-success" for="id">Reference</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="id" id="id" placeholder="" readonly="" type="text">
+          </div>
+          <div class="form-group offset-md-9 col-md-2">
+            <label class="text-success" for="releaseDate">Date de creation</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="releaseDate" id="releaseDate" placeholder="" type="date">
+          </div>
+        </div> -->
 
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label class="text-success font-weight-bold" for="nameProjet">NOM DU PROJET</label>
-          <input class="text-success form-control font-weight-bold ng-untouched ng-pristine ng-valid" formControlName="nameProjet" id="nameProjet" placeholder="Nom du projet" type="text">
-          <div *ngIf="nameProjet.invalid" class="alert alert-primary mt-2">
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="nameProjet" class="labelForm">Nom du projet</label>
+          <input type="text" name="nameProjet" formControlName="nameProjet" id="nameProjet" class="inputTexteContenu" maxlength="50">
+          <div *ngIf="nameProjet.invalid" class="alertFormulaire">
             <div *ngIf="nameProjet.errors.required">
-              Veuiller saisir un nom de projet.
+              Veuillez saisir un nom de projet.
             </div>
           </div>
-          <!---->
-        </div>
-      </div>
-  <hr>
-      <div class="disabled clearfix d-none d-md-block pt-2">
-        <span class="text-success font-weight-bold mr-4">FICHE CLIENT</span>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label class="text-success" for="firstName">Prénom</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="firstName" id="firstName" placeholder="John" type="text">
-          <div *ngIf="firstName.invalid" class="alert alert-primary mt-2">
-            <div *ngIf="firstName.errors.required">
-              Veuiller saisir un prénom.
+        </div><br>
+        <!-- <div class="form-row">
+          <div class="form-group col-md-12">
+            <label class="text-success font-weight-bold" for="nameProjet">NOM DU PROJET</label>
+            <input class="text-success form-control font-weight-bold ng-untouched ng-pristine ng-valid" formControlName="nameProjet" id="nameProjet" placeholder="Nom du projet" type="text">
+            <div *ngIf="nameProjet.invalid" class="alert alert-primary mt-2">
+              <div *ngIf="nameProjet.errors.required">
+                Veuiller saisir un nom de projet.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="form-group col-md-6">
-          <label class="text-success" for="name">Nom</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="name" id="name" placeholder="Doe" type="text">
-          <div *ngIf="name.invalid" class="alert alert-primary mt-2">
+        </div> -->
+    <!-- <hr> -->
+        <div class="titreSection">FICHE CLIENT</div>
+        <!-- <div class="disabled clearfix d-none d-md-block pt-2">
+          <span class="text-success font-weight-bold mr-4">FICHE CLIENT</span>
+        </div> -->
+  
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="name" class="labelForm">Nom</label>
+          <input type="text" name="name" formControlName="name" id="name" class="inputTexteContenu" maxlength="50">
+          <div *ngIf="name.invalid" class="alertFormulaire">
             <div *ngIf="name.errors.required">
-              Veuiller saisir un nom.
+              Veuillez saisir un nom.
             </div>
           </div>
         </div>
-      </div>
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="firstName" class="labelForm">Prénom</label>
+          <input type="text" name="firstName" formControlName="firstName" id="firstName" class="inputTexteContenu" maxlength="50">
+          <div *ngIf="firstName.invalid" class="alertFormulaire">
+            <div *ngIf="firstName.errors.required">
+              Veuillez saisir un prénom.
+            </div>
+          </div>
+        </div>
 
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label class="text-success" for="addressCustomer1">Adresse 1</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressCustomer1" id="addressCustomer1" placeholder="" type="text">
-          <div *ngIf="addressCustomer1.invalid" class="alert alert-primary mt-2">
+        <!-- <div class="form-row">
+          <div class="form-group col-md-6">
+            <label class="text-success" for="firstName">Prénom</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="firstName" id="firstName" placeholder="John" type="text">
+            <div *ngIf="firstName.invalid" class="alert alert-primary mt-2">
+              <div *ngIf="firstName.errors.required">
+                Veuiller saisir un prénom.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="text-success" for="name">Nom</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="name" id="name" placeholder="Doe" type="text">
+            <div *ngIf="name.invalid" class="alert alert-primary mt-2">
+              <div *ngIf="name.errors.required">
+                Veuiller saisir un nom.
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="separateurHorizontal">&nbsp;</div>
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="addressCustomer1" class="labelForm">Adresse</label>
+          <input type="text" name="addressCustomer1" formControlName="addressCustomer1" id="addressCustomer1" class="inputTexteContenu" maxlength="100">
+          <div *ngIf="addressCustomer1.invalid" class="alertFormulaire">
             <div *ngIf="addressCustomer1.errors.required">
-              Veuiller saisir une adresse.
+              Veuillez saisir une adresse.
             </div>
           </div>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label class="text-success" for="addressCustomer2">Adresse 2</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressCustomer2" id="addressCustomer2" placeholder="" type="text">
+  
+        <!-- <div class="form-row">
+          <div class="form-group col-md-12">
+            <label class="text-success" for="addressCustomer1">Adresse 1</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressCustomer1" id="addressCustomer1" placeholder="" type="text">
+            <div *ngIf="addressCustomer1.invalid" class="alert alert-primary mt-2">
+              <div *ngIf="addressCustomer1.errors.required">
+                Veuiller saisir une adresse.
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="form-row">
+          <div class="form-group col-md-12">
+            <label class="text-success" for="addressCustomer2">Adresse 2</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressCustomer2" id="addressCustomer2" placeholder="" type="text">
+          </div>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label class="text-success" for="addressCustomer3">Adresse 3</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressCustomer3" id="addressCustomer3" placeholder="" type="text">
-        </div>
-      </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label class="text-success" for="addressCustomer3">Adresse 3</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressCustomer3" id="addressCustomer3" placeholder="" type="text">
+          </div>
+        </div> -->
 
-      <div class="form-row">
-        <div class="form-group col-md-1">
-          <label class="text-success" for="cp">Code postal</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="cp" id="cp" placeholder="72000" type="text">
-          <div *ngIf="cp.invalid" class="alert alert-primary mt-2">
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="cp" class="labelForm">Code Postal</label>
+          <input type="text" name="cp" formControlName="cp" id="cp" class="inputTexteContenu" maxlength="5">
+          <div *ngIf="cp.invalid" class="alertFormulaire">
             <div *ngIf="cp.errors.required">
-              Veuiller saisir un code postal.
+              Veuillez saisir un code postal.
             </div>
           </div>
         </div>
-        <div class="form-group col-md-5">
-          <label class="text-success" for="city">Ville</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="city" id="city" placeholder="Le Mans" type="text">
-          <div *ngIf="city.invalid" class="alert alert-primary mt-2">
-            <div *ngIf="city.errors.required">
-              Veuiller saisir une ville.
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group col-md-1">
-          <label class="text-success" for="phone">Téléphone</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="phone" id="phone" placeholder="0123456789" type="tel">
-          <div *ngIf="phone.invalid" class="alert alert-primary mt-2">
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="city" class="labelForm">Ville</label>
+          <input type="text" name="city" formControlName="city" id="city" class="inputTexteContenu" maxlength="100">
+          <div *ngIf="city.invalid" class="alertFormulaire">
+            <div *ngIf="city.errors.required">
+              Veuillez saisir une ville.
+            </div>
+          </div>
+        </div>
+  
+        <!-- <div class="form-row">
+          <div class="form-group col-md-1">
+            <label class="text-success" for="cp">Code postal</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="cp" id="cp" placeholder="72000" type="text">
+            <div *ngIf="cp.invalid" class="alert alert-primary mt-2">
+              <div *ngIf="cp.errors.required">
+                Veuiller saisir un code postal.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-5">
+            <label class="text-success" for="city">Ville</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="city" id="city" placeholder="Le Mans" type="text">
+            <div *ngIf="city.invalid" class="alert alert-primary mt-2">
+              <div *ngIf="city.errors.required">
+                Veuiller saisir une ville.
+              </div>
+            </div>
+          </div>
+        </div> -->
+  
+        <div class="separateurHorizontal">&nbsp;</div>
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+            <label for="email" class="labelForm">Mail</label>
+            <input type="text" name="email" formControlName="email" id="email" class="inputTexteContenu" maxlength="100">
+        </div>
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="phone" class="labelForm">Tel</label>
+          <input type="text" name="phone" formControlName="phone" id="phone" class="inputTexteContenu" maxlength="10">
+          <div *ngIf="phone.invalid" class="alertFormulaire">
             <div *ngIf="phone.errors.required">
               Veuiller saisir un numero de telephone.
             </div>
           </div>
-        </div>
-        <div class="form-group col-md-5">
-          <label class="text-success" for="email">Email</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="email" id="email" placeholder="exemple@domaine.fr" type="email">
-        </div>
-      </div>
-  <hr>
-      <div class="disabled clearfix d-none d-md-block pt-2">
-        <span class="text-success font-weight-bold mr-4">ADRESSE CHANTIER</span>
-      </div>
+        </div><br>
 
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label class="text-success" for="addressConstruction1">Adresse 1</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressConstruction1" id="addressConstruction1" placeholder="" type="text">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label class="text-success" for="addressConstruction2">Adresse 2</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressConstruction2" id="addressConstruction2" placeholder="" type="text">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label class="text-success" for="addressConstruction2">Adresse 3</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressConstruction3" id="addressConstruction3" placeholder="" type="text">
-        </div>
-      </div>
+        <!-- <div class="form-row">
+          <div class="form-group col-md-1">
+            <label class="text-success" for="phone">Téléphone</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="phone" id="phone" placeholder="0123456789" type="tel">
+            <div *ngIf="phone.invalid" class="alert alert-primary mt-2">
+              <div *ngIf="phone.errors.required">
+                Veuiller saisir un numero de telephone.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-5">
+            <label class="text-success" for="email">Email</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="email" id="email" placeholder="exemple@domaine.fr" type="email">
+          </div>
+        </div> -->
+    <!-- <hr> -->
+    
+        <div class="titreSection">FICHE CHANTIER</div>
 
-      <div class="form-row">
-        <div class="form-group col-md-1">
-          <label class="text-success" for="cpConstruction">Code postal</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="cpConstruction" id="cpConstruction" placeholder="72000" type="text">
-        </div>
-        <div class="form-group col-md-5">
-          <label class="text-success" for="cityConstruction">Ville</label>
-          <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="cityConstruction" id="cityConstruction" placeholder="Le Mans" type="text">
-        </div>
-      </div>
+        <!-- <div class="disabled clearfix d-none d-md-block pt-2">
+          <span class="text-success font-weight-bold mr-4">ADRESSE CHANTIER</span>
+        </div> -->
 
-      <div class="form-row">
-        <a class="navbar-btn waves-effect waves-light ml-auto px-3 pt-2">
-          <a href="#" routerLink="/" style="border: 0 solid ">
-            <button [disabled]="!api" class="btn btn-outline-black btn-sm mb-2 ml-3">
-              <i class="fas fa-arrow-left fa-lg"></i>
-            </button>
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="addressConstruction1" class="labelForm">Adresse</label>
+          <input type="text" name="addressConstruction1" formControlName="addressConstruction1" id="addressConstruction1" class="inputTexteContenu" maxlength="100">
+        </div>
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="cpConstruction" class="labelForm">Code Postal</label>
+          <input type="text" name="cpConstruction" formControlName="cpConstruction" id="cpConstruction" class="inputTexteContenu" maxlength="5">
+        </div>
+        <div class="flexColumnStart inputTexte inputTextTaille2">
+          <label for="cityConstruction" class="labelForm">Ville</label>
+          <input type="text" name="cityConstruction" formControlName="cityConstruction" id="cityConstruction" class="inputTexteContenu" maxlength="100">
+        </div>
+  
+        <!-- <div class="form-row">
+          <div class="form-group col-md-12">
+            <label class="text-success" for="addressConstruction1">Adresse 1</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressConstruction1" id="addressConstruction1" placeholder="" type="text">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label class="text-success" for="addressConstruction2">Adresse 2</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressConstruction2" id="addressConstruction2" placeholder="" type="text">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label class="text-success" for="addressConstruction2">Adresse 3</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressConstruction3" id="addressConstruction3" placeholder="" type="text">
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group col-md-1">
+            <label class="text-success" for="cpConstruction">Code postal</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="cpConstruction" id="cpConstruction" placeholder="72000" type="text">
+          </div>
+          <div class="form-group col-md-5">
+            <label class="text-success" for="cityConstruction">Ville</label>
+            <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="cityConstruction" id="cityConstruction" placeholder="Le Mans" type="text">
+          </div>
+        </div> -->
+
+        <div class="section flexCenter">
+            <button class="button" (click)="backClicked()" [disabled]="!api"><i class="fas fa-arrow-left fa-lg"></i></button>
+            <button class="button" (click)="onCreate()" [disabled]="api"><i class="fas fa-save fa-lg"></i></button>
+            <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api"><i class="fas fa-save fa-lg"></i></button>
+            <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
+            <button class="button" (click)="onDelete()" [disabled]="form.invalid || !api"><i class="fas fa-trash-alt fa-lg"></i></button>
+        </div>
+  
+        <!-- <div class="form-row">
+          <a class="navbar-btn waves-effect waves-light ml-auto px-3 pt-2">
+            <a href="#" routerLink="/" style="border: 0 solid ">
+              <button [disabled]="!api" class="btn btn-outline-black btn-sm mb-2 ml-3">
+                <i class="fas fa-arrow-left fa-lg"></i>
+              </button>
+            </a>
+            <button [disabled]="api" type="submit" class="btn btn-outline-success btn-sm mb-2 ml-3" (click)="onCreate()"><i class="fas fa-plus fa-lg"></i></button>
+            <button [disabled]="form.invalid || !api" type="submit" class="btn btn-outline-warning btn-sm mb-2 ml-3" (click)="onUpdate()"><i
+              class="fas fa-save fa-lg"></i></button>
+            <button [disabled]="form.invalid || !api || item.id==undefined || item.id==null" type="submit" class="btn btn-outline-dark btn-sm mb-2 ml-3" (click)="onCopy()"><i
+              class="fas fa-copy fa-lg"></i></button>
+            <button [disabled]="form.invalid || !api || item.id==undefined || item.id==null" type="submit" class="btn btn-outline-danger btn-sm mb-2 ml-3" (click)="onDelete()"><i
+              class="fas fa-trash-alt fa-lg"></i></button>
           </a>
-          <button [disabled]="api" type="submit" class="btn btn-outline-success btn-sm mb-2 ml-3"
-                  (click)="onCreate()"><i class="fas fa-plus fa-lg"></i></button>
-          <button [disabled]="form.invalid || !api" type="submit"
-                  class="btn btn-outline-warning btn-sm mb-2 ml-3" (click)="onUpdate()"><i
-            class="fas fa-save fa-lg"></i></button>
-          <button [disabled]="form.invalid || !api || item.id==undefined || item.id==null" type="submit"
-                  class="btn btn-outline-dark btn-sm mb-2 ml-3" (click)="onCopy()"><i
-            class="fas fa-copy fa-lg"></i></button>
-          <button [disabled]="form.invalid || !api || item.id==undefined || item.id==null" type="submit"
-                  class="btn btn-outline-danger btn-sm mb-2 ml-3" (click)="onDelete()"><i
-            class="fas fa-trash-alt fa-lg"></i></button>
-        </a>
-      </div>
-    </div>
-  </div>
-</form>
+        </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  </form>
+</div>
