@@ -31,7 +31,7 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('madera-front');
   });
 
-  it('Devrait afficher le titre', () => {
+  it('Devrait afficher le message', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;

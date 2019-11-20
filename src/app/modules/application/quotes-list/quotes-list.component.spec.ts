@@ -12,7 +12,7 @@ import { ConfigService } from '../../../services/config/config.service';
 
 import { QuotesListComponent } from './quotes-list.component';
 
-describe('CitiesListComponent', () => {
+describe('QuotesListComponent', () => {
   let component: QuotesListComponent;
   let fixture: ComponentFixture<QuotesListComponent>;
 
