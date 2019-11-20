@@ -1,46 +1,53 @@
 <div class="corpsPage flexColumnCenter">
-    <div class="titreSection">CLIENT</div>
-    <form [formGroup]="form" class="section flexColumnCenter">
-      <div class="flexColumnCenter inputTexte inputTextTaille2">
-        <label for="id" class="labelForm">Référence</label>
-        <input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50">
-      </div>
-      <div class="flexColumnCenter inputTexte inputTextTaille2">
-        <label for="releaseDate" class="labelForm">Date de création</label>
-        <input type="date" name="releaseDate" formControlName="releaseDate" id="releaseDate" class="inputTexteContenu" maxlength="50">
-      </div>
-      <div class="separateurHorizontal">&nbsp;</div>
-      <div class="flexColumnCenter inputTexte inputTextTaille2">
-        <label for="nom" class="labelForm">Nom</label>
-        <input type="text" name="nom" formControlName="nom" id="nom" class="inputTexteContenu" maxlength="50">
-      </div>
-      <div class="flexColumnCenter inputTexte inputTextTaille2">
-        <label for="prenom" class="labelForm">Prénom</label>
-        <input type="text" name="prenom" formControlName="prenom" id="prenom" class="inputTexteContenu" maxlength="50">
-      </div>
-      <div class="separateurHorizontal">&nbsp;</div>
-      <div class="flexColumnCenter inputTexte inputTextTaille2">
-        <label for="adresse" class="labelForm">Adresse</label>
-        <input type="text" name="adresse" formControlName="adresse" id="adresse" class="inputTexteContenu" maxlength="100">
-      </div>
-      <div class="flexColumnCenter inputTexte inputTextTaille2">
-        <label for="cp" class="labelForm">Code Postal</label>
-        <input type="text" name="cp" formControlName="cp" id="cp" class="inputTexteContenu" maxlength="5">
-      </div>
-      <div class="flexColumnCenter inputTexte inputTextTaille2">
-        <label for="ville" class="labelForm">Ville</label>
-        <input type="text" name="ville" formControlName="ville" id="ville" class="inputTexteContenu" maxlength="100">
-      </div>
-      <div class="separateurHorizontal">&nbsp;</div>
-      <div class="flexColumnCenter inputTexte inputTextTaille2">
-          <label for="email" class="labelForm">Mail</label>
-          <input type="text" name="email" formControlName="email" id="email" class="inputTexteContenu" maxlength="100">
-      </div>
-      <div class="flexColumnCenter inputTexte inputTextTaille2">
-        <label for="cp" class="labelForm">Tel</label>
-        <input type="text" name="tel" formControlName="tel" id="tel" class="inputTexteContenu" maxlength="10">
-      </div>
-      <button class="button" (click)="onUpdate()"><i class="fas fa-save fa-lg"></i>&nbsp; Enregistrer</button>
-      <button class="button" (click)="backClicked()">Retour</button>
-    </form>
+  <div class="titreSection">CLIENT</div>
+  <form [formGroup]="form" class="section flexColumnCenter">
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="id" class="labelForm">Référence</label>
+      <input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50" disabled>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="releaseDate" class="labelForm">Date de création</label>
+      <input type="date" name="releaseDate" formControlName="releaseDate" id="releaseDate" class="inputTexteContenu" maxlength="50">
+    </div>
+    <div class="separateurHorizontal">&nbsp;</div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="nom" class="labelForm">Nom</label>
+      <input type="text" name="nom" formControlName="nom" id="nom" class="inputTexteContenu" maxlength="50">
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="prenom" class="labelForm">Prénom</label>
+      <input type="text" name="prenom" formControlName="prenom" id="prenom" class="inputTexteContenu" maxlength="50">
+    </div>
+    <div class="separateurHorizontal">&nbsp;</div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="adresse" class="labelForm">Adresse</label>
+      <input type="text" name="adresse" formControlName="adresse" id="adresse" class="inputTexteContenu" maxlength="100">
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="cp" class="labelForm">Code Postal</label>
+      <input type="text" name="cp" formControlName="cp" id="cp" class="inputTexteContenu" maxlength="5">
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="ville" class="labelForm">Ville</label>
+      <input type="text" name="ville" formControlName="ville" id="ville" class="inputTexteContenu" maxlength="100">
+    </div>
+    <div class="separateurHorizontal">&nbsp;</div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+        <label for="email" class="labelForm">Mail</label>
+        <input type="text" name="email" formControlName="email" id="email" class="inputTexteContenu" maxlength="100">
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="tel" class="labelForm">Tel</label>
+      <input type="text" name="tel" formControlName="tel" id="tel" class="inputTexteContenu" maxlength="10">
+    </div>
+    <div class="section flexCenter flexWrap">
+      <button class="button" (click)="backClicked()" [disabled]="!api"><i class="fas fa-arrow-left fa-lg"></i></button>
+      <button class="button" (click)="onCreate()" [disabled]="api"><i class="fas fa-save fa-lg"></i></button>
+      <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api"><i class="fas fa-save fa-lg"></i></button>
+      <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
+      <button class="button" (click)="onDelete()" [disabled]="form.invalid || !api"><i class="fas fa-trash-alt fa-lg"></i></button>
+    </div>
+    <!-- <button class="button" (click)="onUpdate()"><i class="fas fa-save fa-lg"></i>&nbsp; Enregistrer</button>
+    <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i>&nbsp; Retour</button> -->
+  </form>
 </div>

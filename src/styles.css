@@ -32,8 +32,9 @@ app-header {
   width: 100%;
 }
 
-.appComponent, app-accueil, app-client,
-app-gestion-client-menu, app-gestion-devis-menu {
+.appComponent, app-accueil, app-client, app-quotes-form,
+app-gestion-client-menu, app-gestion-devis-menu,
+app-quotes-list, app-search-bar {
   width: 100%;
 }
 
@@ -169,7 +170,7 @@ a {
   width: 100%;
   padding: 10px 5px;
   margin-bottom: 5px;
-  background-color: #93bd87;
+  background-color: #4a9a33;
   font-weight: bold;
   color: white;
 }
@@ -183,8 +184,9 @@ a {
   align-items: center;
 }
 
-.flexCenter, app-accueil, app-client,
-app-gestion-client-menu, app-gestion-devis-menu {
+.flexCenter, app-accueil, app-client, app-quotes-form,
+app-gestion-client-menu, app-gestion-devis-menu,
+app-quotes-list, app-search-bar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,6 +197,17 @@ app-gestion-client-menu, app-gestion-devis-menu {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+
+.flexColumnStart {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
 }
 
 /** ########################################
@@ -231,11 +244,28 @@ button:active {
   width: 100%;
 }
 
+.btnSearch {
+  height: 30px;
+  margin: 0px;
+  padding: 0px 5px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #249e00;
+  border: none;
+  cursor: pointer;
+}
+
 /** ########################################
 Formulaire
  * ######################################## */
+input:disabled {
+  background-color: rgb(210, 210, 210);
+}
+
 .inputTexte {
   /* height: 25px; */
+  margin: 5px 0px 0px 0px;
   padding: 0px 2px;
   border: none;
   /* border-bottom: 1px solid #249e00; */
@@ -251,9 +281,30 @@ Formulaire
 
 .inputTexteContenu {
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   background: transparent;
-  border: 1px solid black;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 5px;
+  color: black;
+  font-size: 1.1rem;
+}
+
+.alertFormulaire {
+  width: 100%;
+  padding: 5px;
+  color: white;
+  background-color: rgb(255, 55, 55);
+  border: 1px solid rgb(255, 15, 15);
+  border-radius: 5px;
+}
+
+.searchBar {
+  width: 80%;
+  height: 30px;
+  margin: 0px;
+  background: transparent;
+  border: 1px solid rgb(210, 210, 210);
+  /* border-radius: 5px; */
   color: black;
   font-size: 1.1rem;
 }

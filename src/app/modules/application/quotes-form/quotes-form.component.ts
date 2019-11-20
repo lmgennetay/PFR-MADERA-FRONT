@@ -2,6 +2,7 @@ import { Component, Injector } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PageFormComponent } from '../../../components/page-form/page-form.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-quotes-form',
@@ -12,7 +13,7 @@ import { PageFormComponent } from '../../../components/page-form/page-form.compo
 
 export class QuotesFormComponent extends PageFormComponent {
 
-  constructor(injector: Injector) {
+  constructor(injector: Injector, private location: Location) {
     super(injector);
   }
 
@@ -123,5 +124,9 @@ export class QuotesFormComponent extends PageFormComponent {
   }
   get phone() {
     return this.form.get('phone');
+  }
+
+  backClicked() {
+    this.location.back();
   }
 }
