@@ -12,7 +12,7 @@ export const environment = {
     },
   config: {
     api: true,
-    url: 'http://localhost:4000/',
+    url: 'http://localhost:8000/PFR-MADERA/',
   }
 };
 

@@ -29,6 +29,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
   },
   {
+    path: 'ajoutUser',
+    loadChildren: () => import('./modules/application/users-form/users-form.module').then(mod => mod.UsersFormModule)
+  },
+  {
     path: 'devis/:id',
     loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
   },

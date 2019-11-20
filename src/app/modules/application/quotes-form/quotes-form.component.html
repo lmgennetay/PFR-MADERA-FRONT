@@ -47,7 +47,7 @@
         <!-- <div class="disabled clearfix d-none d-md-block pt-2">
           <span class="text-success font-weight-bold mr-4">FICHE CLIENT</span>
         </div> -->
-  
+
         <div class="flexColumnStart inputTexte inputTextTaille2">
           <label for="name" class="labelForm">Nom</label>
           <input type="text" name="name" formControlName="name" id="name" class="inputTexteContenu" maxlength="50">
@@ -98,7 +98,7 @@
             </div>
           </div>
         </div>
-  
+
         <!-- <div class="form-row">
           <div class="form-group col-md-12">
             <label class="text-success" for="addressCustomer1">Adresse 1</label>
@@ -142,7 +142,7 @@
             </div>
           </div>
         </div>
-  
+
         <!-- <div class="form-row">
           <div class="form-group col-md-1">
             <label class="text-success" for="cp">Code postal</label>
@@ -163,7 +163,7 @@
             </div>
           </div>
         </div> -->
-  
+
         <div class="separateurHorizontal">&nbsp;</div>
         <div class="flexColumnStart inputTexte inputTextTaille2">
             <label for="email" class="labelForm">Mail</label>
@@ -195,7 +195,7 @@
           </div>
         </div> -->
     <!-- <hr> -->
-    
+
         <div class="titreSection">FICHE CHANTIER</div>
 
         <!-- <div class="disabled clearfix d-none d-md-block pt-2">
@@ -214,7 +214,7 @@
           <label for="cityConstruction" class="labelForm">Ville</label>
           <input type="text" name="cityConstruction" formControlName="cityConstruction" id="cityConstruction" class="inputTexteContenu" maxlength="100">
         </div>
-  
+
         <!-- <div class="form-row">
           <div class="form-group col-md-12">
             <label class="text-success" for="addressConstruction1">Adresse 1</label>
@@ -233,7 +233,7 @@
             <input class="text-success form-control ng-untouched ng-pristine ng-valid" formControlName="addressConstruction3" id="addressConstruction3" placeholder="" type="text">
           </div>
         </div>
-  
+
         <div class="form-row">
           <div class="form-group col-md-1">
             <label class="text-success" for="cpConstruction">Code postal</label>
@@ -247,28 +247,27 @@
 
         <div class="section flexCenter flexWrap">
             <button class="button" (click)="backClicked()" [disabled]="!api"><i class="fas fa-arrow-left fa-lg"></i></button>
-            <button class="button" (click)="onCreate()" [disabled]="api"><i class="fas fa-save fa-lg"></i></button>
-            <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api"><i class="fas fa-save fa-lg"></i></button>
-            <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
-            <button class="button" (click)="onDelete()" [disabled]="form.invalid || !api"><i class="fas fa-trash-alt fa-lg"></i></button>
+            <button class="" (click)="onUpdate()" [disabled]="form.invalid || !api" type="submit"><i class="fas fa-save fa-lg"></i></button>
+            <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api || item.id==undefined || item.id==null" type="submit"><i class="fas fa-copy fa-lg"></i></button>
+            <button class="button" (click)="onDelete()" [disabled]="form.invalid || !api || item.id==undefined || item.id==null" type="submit"><i class="fas fa-trash-alt fa-lg"></i></button>
         </div>
-  
-        <!-- <div class="form-row">
-          <a class="navbar-btn waves-effect waves-light ml-auto px-3 pt-2">
-            <a href="#" routerLink="/" style="border: 0 solid ">
-              <button [disabled]="!api" class="btn btn-outline-black btn-sm mb-2 ml-3">
-                <i class="fas fa-arrow-left fa-lg"></i>
-              </button>
-            </a>
-            <button [disabled]="api" type="submit" class="btn btn-outline-success btn-sm mb-2 ml-3" (click)="onCreate()"><i class="fas fa-plus fa-lg"></i></button>
-            <button [disabled]="form.invalid || !api" type="submit" class="btn btn-outline-warning btn-sm mb-2 ml-3" (click)="onUpdate()"><i
-              class="fas fa-save fa-lg"></i></button>
-            <button [disabled]="form.invalid || !api || item.id==undefined || item.id==null" type="submit" class="btn btn-outline-dark btn-sm mb-2 ml-3" (click)="onCopy()"><i
-              class="fas fa-copy fa-lg"></i></button>
-            <button [disabled]="form.invalid || !api || item.id==undefined || item.id==null" type="submit" class="btn btn-outline-danger btn-sm mb-2 ml-3" (click)="onDelete()"><i
-              class="fas fa-trash-alt fa-lg"></i></button>
-          </a>
-        </div> -->
+
+<!--        <div class="form-row">-->
+<!--          <a class="navbar-btn waves-effect waves-light ml-auto px-3 pt-2">-->
+<!--            <a href="#" routerLink="/" style="border: 0 solid ">-->
+<!--              <button [disabled]="!api" class="btn btn-outline-black btn-sm mb-2 ml-3">-->
+<!--                <i class="fas fa-arrow-left fa-lg"></i>-->
+<!--              </button>-->
+<!--            </a>-->
+<!--            <button [disabled]="api" type="submit" class="btn btn-outline-success btn-sm mb-2 ml-3" (click)="onCreate()"><i class="fas fa-plus fa-lg"></i></button>-->
+<!--            <button [disabled]="form.invalid || !api" type="submit" class="btn btn-outline-warning btn-sm mb-2 ml-3" (click)="onUpdate()"><i-->
+<!--              class="fas fa-save fa-lg"></i></button>-->
+<!--            <button [disabled]="form.invalid || !api || item.id==undefined || item.id==null" type="submit" class="btn btn-outline-dark btn-sm mb-2 ml-3" (click)="onCopy()"><i-->
+<!--              class="fas fa-copy fa-lg"></i></button>-->
+<!--            <button [disabled]="form.invalid || !api || item.id==undefined || item.id==null" type="submit" class="btn btn-outline-danger btn-sm mb-2 ml-3" (click)="onDelete()"><i-->
+<!--              class="fas fa-trash-alt fa-lg"></i></button>-->
+<!--          </a>-->
+<!--        </div>-->
       <!-- </div> -->
     <!-- </div> -->
   </form>
