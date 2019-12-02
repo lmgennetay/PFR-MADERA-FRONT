@@ -7,57 +7,117 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="releaseDate" class="labelForm">Date de création</label>
-      <input type="date" name="releaseDate" formControlName="releaseDate" id="releaseDate" class="inputTexteContenu" maxlength="50">
+      <input type="date" [ngModel]="today | date:'yyyy-MM-dd'"  name="releaseDate" formControlName="releaseDate" id="releaseDate" class="inputTexteContenu" maxlength="50">
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="nom_utilisateur" class="labelForm">Nom</label>
       <input type="text" name="nom_utilisateur" formControlName="nom_utilisateur" id="nom_utilisateur" class="inputTexteContenu" maxlength="50">
+      <div *ngIf="nom_utilisateur.invalid" class="alertFormulaire">
+        <div *ngIf="nom_utilisateur.errors.required">
+          Veuillez saisir un nom.
+        </div>
+      </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="prenom_utilisateur" class="labelForm">Prénom</label>
       <input type="text" name="prenom_utilisateur" formControlName="prenom_utilisateur" id="prenom_utilisateur" class="inputTexteContenu" maxlength="50">
+      <div *ngIf="prenom_utilisateur.invalid" class="alertFormulaire">
+        <div *ngIf="prenom_utilisateur.errors.required">
+          Veuillez saisir un prénom.
+        </div>
+      </div>
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="mail_utilisateur" class="labelForm">Email</label>
       <input type="email" name="mail_utilisateur" formControlName="mail_utilisateur" id="mail_utilisateur" class="inputTexteContenu" maxlength="100">
+      <div *ngIf="mail_utilisateur.invalid" class="alertFormulaire">
+        <div *ngIf="mail_utilisateur.errors.required">
+          Veuillez saisir un mail.
+        </div>
+      </div>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="tel_utilisateur" class="labelForm">téléphone</label>
+      <input type="text" name="tel_utilisateur" formControlName="tel_utilisateur" id="tel_utilisateur" class="inputTexteContenu" maxlength="10">
+      <div *ngIf="tel_utilisateur.invalid" class="alertFormulaire">
+        <div *ngIf="tel_utilisateur.errors.required">
+          Veuillez saisir un n° téléphone.
+        </div>
+      </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="mdp_utilisateur" class="labelForm">Mot de passe</label>
       <input type="password" name="mdp_utilisateur" formControlName="mdp_utilisateur" id="mdp_utilisateur" class="inputTexteContenu" minlength="8">
+      <div *ngIf="mdp_utilisateur.invalid" class="alertFormulaire">
+        <div *ngIf="mdp_utilisateur.errors.required">
+          Veuillez saisir un mot de passe.
+        </div>
+      </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="confirm_mdp_utilisateur" class="labelForm">Confirmer le Mot de passe</label>
       <input type="password" name="confirm_mdp_utilisateur" formControlName="confirm_mdp_utilisateur" id="confirm_mdp_utilisateur" class="inputTexteContenu" minlength="8">
+      <div *ngIf="confirm_mdp_utilisateur.invalid" class="alertFormulaire">
+        <div *ngIf="confirm_mdp_utilisateur.errors.required">
+          Veuillez confirmer votre mot de passe.
+        </div>
+      </div>
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="type_utilisateur_id" class="labelForm">Type d'utilisateur</label>
-      <input type="password" name="type_utilisateur_id" formControlName="type_utilisateur_id" id="type_utilisateur_id" class="inputTexteContenu" maxlength="5">
+<!--      <input type="text" name="type_utilisateur_id" formControlName="type_utilisateur_id" id="type_utilisateur_id" class="inputTexteContenu" maxlength="1">-->
+      <select ng-model="type_utilisateur_id" ng-options="x for x in names" formControlName="type_utilisateur_id" id="type_utilisateur_id" class="inputTexteContenu" maxlength="1" ></select>
+      <div *ngIf="type_utilisateur_id.invalid" class="alertFormulaire">
+        <div *ngIf="type_utilisateur_id.errors.required">
+          Veuillez sélectioner un type d'utilisateur.
+        </div>
+      </div>
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="rue_adresse" class="labelForm">Adresse</label>
       <input type="text" name="rue_adresse" formControlName="rue_adresse" id="rue_adresse" class="inputTexteContenu" maxlength="100">
+      <div *ngIf="rue_adresse.invalid" class="alertFormulaire">
+        <div *ngIf="rue_adresse.errors.required">
+          Veuillez sélectioner un type d'utilisateur.
+        </div>
+      </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cp_adresse" class="labelForm">Code Postal</label>
       <input type="text" name="cp_adresse" formControlName="cp_adresse" id="cp_adresse" class="inputTexteContenu" maxlength="5">
+      <div *ngIf="cp_adresse.invalid" class="alertFormulaire">
+        <div *ngIf="cp_adresse.errors.required">
+          Veuillez saisir un code postal.
+        </div>
+      </div>
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="ville_adresse" class="labelForm">Ville</label>
       <input type="text" name="ville_adresse" formControlName="ville_adresse" id="ville_adresse" class="inputTexteContenu" maxlength="100">
+      <div *ngIf="ville_adresse.invalid" class="alertFormulaire">
+        <div *ngIf="ville_adresse.errors.required">
+          Veuillez saisir une ville.
+        </div>
+      </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="region_adresse" class="labelForm">Region</label>
       <input type="text" name="region_adresse" formControlName="region_adresse" id="region_adresse" class="inputTexteContenu" maxlength="100">
+      <div *ngIf="region_adresse.invalid" class="alertFormulaire">
+        <div *ngIf="region_adresse.errors.required">
+          Veuillez saisir une région.
+        </div>
+      </div>
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="section flexCenter flexWrap">
       <button class="button" (click)="backClicked()" [disabled]="!api"><i class="fas fa-arrow-left fa-lg"></i></button>
-      <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api"><i class="fas fa-save fa-lg"></i></button>
+      <button class="button" (click)="onUpdate()" [disabled]="!api"><i class="fas fa-save fa-lg"></i></button>
       <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
       <button class="button" (click)="onDelete()" [disabled]="form.invalid || !api"><i class="fas fa-trash-alt fa-lg"></i></button>
     </div>

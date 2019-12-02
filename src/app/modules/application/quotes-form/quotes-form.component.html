@@ -9,7 +9,7 @@
         </div>
         <div class="flexColumnStart inputTexte inputTextTaille2">
           <label for="releaseDate" class="labelForm">Date de création</label>
-          <input type="date" name="releaseDate" formControlName="releaseDate" id="releaseDate" class="inputTexteContenu" maxlength="50">
+          <input type="date" [ngModel]="today | date:'yyyy-MM-dd'"  name="releaseDate" formControlName="releaseDate" id="releaseDate" class="inputTexteContenu" maxlength="50">
         </div>
         <!-- <div class="form-row">
           <div class="form-group col-md-1">

@@ -153,6 +153,7 @@ export class ItemsService {
 
   addItem(url: any, item: any): Observable<any> {  console.log(url)
     const body = JSON.stringify(item);
+    console.log(body);
     return this.http.post<any>(url, body, httpOptions).pipe(
       tap((itemData: any) => this.log(`added item w/ id=${item.id}`)),
       catchError(this.handleError<any>('addItem'))

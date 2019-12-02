@@ -12,7 +12,8 @@ import { Location } from '@angular/common';
 })
 
 export class QuotesFormComponent extends PageFormComponent {
-
+  today: Date;
+  today = new Date();
   constructor(injector: Injector, private location: Location) {
     super(injector);
   }
@@ -21,13 +22,14 @@ export class QuotesFormComponent extends PageFormComponent {
     this.endpoint = 'quotes';
     this.titleForm = 'Formulaire Devis';
     this.icon = 'fas fa-file-medical';
+
     super.initialize();
   }
 
-  createForm() {
+  createForm(today) {
     this.form = this.fb.group({
       id: null,
-      releaseDate: [Date.now(),
+      releaseDate: [today,
         [Validators.required]
       ],
       nameProjet: [null,
@@ -63,7 +65,7 @@ export class QuotesFormComponent extends PageFormComponent {
     super.createForm();
   }
   resetForm() {
-    this.item.id = null;
+    this.item.id = Date.now();
     this.item.releaseDate = Date.now();
     this.item.nameProjet = null;
     this.item.firstName = null;
