@@ -16,10 +16,12 @@ export class PageListComponent {
   api: any;
   url: any;
   endpoint: any;
+  urlSelect: any;
   items: any;
   icon: any;
   columns: any;
   link: any;
+  select: any;
   filter = '';
   itemsPerPageDefault = 5;
 
@@ -57,6 +59,7 @@ export class PageListComponent {
   initialize() {
     this.api = this.configService.config.api;
     this.url = this.configService.config.url + this.endpoint;
+    this.urlSelect = this.configService.config.url + this.select;
     this.readQueryParams();
   }
 
@@ -76,7 +79,7 @@ export class PageListComponent {
   getItems() {
     this.loaded = false;
     this.query = this.searchField;
-    if (this.endpoint !== undefined) {
+    if (this.endpoint !== undefined || this.select !== undefined ) {
       this.itemsService.getItemsCount(this.api, this.url, this.query)
         .subscribe(item => {
           this.itemsCount = item.count;

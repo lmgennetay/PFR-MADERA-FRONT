@@ -10,8 +10,8 @@ import { PageFormComponent } from '../../../components/page-form/page-form.compo
   styleUrls: ['./users-form.component.css']
 })
 export class UsersFormComponent extends PageFormComponent {
-  today: Date;
-  today = new Date();
+  private today = new Date();
+  listeTypeUtilisateur: any;
   constructor(injector: Injector, private location: Location) {
     super(injector);
   }
@@ -20,13 +20,19 @@ export class UsersFormComponent extends PageFormComponent {
     this.endpoint = 'utilisateur/';
     this.titleForm = 'Formulaire utilisateur';
     this.icon = 'fas fa-file-medical';
+    this.select = 'type_utilisateur/liste';
     super.initialize();
   }
 
-  createForm(today) {
-  this.form = this.fb.group({
+  createForm() {
+    this.itemsService.getItemSelect(this.api, this.urlSelect).subscribe(data => {
+      this.listeTypeUtilisateur = '';
+      this.item.listeTypeUtilisateur = data.listeTypeUtilisateur;
+      this.setFormValue(this.item);
+    });
+    this.form = this.fb.group({
       id: null,
-      releaseDate: [today,
+      releaseDate: [this.today,
         [Validators.required]
       ],
       nom_utilisateur: [null,
@@ -47,6 +53,9 @@ export class UsersFormComponent extends PageFormComponent {
       type_utilisateur_id: [null,
         [Validators.required]
       ],
+      listeTypeUtilisateur: [null,
+        [Validators.required]
+      ],
       confirm_mdp_utilisateur: [null,
         [Validators.required]
       ],
@@ -63,9 +72,7 @@ export class UsersFormComponent extends PageFormComponent {
         [Validators.required]
       ],
     });
-
     super.createForm();
-
   }
 
   resetForm() {
@@ -78,6 +85,7 @@ export class UsersFormComponent extends PageFormComponent {
     this.item.mdp_utilisateur = null;
     this.item.confirm_mdp_utilisateur = null;
     this.item.type_utilisateur_id = null;
+    this.item.listeTypeUtilisateur = null;
     this.item.rue_adresse = null;
     this.item.ville_adresse = null;
     this.item.cp_adresse = null;
@@ -86,7 +94,7 @@ export class UsersFormComponent extends PageFormComponent {
   }
 
   setFormValue(item: any) {
-
+    this.listeTypeUtilisateur = this.item.listeTypeUtilisateur;
     this.form.controls.id.setValue(item.id);
     this.form.controls.nom_utilisateur.setValue(item.nom_utilisateur);
     this.form.controls.prenom_utilisateur.setValue(item.prenom_utilisateur);
@@ -94,6 +102,7 @@ export class UsersFormComponent extends PageFormComponent {
     this.form.controls.tel_utilisateur.setValue(item.tel_utilisateur);
     this.form.controls.mdp_utilisateur.setValue(item.mdp_utilisateur);
     this.form.controls.type_utilisateur_id.setValue(item.type_utilisateur_id);
+    this.form.controls.listeTypeUtilisateur.setValue(item.listeTypeUtilisateur);
     this.form.controls.rue_adresse.setValue(item.rue_adresse);
     this.form.controls.ville_adresse.setValue(item.ville_adresse);
     this.form.controls.cp_adresse.setValue(item.cp_adresse);
@@ -101,6 +110,9 @@ export class UsersFormComponent extends PageFormComponent {
     super.setFormValue(item);
   }
 
+  get id() {
+    return this.form.get('id');
+  }
   get nom_utilisateur() {
     return this.form.get('nom_utilisateur');
   }

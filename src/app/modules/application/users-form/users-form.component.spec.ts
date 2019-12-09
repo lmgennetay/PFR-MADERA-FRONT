@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import {ConfigService} from '../../../services/config/config.service';
+
 import { UsersFormComponent } from './users-form.component';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('UsersComponent', () => {
   let component: UsersFormComponent;
@@ -8,7 +11,15 @@ describe('UsersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UsersFormComponent ]
+    imports: [
+      HttpClientModule
+    ],
+    providers: [
+      ConfigService
+    ],
+    declarations: [
+        UsersFormComponent
+      ]
     })
     .compileComponents();
   }));
@@ -19,7 +30,7 @@ describe('UsersComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -36,6 +36,10 @@ const routes: Routes = [
     path: 'devis/:id',
     loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
   },
+  {
+    path: 'products',
+    loadChildren: () => import('./modules/application/products-form/products-form.module').then(mod => mod.ProductsFormModule)
+  },
   { path: '**', component: NotFoundComponent }
 ];
 

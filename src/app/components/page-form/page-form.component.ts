@@ -14,12 +14,14 @@ export class PageFormComponent {
 
   api: any;
   url: any;
+  urlSelect: any;
   endpoint: any;
+  select: any;
   icon: any;
   form: FormGroup;
   item: any = {};
   titleForm: any = {};
-
+  listeTypeUtilisateur: string;
   public route: ActivatedRoute;
   public router: Router;
   public configService: ConfigService;
@@ -42,12 +44,14 @@ export class PageFormComponent {
   initialize() {
     this.api = this.configService.config.api;
     this.url = this.configService.config.url + this.endpoint;
+    this.urlSelect = this.configService.config.url + this.select;
   }
 
   createForm() {
   }
 
   getItemById(): void {
+
     this.route.params.subscribe(params => {
       if (params.id !== undefined) {
         this.itemsService.getItem(this.api, this.url, params.id).subscribe(data => {
@@ -98,7 +102,6 @@ export class PageFormComponent {
     this.itemsService.addItem(url, item)
       .subscribe(data => {
         this.item = data;
-        this.form.setValue(data);
       });
   }
 

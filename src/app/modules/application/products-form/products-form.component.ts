@@ -3,130 +3,123 @@ import { Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PageFormComponent } from '../../../components/page-form/page-form.component';
 import { Location } from '@angular/common';
+import {decimalDigest} from '@angular/compiler/src/i18n/digest';
 
 @Component({
-  selector: 'app-quotes-form',
-  templateUrl: './quotes-form.component.html',
-  styleUrls: ['./quotes-form.component.css'],
+  selector: 'app-products-form',
+  templateUrl: './products-form.component.html',
+  styleUrls: ['./products-form.component.css'],
   providers: [DatePipe]
 })
 
-export class QuotesFormComponent extends PageFormComponent {
-  today = new Date();
+export class ProductsFormComponent extends PageFormComponent {
+  private today = new Date();
+  listProduits: any;
+  listGammes: any;
+  listModeles: any;
+  listGammesUrl: any;
   constructor(injector: Injector, private location: Location) {
     super(injector);
   }
 
   initialize() {
-    this.endpoint = 'devis/';
-    this.titleForm = 'Formulaire Devis';
+    this.endpoint = 'product/';
+    this.titleForm = 'Formulaire devis produit';
     this.icon = 'fas fa-file-medical';
+    this.listProduits = '';
+    this.listGammes = '';
+    this.listGammesUrl = 'gamme/liste/';
+    this.listModeles = '';
+
+    // this.itemsService.getItemSelect(this.api, 'produit/liste').subscribe(data => {
+    //   this.listProduits = data.listProduits;
+    // });
+
+    // this.listProduits.getItemSelect(this.api, 'gamme/liste').subscribe(data => {
+    //   this.listGammes = data.listGammes;
+    // });
+
+    // this.listModeles.getItemSelect(this.api, 'model/liste').subscribe(data => {
+    //   this.listeTypeUtilisateur = '';
+    //   this.listModeles = data.listModeles;
+    // });
 
     super.initialize();
   }
 
   createForm() {
+
+    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listGammesUrl).subscribe(data => {
+      this.listGammes = data.listeGammes;
+      console.log(data);
+      this.setFormValue(this.listGammes);
+    });
+
     this.form = this.fb.group({
       id: null,
       releaseDate: [this.today,
         [Validators.required]
       ],
-      nameProjet: [null,
+      product_id: [null,
         [Validators.required]
       ],
-      firstName: [null,
+      listProduits: [null,
         [Validators.required]
       ],
-      name: [null,
+      gammes_id: [null,
         [Validators.required]
       ],
-      addressCustomer1: [null,
+      listGammes: [null,
         [Validators.required]
       ],
-      addressCustomer2: null,
-      addressCustomer3: null,
-      cp: [null,
+      modele_id: [null,
         [Validators.required]
       ],
-      city: [null,
+      modelGamme: [null,
         [Validators.required]
       ],
-      phone: [null,
+      listModeles: [null,
         [Validators.required]
-      ],
-      email: null,
-      addressConstruction1: null,
-      addressConstruction2: null,
-      addressConstruction3: null,
-      cpConstruction: null,
-      cityConstruction: null
+      ]
     });
     super.createForm();
   }
+
   resetForm() {
-    this.item.id = Date.now();
-    this.item.releaseDate = this.today;
-    this.item.nameProjet = null;
-    this.item.firstName = null;
-    this.item.name = null;
-    this.item.addressCustomer1 = null;
-    this.item.addressCustomer2 = null;
-    this.item.addressCustomer3 = null;
-    this.item.cp = null;
-    this.item.city = null;
-    this.item.phone = null;
-    this.item.email = null;
-    this.item.addressConstruction1 = null;
-    this.item.addressConstruction2 = null;
-    this.item.addressConstruction3 = null;
-    this.item.cpConstruction = null;
-    this.item.cityConstruction = null;
+    this.item.id = null;
+    this.item.releaseDate = null;
+    this.item.product_id = null;
+    this.listProduits = null;
+    this.item.gammes_id = null;
+    this.listGammes = null;
+    this.item.modele_id = null;
+    this.listModeles = null;
     super.resetForm();
   }
 
   setFormValue(item: any) {
     this.form.controls.id.setValue(item.id);
-    this.form.controls.releaseDate.setValue(item.releaseDate);
-    this.form.controls.nameProjet.setValue(item.nameProjet);
-    this.form.controls.firstName.setValue(item.firstName);
-    this.form.controls.name.setValue(item.name);
-    this.form.controls.addressCustomer1.setValue(item.addressCustomer1);
-    this.form.controls.addressCustomer2.setValue(item.addressCustomer2);
-    this.form.controls.addressCustomer3.setValue(item.addressCustomer3);
-    this.form.controls.cp.setValue(item.cp);
-    this.form.controls.city.setValue(item.city);
-    this.form.controls.phone.setValue(item.phone);
-    this.form.controls.email.setValue(item.email);
-    this.form.controls.addressConstruction1.setValue(item.addressConstruction1);
-    this.form.controls.addressConstruction2.setValue(item.addressConstruction2);
-    this.form.controls.addressConstruction3.setValue(item.addressConstruction3);
-    this.form.controls.cpConstruction.setValue(item.cpConstruction);
-    this.form.controls.cityConstruction.setValue(item.cityConstruction);
+    this.form.controls.product_id.setValue(item.product_id);
+    this.form.controls.listProduits.setValue(item.listProduits);
+    this.form.controls.gammes_id.setValue(item.gammes_id);
+    this.form.controls.listGammes.setValue(item.listGammes);
+    this.form.controls.modele_id.setValue(item.modele_id);
+    this.form.controls.listModeles.setValue(item.listModeles);
     super.setFormValue(item);
   }
 
-  get name() {
-    return this.form.get('name');
+  get id() {
+    return this.form.get('id');
   }
-  get nameProjet() {
-    return this.form.get('nameProjet');
+  get product_id() {
+    return this.form.get('product_id');
   }
-  get firstName() {
-    return this.form.get('firstName');
+  get gammes_id() {
+    return this.form.get('gammes_id');
   }
-  get addressCustomer1() {
-    return this.form.get('addressCustomer1');
+  get modele_id() {
+    return this.form.get('modele_id');
   }
-  get city() {
-    return this.form.get('city');
-  }
-  get cp() {
-    return this.form.get('cp');
-  }
-  get phone() {
-    return this.form.get('phone');
-  }
-
   backClicked() {
     this.location.back();
   }

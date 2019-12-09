@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
   })
 };
 @Injectable({
@@ -151,11 +152,23 @@ export class ItemsService {
     return result;
   }
 
-  addItem(url: any, item: any): Observable<any> {  console.log(url)
+  getItemSelect(api: boolean, url: any): Observable<any> {
+    if (!api) { url = url + '.json'; }
+    let result: any = {};
+    if (api) {
+      const urlParameter = url;
+      result = this.http.get<any>(urlParameter).pipe(
+        tap(data => this.log(`added item w/ id=${data}`)),
+        catchError((this.handleError<any>('getItem')
+        )));
+    }
+    return result;
+  }
+
+  addItem(url: any, item: any): Observable<any> {
     const body = JSON.stringify(item);
-    console.log(body);
-    return this.http.post<any>(url, body, httpOptions).pipe(
-      tap((itemData: any) => this.log(`added item w/ id=${item.id}`)),
+    return this.http.post<any>(url, body).pipe(
+      tap((itemData: any) => this.log(`added item w/ id=${itemData.id}`)),
       catchError(this.handleError<any>('addItem'))
     );
   }
@@ -170,7 +183,7 @@ export class ItemsService {
 
   deleteItem(link: any, id: number): Observable<any> {
     const url = link + '/' + id;
-    return this.http.delete<any>(url, httpOptions).pipe(
+    return this.http.delete<any>(url).pipe(
       tap(_ => this.log(`deleted item id=${id}`)),
       catchError(this.handleError<any>('deleteItem'))
     );

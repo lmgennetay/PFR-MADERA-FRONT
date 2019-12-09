@@ -68,9 +68,11 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="type_utilisateur_id" class="labelForm">Type d'utilisateur</label>
-<!--      <input type="text" name="type_utilisateur_id" formControlName="type_utilisateur_id" id="type_utilisateur_id" class="inputTexteContenu" maxlength="1">-->
-      <select ng-model="type_utilisateur_id" ng-options="x for x in names" formControlName="type_utilisateur_id" id="type_utilisateur_id" class="inputTexteContenu" maxlength="1" ></select>
-      <div *ngIf="type_utilisateur_id.invalid" class="alertFormulaire">
+        <select name="type_utilisateur_id"  formControlName="type_utilisateur_id" id="type_utilisateur_id" ng-model="type_utilisateur_id">
+          <option value="" disabled> Quel sera le role de l'utilisateur ?</option>
+          <option [value]="utilisateur.id" *ngFor="let utilisateur of listeTypeUtilisateur"> {{utilisateur.nom_type}} </option>
+        </select>
+        <div *ngIf="type_utilisateur_id.invalid" class="alertFormulaire">
         <div *ngIf="type_utilisateur_id.errors.required">
           Veuillez sélectioner un type d'utilisateur.
         </div>
