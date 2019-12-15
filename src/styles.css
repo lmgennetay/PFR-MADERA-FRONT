@@ -34,7 +34,7 @@ app-header {
 
 .appComponent, app-accueil, app-client, app-quotes-form,
 app-gestion-client-menu, app-gestion-devis-menu,
-app-quotes-list, app-search-bar {
+app-quotes-list, app-search-bar, app-user {
   width: 100%;
 }
 
@@ -186,7 +186,7 @@ a {
 
 .flexCenter, app-accueil, app-client, app-quotes-form,
 app-gestion-client-menu, app-gestion-devis-menu,
-app-quotes-list, app-search-bar {
+app-quotes-list, app-search-bar, app-user {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -222,6 +222,11 @@ button {
   background-color: #249e00;
   border: none;
   cursor: pointer;
+}
+
+button:disabled, button:hover:disabled ,button:active:disabled {
+  background-color: gray;
+  color: white;
 }
 
 button:hover, .btnImage:hover, .btnImage:active {
@@ -291,6 +296,7 @@ input:disabled {
 
 .alertFormulaire {
   width: 100%;
+  margin-bottom: 5px;
   padding: 5px;
   color: white;
   background-color: rgb(255, 55, 55);

@@ -3,12 +3,12 @@
   <h1>MADERA</h1>
   <img src="./assets/params/images/autres.png" class="btnImage" alt="Autres" (click)="handleClickDroite($event)">
 </header>
-<div id="menu-gauche" class="menuGauche" *ngIf="openMenuGauche">
+<div id="menu-gauche" class="menuGauche col-xs-10 col-md-6 col-lg-3" *ngIf="openMenuGauche">
   <nav class="flexColumnCenter">
     <a routerLink="/accueil" routerLinkActive="active" (click)="handleClickGauche($event)">ACCUEIL</a>
   </nav>
 </div>
-<div id="menu-droite" class="menuDroite" *ngIf="openMenuDroite">
+<div id="menu-droite" class="menuDroite col-xs-10 col-md-6 col-lg-3" *ngIf="openMenuDroite">
   <nav class="flexColumnCenter">
     <a (click)="handleClickDroite($event)">DECONNEXION</a>
   </nav>
