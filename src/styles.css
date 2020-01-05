@@ -32,7 +32,7 @@ app-header {
   width: 100%;
 }
 
-.appComponent, app-accueil, app-client, app-quotes-form,
+.appComponent, app-login, app-accueil, app-client, app-customer, app-quotes-form,
 app-gestion-client-menu, app-gestion-devis-menu,
 app-quotes-list, app-search-bar, app-user {
   width: 100%;
@@ -184,7 +184,7 @@ a {
   align-items: center;
 }
 
-.flexCenter, app-accueil, app-client, app-quotes-form,
+.flexCenter, app-login, app-accueil, app-client, app-customer, app-quotes-form,
 app-gestion-client-menu, app-gestion-devis-menu,
 app-quotes-list, app-search-bar, app-user {
   display: flex;

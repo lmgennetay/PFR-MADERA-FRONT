@@ -1,52 +1,113 @@
 <div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-4">
   <div class="titreSection">CLIENT</div>
-  <form [formGroup]="form" class="section flexColumnCenter">
+  <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="id" class="labelForm">Référence</label>
       <input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50" disabled>
     </div>
+    <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="releaseDate" class="labelForm">Date de création</label>
-      <input type="date" name="releaseDate" formControlName="releaseDate" id="releaseDate" class="inputTexteContenu" maxlength="50">
+      <label for="pers_nom" class="labelForm">Nom</label>
+      <input type="text" name="pers_nom" formControlName="pers_nom" id="pers_nom" class="inputTexteContenu" maxlength="50">
+      <div *ngIf="pers_nom.invalid" class="alertFormulaire">
+        <div *ngIf="pers_nom.errors.required">
+          Veuillez saisir un nom.
+        </div>
+      </div>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="pers_prenom" class="labelForm">Prénom</label>
+      <input type="text" name="pers_prenom" formControlName="pers_prenom" id="pers_prenom" class="inputTexteContenu" maxlength="50">
+      <div *ngIf="pers_prenom.invalid" class="alertFormulaire">
+        <div *ngIf="pers_prenom.errors.required">
+          Veuillez saisir un prénom.
+        </div>
+      </div>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="pers_sexe" class="labelForm">Genre</label>
+      <select name="genre" formControlName="pers_sexe" id="pers_sexe" ng-model="genre">
+        <option value="" disabled> Quel est votre sexe ?</option>
+        <option value="homme" >Homme</option>
+        <option value="femme" >Femme</option>
+      </select>
+      <div *ngIf="pers_sexe.invalid" class="alertFormulaire">
+        <div *ngIf="pers_sexe.errors.required">
+          Veuillez sélectioner un sexe.
+        </div>
+      </div>
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="nom" class="labelForm">Nom</label>
-      <input type="text" name="nom" formControlName="nom" id="nom" class="inputTexteContenu" maxlength="50">
+      <label for="adre_rue" class="labelForm">Adresse</label>
+      <input type="text" name="adre_rue" formControlName="adre_rue" id="adre_rue" class="inputTexteContenu" maxlength="100">
+      <div *ngIf="adre_rue.invalid" class="alertFormulaire">
+        <div *ngIf="adre_rue.errors.required">
+          Veuillez saisir une adresse.
+        </div>
+      </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="prenom" class="labelForm">Prénom</label>
-      <input type="text" name="prenom" formControlName="prenom" id="prenom" class="inputTexteContenu" maxlength="50">
+      <label for="adre_complement" class="labelForm">Adresse complementaire</label>
+      <input type="text" name="adre_complement" formControlName="adre_complement" id="adre_complement" class="inputTexteContenu" maxlength="100">
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="adre_info" class="labelForm">Info</label>
+      <input type="text" name="adre_info" formControlName="adre_info" id="adre_info" class="inputTexteContenu" maxlength="100">
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="adre_cp" class="labelForm">Code Postal</label>
+      <input type="text" name="adre_cp" formControlName="adre_cp" id="adre_cp" class="inputTexteContenu" maxlength="5">
+      <div *ngIf="adre_cp.invalid" class="alertFormulaire">
+        <div *ngIf="adre_cp.errors.required">
+          Veuillez saisir le code postal.
+        </div>
+      </div>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="adre_ville" class="labelForm">Ville</label>
+      <input type="text" name="adre_ville" formControlName="adre_ville" id="adre_ville" class="inputTexteContenu" maxlength="100">
+      <div *ngIf="adre_ville.invalid" class="alertFormulaire">
+        <div *ngIf="adre_ville.errors.required">
+          Veuillez saisir la ville.
+        </div>
+      </div>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="adre_region" class="labelForm">Region</label>
+      <input type="text" name="adre_region" formControlName="adre_region" id="adre_region" class="inputTexteContenu" maxlength="100">
+      <div *ngIf="adre_region.invalid" class="alertFormulaire">
+        <div *ngIf="adre_region.errors.required">
+          Veuillez saisir la region.
+        </div>
+      </div>
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="adresse" class="labelForm">Adresse</label>
-      <input type="text" name="adresse" formControlName="adresse" id="adresse" class="inputTexteContenu" maxlength="100">
+        <label for="pers_mail" class="labelForm">Mail</label>
+        <input type="text" name="pers_mail" formControlName="pers_mail" id="pers_mail" class="inputTexteContenu" maxlength="100">
+      <div *ngIf="pers_mail.invalid" class="alertFormulaire">
+        <div *ngIf="pers_mail.errors.required">
+          Veuillez saisir votre email.
+        </div>
+      </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="cp" class="labelForm">Code Postal</label>
-      <input type="text" name="cp" formControlName="cp" id="cp" class="inputTexteContenu" maxlength="5">
-    </div>
-    <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="ville" class="labelForm">Ville</label>
-      <input type="text" name="ville" formControlName="ville" id="ville" class="inputTexteContenu" maxlength="100">
-    </div>
-    <div class="separateurHorizontal">&nbsp;</div>
-    <div class="flexColumnStart inputTexte inputTextTaille2">
-        <label for="email" class="labelForm">Mail</label>
-        <input type="text" name="email" formControlName="email" id="email" class="inputTexteContenu" maxlength="100">
-    </div>
-    <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="tel" class="labelForm">Tel</label>
-      <input type="text" name="tel" formControlName="tel" id="tel" class="inputTexteContenu" maxlength="10">
+      <label for="pers_tel" class="labelForm">Tel</label>
+      <input type="text" name="pers_tel" formControlName="pers_tel" id="pers_tel" class="inputTexteContenu" maxlength="10">
+      <div *ngIf="pers_tel.invalid" class="alertFormulaire">
+        <div *ngIf="pers_tel.errors.required">
+          Veuillez saisir votre n° de téléphone.
+        </div>
+      </div>
     </div>
     <div class="section flexCenter flexWrap">
-      <button class="button" (click)="backClicked()" [disabled]="!api"><i class="fas fa-arrow-left fa-lg"></i></button>
-      <button class="button" (click)="onCreate()" [disabled]="api"><i class="fas fa-save fa-lg"></i></button>
-      <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api"><i class="fas fa-save fa-lg"></i></button>
+      <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
+      <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api" type="submit"><i class="fas fa-plus fa-lg"></i></button>
       <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
-      <button class="button" (click)="onDelete()" [disabled]="form.invalid || !api"><i class="fas fa-trash-alt fa-lg"></i></button>
+      <button class="button" (click)="onDelete()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-trash-alt fa-lg"></i></button>
     </div>
+
     <!-- <button class="button" (click)="onUpdate()"><i class="fas fa-save fa-lg"></i>&nbsp; Enregistrer</button>
     <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i>&nbsp; Retour</button> -->
   </form>

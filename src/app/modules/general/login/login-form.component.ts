@@ -10,7 +10,6 @@ import {PageFormComponent} from '../../../components/page-form/page-form.compone
 })
 
 export class LoginFormComponent extends PageFormComponent {
-
   constructor(injector: Injector) {
     super(injector);
   }
@@ -21,12 +20,18 @@ export class LoginFormComponent extends PageFormComponent {
     this.icon = 'fas fas fa-sign-in-alt';
     super.initialize();
   }
+
+  onLogin() {
+    localStorage.clear();
+    super.login();
+    this.resetForm();
+  }
   createForm() {
     this.form = this.fb.group({
-      username:  [null,
+      mail_utilisateur:  [null,
         [Validators.required]
       ],
-      password: [null,
+      mdp_utilisateur: [null,
         [Validators.required]
       ]
     });
@@ -34,21 +39,21 @@ export class LoginFormComponent extends PageFormComponent {
   }
 
   resetForm() {
-    this.item.username = null;
-    this.item.password = null;
+    this.item.mail_utilisateur = null;
+    this.item.mdp_utilisateur = null;
     super.resetForm();
   }
 
   setFormValue(item: any) {
-    this.form.controls.username.setValue(item.username);
-    this.form.controls.password.setValue(item.password);
+    this.form.controls.mail_utilisateur.setValue(item.mail_utilisateur);
+    this.form.controls.mdp_utilisateur.setValue(item.mdp_utilisateur);
     super.setFormValue(item);
   }
 
-  get username() {
-    return this.form.get('username');
+  get mail_utilisateur() {
+    return this.form.get('mail_utilisateur');
   }
-  get password() {
-    return this.form.get('password');
+  get mdp_utilisateur() {
+    return this.form.get('mdp_utilisateur');
   }
 }

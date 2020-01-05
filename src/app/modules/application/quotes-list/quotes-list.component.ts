@@ -15,7 +15,7 @@ export class QuotesListComponent extends PageListComponent {
 
   initialize() {
 
-    this.endpoint = 'quotes';
+    this.endpoint = 'deviss';
     this.link = 'devis';
     this.linkRoute = 'quotes';
 
@@ -42,28 +42,18 @@ export class QuotesListComponent extends PageListComponent {
       },
       {
         title: { caption: 'Nom', class: 'text-primary font-weight-bold text-center' },
-        data: { field: 'name', class: 'text-primary font-weight-bold text-center' }
+        data: { field: 'devi_nom', class: 'text-primary font-weight-bold text-center' }
       },
       {
-        title: { caption: 'Prénom', class: 'text-primary font-weight-bold text-center' },
-        data: { field: 'firstName', class: 'text-primary font-weight-bold text-center' }
+        type: 'date',
+        title: { caption: 'Date', class: 'text-primary font-weight-bold text-center' },
+        data: { field: 'devi_date' , class: 'text-primary font-weight-bold text-center' }
       },
       {
-        title: { caption: 'Nom du projet', class: 'text-primary font-weight-bold text-center' },
-        data: { field: 'nameProjet', class: 'text-primary font-weight-bold text-center' }
-      },
-      {
-        title: { caption: 'Code postal', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' },
-        data: { field: 'cp', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
-      },
-      {
-        title: { caption: 'Ville', class: 'text-primary font-weight-bold text-center' },
-        data: { field: 'city', class: 'text-primary font-weight-bold text-center' }
-      },
-      {
-        title: { caption: 'Tél', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' },
-        data: { field: 'phone', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
-      },
+        type: 'euro',
+        title: { caption: 'Prix', class: 'text-primary font-weight-bold text-center' },
+        data: { field: 'devi_prix', class: 'text-primary font-weight-bold text-center' }
+      }
     ];
 
     super.initialize();

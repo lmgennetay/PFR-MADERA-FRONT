@@ -1,5 +1,5 @@
 <div class="corpsPage flexColumnCenter">
-  <h1>GESTION DES UTILISATEURS</h1><br>
+  <h1>GESTION DES CLIENTS</h1><br>
   <app-search-bar [searchField]="searchField" [itemsCount]="itemsCount" [icon]="icon" [results]="results"
     [placeholder]="placeholder" (search)="onSearch($event)"></app-search-bar>
 
@@ -9,16 +9,16 @@
     </div>
   </div>
 
-  <a href="#" routerLink="/ajoutUser" style="border: 0 solid ">
+  <a href="#" routerLink="/ajoutClient" style="border: 0 solid ">
     <button [disabled]="!api" class="button">
-      <i class="fas fa-plus fa-lg"></i> Ajouter un utilisateur
+      <i class="fas fa-plus fa-lg"></i> Ajouter un client
     </button>
   </a>
 
   <div class="row" *ngIf="loaded && itemsCount!=0">
     <div class="col mt-4">
 
-      <app-grid [items]="items.listeCommercials" [columns]="columns" [link]="link"></app-grid>
+      <app-grid [items]="items.listeClients" [columns]="columns" [link]="link"></app-grid>
 
       <app-pagination [count]="itemsCount" [page]="itemsPage" [perPage]="itemsPerPage"
         (changePage)="onChangePage($event)">

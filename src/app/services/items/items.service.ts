@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ItemsService {
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   filterJsonItem(value: any, id: any) {
     let dataTmp = null;
@@ -114,7 +114,8 @@ export class ItemsService {
         filter = '?limit=' + limit + '&offset=' + offset;
       }
     }
-    const urlParameter = url + filter;
+     // const urlParameter = url + filter;
+    const urlParameter = url;
     let result: Observable<any>;
     if (api) {
       result = this.http.get<any[]>(urlParameter)
@@ -132,17 +133,18 @@ export class ItemsService {
   }
 
   getItem(api: boolean, url: any, id: number): Observable<any> {
-    if (!api) { url = url + '.json'; }
     let result: any = {};
     if (id !== undefined) {
       if (api) {
         const urlParameter = url + '/' + id;
+        console.log(urlParameter);
         result = this.http.get<any>(urlParameter).pipe(
           tap(_ => this.log(`fetched item id=${id}`)),
           catchError(this.handleError<any>(`getItem id=${id}`))
         );
       } else {
         const urlParameter = url;
+        console.log(urlParameter);
         result = this.http.get<any>(urlParameter).pipe(
           map((value: string) => this.filterJsonItem(value, id)),
           catchError(this.handleError('getItems', []))
@@ -162,6 +164,16 @@ export class ItemsService {
         catchError((this.handleError<any>('getItem')
         )));
     }
+    return result;
+  }
+
+  login(url: any, item: any): Observable<any> {
+    let result: any = {};
+    const body = JSON.stringify(item);
+    result = this.http.post<any>(url, body).pipe(
+      tap(data => this.log(`Login data=${data}`)),
+      catchError(this.handleError<any>('login')
+      ));
     return result;
   }
 

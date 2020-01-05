@@ -4,11 +4,6 @@
       <th *ngFor="let column of columns" [class]="column.title.class">{{ column.title.caption }}</th>
     </tr>
   </thead>
-  <tfoot>
-    <tr>
-      <th *ngFor="let column of columns" [class]="column.title.class"> {{ column.title.caption }}</th>
-    </tr>
-  </tfoot>
   <tbody>
     <tr *ngFor="let record of items; let i=index">
       <!--      <td>{{i + 1 + (pagination.current - 1) * pagination.perPage}}</td>-->
@@ -21,6 +16,12 @@
         </div>
         <div *ngIf="column.type=='pos'" (click)="selectItem(record['id'])" style="cursor: pointer">
           {{ i + 1 }}
+        </div>
+        <div *ngIf="column.type=='euro'" (click)="selectItem(record['id'])" style="cursor: pointer">
+          {{ record[column.data.field]+' €' }}
+        </div>
+        <div *ngIf="column.type=='date'" (click)="selectItem(record['id'])" style="cursor: pointer">
+          {{ record[column.data.field]['date'] }}
         </div>
         <div *ngIf="column.type=='wiki'">
           <a *ngIf="record[column.data.field]!=null"

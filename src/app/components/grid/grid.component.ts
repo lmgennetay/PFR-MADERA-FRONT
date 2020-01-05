@@ -16,7 +16,6 @@ export class GridComponent {
   @Input() pagination: any;
 
   constructor(public router: Router) { }
-
   selectItem(id: any) {
     this.router.navigate(['/' + this.link, id]);
   }

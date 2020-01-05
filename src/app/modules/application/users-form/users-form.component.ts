@@ -9,66 +9,41 @@ import { PageFormComponent } from '../../../components/page-form/page-form.compo
   templateUrl: './users-form.component.html',
   styleUrls: ['./users-form.component.css']
 })
+
 export class UsersFormComponent extends PageFormComponent {
-  private today = new Date();
-  listeTypeUtilisateur: any;
   constructor(injector: Injector, private location: Location) {
     super(injector);
   }
 
   initialize() {
-    this.endpoint = 'utilisateur/';
-    this.titleForm = 'Formulaire utilisateur';
+    this.endpoint = 'commercial';
+    this.titleForm = 'Formulaire commercial';
     this.icon = 'fas fa-file-medical';
-    this.select = 'type_utilisateur/liste';
     super.initialize();
   }
 
   createForm() {
-    this.itemsService.getItemSelect(this.api, this.urlSelect).subscribe(data => {
-      this.listeTypeUtilisateur = '';
-      this.item.listeTypeUtilisateur = data.listeTypeUtilisateur;
-      this.setFormValue(this.item);
-    });
     this.form = this.fb.group({
       id: null,
-      releaseDate: [this.today,
+      pers_nom: [null,
         [Validators.required]
       ],
-      nom_utilisateur: [null,
+      pers_prenom: [null,
         [Validators.required]
       ],
-      prenom_utilisateur: [null,
-        [Validators.required]
-      ],
-      mail_utilisateur: [null,
+      pers_mail: [null,
         [Validators.required]
         ],
-      tel_utilisateur: [null,
+      pers_tel: [null,
         [Validators.required]
       ],
-      mdp_utilisateur: [null,
+      comm_mdp: [null,
         [Validators.required]
       ],
-      type_utilisateur_id: [null,
+      pers_sexe: [null,
         [Validators.required]
       ],
-      listeTypeUtilisateur: [null,
-        [Validators.required]
-      ],
-      confirm_mdp_utilisateur: [null,
-        [Validators.required]
-      ],
-      rue_adresse: [null,
-        [Validators.required]
-      ],
-      ville_adresse: [null,
-        [Validators.required]
-      ],
-      cp_adresse: [null,
-        [Validators.required]
-      ],
-      region_adresse: [null,
+      comm_confirm_mdp: [null,
         [Validators.required]
       ],
     });
@@ -77,74 +52,68 @@ export class UsersFormComponent extends PageFormComponent {
 
   resetForm() {
     this.item.id = null;
-    this.item.releaseDate = null;
-    this.item.nom_utilisateur = null;
-    this.item.prenom_utilisateur = null;
-    this.item.mail_utilisateur = null;
-    this.item.tel_utilisateur = null;
-    this.item.mdp_utilisateur = null;
-    this.item.confirm_mdp_utilisateur = null;
-    this.item.type_utilisateur_id = null;
-    this.item.listeTypeUtilisateur = null;
-    this.item.rue_adresse = null;
-    this.item.ville_adresse = null;
-    this.item.cp_adresse = null;
-    this.item.region_adresse = null;
+    this.item.pers_nom = null;
+    this.item.pers_prenom = null;
+    this.item.pers_mail = null;
+    this.item.pers_tel = null;
+    this.item.comm_mdp = null;
+    this.item.comm_confirm_mdp = null;
+    this.item.pers_sexe = null;
     super.resetForm();
   }
 
   setFormValue(item: any) {
-    this.listeTypeUtilisateur = this.item.listeTypeUtilisateur;
-    this.form.controls.id.setValue(item.id);
-    this.form.controls.nom_utilisateur.setValue(item.nom_utilisateur);
-    this.form.controls.prenom_utilisateur.setValue(item.prenom_utilisateur);
-    this.form.controls.mail_utilisateur.setValue(item.mail_utilisateur);
-    this.form.controls.tel_utilisateur.setValue(item.tel_utilisateur);
-    this.form.controls.mdp_utilisateur.setValue(item.mdp_utilisateur);
-    this.form.controls.type_utilisateur_id.setValue(item.type_utilisateur_id);
-    this.form.controls.listeTypeUtilisateur.setValue(item.listeTypeUtilisateur);
-    this.form.controls.rue_adresse.setValue(item.rue_adresse);
-    this.form.controls.ville_adresse.setValue(item.ville_adresse);
-    this.form.controls.cp_adresse.setValue(item.cp_adresse);
-    this.form.controls.region_adresse.setValue(item.region_adresse);
+    item.id = item.comm_id;
+    this.form.controls.id.setValue(item.comm_id);
+    this.form.controls.pers_nom.setValue(item.pers_nom);
+    this.form.controls.pers_prenom.setValue(item.pers_prenom);
+    this.form.controls.pers_mail.setValue(item.pers_mail);
+    this.form.controls.pers_tel.setValue(item.pers_tel);
+    this.form.controls.comm_mdp.setValue(item.comm_mdp);
+    this.form.controls.pers_sexe.setValue(item.pers_sexe);
     super.setFormValue(item);
+  }
+
+  onDelete() {
+    let res: any;
+    res = super.onDelete();
+    console.log(res);
+    this.router.navigate(['users']);
+  }
+
+  onUpdate() {
+    let res: any;
+    this.item = this.form.value;
+    this.item.id = this.item.comm_id;
+    delete this.item.comm_confirm_mdp;
+    res = super.onUpdate();
+    console.log(this.item);
+    this.router.navigate(['users']);
   }
 
   get id() {
     return this.form.get('id');
   }
-  get nom_utilisateur() {
-    return this.form.get('nom_utilisateur');
+  get pers_nom() {
+    return this.form.get('pers_nom');
   }
-  get prenom_utilisateur() {
-    return this.form.get('prenom_utilisateur');
+  get pers_prenom() {
+    return this.form.get('pers_prenom');
   }
-  get mail_utilisateur() {
-    return this.form.get('mail_utilisateur');
+  get pers_mail() {
+    return this.form.get('pers_mail');
   }
-  get tel_utilisateur() {
-    return this.form.get('tel_utilisateur');
+  get pers_tel() {
+    return this.form.get('pers_tel');
   }
-  get mdp_utilisateur() {
-    return this.form.get('mdp_utilisateur');
+  get comm_mdp() {
+    return this.form.get('comm_mdp');
   }
-  get confirm_mdp_utilisateur() {
-    return this.form.get('confirm_mdp_utilisateur');
+  get comm_confirm_mdp() {
+    return this.form.get('comm_confirm_mdp');
   }
-  get type_utilisateur_id() {
-    return this.form.get('type_utilisateur_id');
-  }
-  get rue_adresse() {
-    return this.form.get('rue_adresse');
-  }
-  get ville_adresse() {
-    return this.form.get('ville_adresse');
-  }
-  get cp_adresse() {
-    return this.form.get('cp_adresse');
-  }
-  get region_adresse() {
-    return this.form.get('region_adresse');
+  get pers_sexe() {
+    return this.form.get('pers_sexe');
   }
   backClicked() {
     this.location.back();

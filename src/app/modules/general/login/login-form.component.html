@@ -1,55 +1,37 @@
-<div class="login-box" style="padding-top: 80px; margin: auto ">
-  <div class="card">
-    <div class="card-body login-card-body">
-      <div class="login-logo" style="text-align: center">
-        <h2>MADERA</h2>
+<div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-4">
+  <div class="titreSection">Connexion</div>
+  <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="mail_utilisateur" class="labelForm">Adresse mail</label>
+      <input type="text" name="mail_utilisateur" formControlName="mail_utilisateur" id="mail_utilisateur" class="inputTexteContenu" minlength="0">
+      <div *ngIf="mail_utilisateur.invalid" class="alertFormulaire">
+        <div *ngIf="mail_utilisateur.errors.required">
+          Veuiller saisir un email.
+        </div>
       </div>
-      <p class="login-box-msg">Connexion aux services</p>
-
-      <form _ngcontent-ganatan-c10="" novalidate="" class="ng-untouched ng-pristine ng-valid">
-
-        <div class="form-group">
-          <label _ngcontent-ganatan-c10="" class="text-info" for="username">Adresse mail</label>
-          <input _ngcontent-ganatan-c10=""  type="email" placeholder="Email" formcontrolname="username" class="text-primary form-control font-weight-bold ng-untouched ng-pristine ng-valid"
-                 id="username">
-          <div *ngIf="username.invalid" class="alert alert-primary mt-2">
-            <div *ngIf="username.errors.required">
-              Veuiller saisir un email.
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label _ngcontent-ganatan-c10="" class="text-info" for="password">Mot de passe</label>
-          <input _ngcontent-ganatan-c10=""  type="password" placeholder="Mot de passe" formcontrolname="password" class="text-primary form-control font-weight-bold ng-untouched ng-pristine ng-valid"
-                 id="password">
-          <div *ngIf="password.invalid" class="alert alert-primary mt-2">
-            <div *ngIf="password.errors.required">
-              Veuiller saisir un mot de passe correct.
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="icheck-primary">
-            <input type="checkbox" id="remember">
-            <label for="remember">
-              Se souvenir de moi
-            </label>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <button [disabled]="loading" class="btn btn-primary btn-block">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            SE CONNECTER
-          </button>
-        </div>
-      </form>
-
-      <p class="mb-1">
-        <a href="forgot-password.html">Mot de passe oublié</a>
-      </p>
     </div>
-  </div>
+
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="mdp_utilisateur" class="labelForm">Mot de passe</label>
+      <input type="password" name="mdp_utilisateur" formControlName="mdp_utilisateur" id="mdp_utilisateur" class="inputTexteContenu" minlength="8">
+      <div *ngIf="mdp_utilisateur.invalid" class="alertFormulaire">
+        <div *ngIf="mdp_utilisateur.errors.required">
+          Veuillez saisir un mot de passe.
+        </div>
+      </div>
+    </div>
+
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+        <input type="checkbox" id="remember">
+        <label for="remember"> Se souvenir de moi  </label>
+    </div>
+
+    <div class="separateurHorizontal">&nbsp;</div>
+    <div class="section flexCenter flexWrap">
+      <button class="button" (click)="onLogin()" [disabled]="form.invalid || !api" type="submit"><i class=""></i>SE CONNECTER</button>
+    </div>
+    <div class="section flexCenter flexWrap">
+      <button class="button"  type="submit"><i class=""></i>Mot de passe oublié</button>
+    </div>
+  </form>
 </div>

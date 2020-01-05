@@ -3,6 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AccueilComponent } from './modules/general/accueil/accueil.component';
+// import { LoginFormModule } from './modules/general/login/login-form.module';
+// import { LoginFormComponent } from './modules/general/login/login-form.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
@@ -19,6 +21,8 @@ import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/
     AppComponent,
     NotFoundComponent,
     AccueilComponent,
+    // HomeComponent,
+    // LoginFormComponent,
     PageFormComponent,
     GestionClientMenuComponent,
     GestionDevisMenuComponent,
@@ -28,6 +32,7 @@ import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    // LoginFormModule,
     HeaderModule
   ],
   providers: [

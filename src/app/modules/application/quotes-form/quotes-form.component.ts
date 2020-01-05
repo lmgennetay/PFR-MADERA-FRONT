@@ -12,121 +12,169 @@ import { Location } from '@angular/common';
 })
 
 export class QuotesFormComponent extends PageFormComponent {
-  today = new Date();
+  listClients: any;
+  listClientsUrl: any;
+  listGammes: any;
+  listGammesUrl: any;
+  listMaisons: any;
+  listMaisonsUrl: any;
+  listPays: any;
+  listPaysUrl: any;
+
   constructor(injector: Injector, private location: Location) {
     super(injector);
   }
 
   initialize() {
-    this.endpoint = 'devis/';
+    this.endpoint = 'devis';
     this.titleForm = 'Formulaire Devis';
     this.icon = 'fas fa-file-medical';
-
+    this.listClients = '';
+    this.listClientsUrl = 'clients';
+    this.listGammes = '';
+    this.listGammesUrl = 'gamme/liste';
+    this.listMaisons = '';
+    this.listMaisonsUrl = 'maison/liste';
+    this.listPays = '';
+    this.listPaysUrl = 'pays/liste';
     super.initialize();
   }
 
   createForm() {
+    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listClientsUrl).subscribe(data => {
+      this.listClients = data.listeClients;
+      console.log(this.listClients);
+      this.setFormValue(this.listClients);
+    });
+
+    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listGammesUrl).subscribe(data => {
+      this.listGammes = data.listeGamme;
+      console.log(this.listGammes);
+      this.setFormValue(this.listGammes);
+    });
+
+    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listMaisonsUrl).subscribe(data => {
+      this.listMaisons = data.listeMaison;
+      console.log( this.listMaisons);
+      this.setFormValue(this.listMaisons);
+    });
+
+    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listPaysUrl).subscribe(data => {
+      this.listPays = data.listePays;
+      console.log(this.listPays);
+      this.setFormValue(this.listPays);
+    });
+
     this.form = this.fb.group({
       id: null,
-      releaseDate: [this.today,
+      devi_nom: [null,
         [Validators.required]
       ],
-      nameProjet: [null,
+      listClients: [null,
         [Validators.required]
       ],
-      firstName: [null,
+      clie_id: [null,
         [Validators.required]
       ],
-      name: [null,
+      listMaisons: [null,
         [Validators.required]
       ],
-      addressCustomer1: [null,
+      maison_id: [null,
         [Validators.required]
       ],
-      addressCustomer2: null,
-      addressCustomer3: null,
-      cp: [null,
+      listGammes: [null,
         [Validators.required]
       ],
-      city: [null,
+      gamm_id: [null,
         [Validators.required]
       ],
-      phone: [null,
-        [Validators.required]
-      ],
-      email: null,
-      addressConstruction1: null,
-      addressConstruction2: null,
-      addressConstruction3: null,
-      cpConstruction: null,
-      cityConstruction: null
+      listPays: null,
+      pays_id: null,
+      adre_region: null,
+      adre_ville:  null,
+      adre_cp: null,
+      adre_rue: null,
+      adre_commplement: null,
+      adre_info: null
     });
     super.createForm();
   }
   resetForm() {
-    this.item.id = Date.now();
-    this.item.releaseDate = this.today;
-    this.item.nameProjet = null;
-    this.item.firstName = null;
-    this.item.name = null;
-    this.item.addressCustomer1 = null;
-    this.item.addressCustomer2 = null;
-    this.item.addressCustomer3 = null;
-    this.item.cp = null;
-    this.item.city = null;
-    this.item.phone = null;
-    this.item.email = null;
-    this.item.addressConstruction1 = null;
-    this.item.addressConstruction2 = null;
-    this.item.addressConstruction3 = null;
-    this.item.cpConstruction = null;
-    this.item.cityConstruction = null;
+    this.item.id = null;
+    this.item.devi_nom = null;
+    this.listClients = null;
+    this.item.clie_id = null;
+    this.listMaisons = null;
+    this.item.maison_id = null;
+    this.listGammes = null;
+    this.item.gamm_id = null;
+    this.listPays = null;
+    this.item.pays_id = null;
+    this.item.adre_region = null;
+    this.item.adre_ville = null;
+    this.item.adre_cp = null;
+    this.item.adre_rue = null;
+    this.item.adre_commplement = null;
+    this.item.adre_info = null;
     super.resetForm();
   }
 
   setFormValue(item: any) {
     this.form.controls.id.setValue(item.id);
-    this.form.controls.releaseDate.setValue(item.releaseDate);
-    this.form.controls.nameProjet.setValue(item.nameProjet);
-    this.form.controls.firstName.setValue(item.firstName);
-    this.form.controls.name.setValue(item.name);
-    this.form.controls.addressCustomer1.setValue(item.addressCustomer1);
-    this.form.controls.addressCustomer2.setValue(item.addressCustomer2);
-    this.form.controls.addressCustomer3.setValue(item.addressCustomer3);
-    this.form.controls.cp.setValue(item.cp);
-    this.form.controls.city.setValue(item.city);
-    this.form.controls.phone.setValue(item.phone);
-    this.form.controls.email.setValue(item.email);
-    this.form.controls.addressConstruction1.setValue(item.addressConstruction1);
-    this.form.controls.addressConstruction2.setValue(item.addressConstruction2);
-    this.form.controls.addressConstruction3.setValue(item.addressConstruction3);
-    this.form.controls.cpConstruction.setValue(item.cpConstruction);
-    this.form.controls.cityConstruction.setValue(item.cityConstruction);
+    this.form.controls.devi_nom.setValue(item.devi_nom);
+    this.form.controls.listClients.setValue(item.listClients);
+    this.form.controls.clie_id.setValue(item.clie_id);
+    this.form.controls.listMaisons.setValue(item.listMaisons);
+    this.form.controls.maison_id.setValue(item.maison_id);
+    this.form.controls.listGammes.setValue(item.listGammes);
+    this.form.controls.gamm_id.setValue(item.gamm_id);
+    this.form.controls.listPays.setValue(item.listPays);
+    this.form.controls.pays_id.setValue(item.pays_id);
+    this.form.controls.adre_region.setValue(item.adre_region);
+    this.form.controls.adre_ville.setValue(item.adre_ville);
+    this.form.controls.adre_cp.setValue(item.adre_cp);
+    this.form.controls.adre_rue.setValue(item.adre_rue);
+    this.form.controls.adre_commplement.setValue(item.adre_commplement);
+    this.form.controls.adre_info.setValue(item.adre_info);
     super.setFormValue(item);
   }
 
-  get name() {
-    return this.form.get('name');
+  get id() {
+    return this.form.get('id');
   }
-  get nameProjet() {
-    return this.form.get('nameProjet');
+  get devi_nom() {
+    return this.form.get('devi_nom');
   }
-  get firstName() {
-    return this.form.get('firstName');
+  get clie_id() {
+    return this.form.get('clie_id');
   }
-  get addressCustomer1() {
-    return this.form.get('addressCustomer1');
+  get maison_id() {
+    return this.form.get('maison_id');
   }
-  get city() {
-    return this.form.get('city');
+  get gamm_id() {
+    return this.form.get('gamm_id');
   }
-  get cp() {
-    return this.form.get('cp');
+  get pays_id() {
+    return this.form.get('pays_id');
   }
-  get phone() {
-    return this.form.get('phone');
+  get adre_region() {
+    return this.form.get('adre_region');
   }
-
+  get adre_ville() {
+    return this.form.get('adre_ville');
+  }
+  get adre_cp() {
+    return this.form.get('adre_cp');
+  }
+  get adre_rue() {
+    return this.form.get('adre_rue');
+  }
+  get adre_commplement() {
+    return this.form.get('adre_commplement');
+  }
+  get adre_info() {
+    return this.form.get('adre_info');
+  }
   backClicked() {
     this.location.back();
   }

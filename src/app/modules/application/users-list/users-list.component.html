@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <a href="#" routerLink="/ajoutUser" style="border: 0 solid ">
+  <a href="#" routerLink="/ajoutCommercial" style="border: 0 solid ">
     <button [disabled]="!api" class="button">
       <i class="fas fa-plus fa-lg"></i> Ajouter un utilisateur
     </button>
@@ -18,7 +18,7 @@
   <div class="row" *ngIf="loaded && itemsCount!=0">
     <div class="col mt-4">
 
-      <app-grid [items]="items" [columns]="columns" [link]="link"></app-grid>
+      <app-grid [items]="items.listeCommercials" [columns]="columns" [link]="link"></app-grid>
 
       <app-pagination [count]="itemsCount" [page]="itemsPage" [perPage]="itemsPerPage"
         (changePage)="onChangePage($event)">

@@ -3,7 +3,7 @@ import { Component, Injector } from '@angular/core';
 import { PageListComponent } from '../../../components/page-list/page-list.component';
 
 @Component({
-  selector: 'app-quotes-list',
+  selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css']
 })
@@ -15,8 +15,8 @@ export class UsersListComponent extends PageListComponent {
 
   initialize() {
 
-    this.endpoint = 'utilisateur/liste/';
-    this.link = 'users';
+    this.endpoint = 'commercial';
+    this.link = 'user';
     this.linkRoute = 'users';
 
     this.placeholder = 'Utilisateur...';
@@ -38,27 +38,19 @@ export class UsersListComponent extends PageListComponent {
       },
       {
         title: { caption: 'Id', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' },
-        data: { field: 'id', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
+        data: { field: 'id', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
       },
       {
         title: { caption: 'Nom', class: 'text-primary font-weight-bold text-center' },
-        data: { field: 'name', class: 'text-primary font-weight-bold text-center' }
+        data: { field: 'pers_nom', class: 'text-primary font-weight-bold text-left' }
       },
       {
         title: { caption: 'Prénom', class: 'text-primary font-weight-bold text-center' },
-        data: { field: 'firstName', class: 'text-primary font-weight-bold text-center' }
-      },
-      {
-        title: { caption: 'Type d\'utilisateur', class: 'text-primary font-weight-bold text-center' },
-        data: { field: 'typeUtilisateur', class: 'text-primary font-weight-bold text-center' }
-      },
-      {
-        title: { caption: 'Tél', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' },
-        data: { field: 'phone', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
+        data: { field: 'pers_prenom', class: 'text-primary font-weight-bold text-left' }
       },
       {
         title: { caption: 'Email', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' },
-        data: { field: 'email', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
+        data: { field: 'pers_mail', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
       },
     ];
 

@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
+
+import {ConfigService} from '../../../services/config/config.service';
 
 import { LoginFormComponent } from './login-form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {RouterModule} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('LoginComponent', () => {
   let component: LoginFormComponent;
@@ -11,13 +11,15 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
-        RouterModule.forRoot([]),
-      ],
-      declarations: [ LoginFormComponent ]
+    imports: [
+        HttpClientModule
+    ],
+    providers: [
+        ConfigService
+    ],
+    declarations: [
+        LoginFormComponent
+    ]
     })
     .compileComponents();
   }));
@@ -28,7 +30,7 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer', () => {
     expect(component).toBeTruthy();
   });
 });

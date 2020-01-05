@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { ConfigService } from '../../services/config/config.service';
 import { ItemsService } from '../../services/items/items.service';
+import {Observable} from 'rxjs';
+import {catchError, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-page-form',
@@ -50,9 +52,25 @@ export class PageFormComponent {
   createForm() {
   }
 
-  getItemById(): void {
+  login() {
+    this.item = this.form.value;
+    this.itemsService.login(this.url, this.item).subscribe(data => {
+      localStorage.token = data.token_utilisateur;
+      console.log(data.result);
+      console.log(localStorage.getItem('token'));
+      if ( data.result === 'OK' && ( data.token !== null || data.token !== undefined) ) {
+        console.log('oui');
+        this.router.navigate(['accueil']);
+      } else {
+        console.log('non');
+        this.router.navigate(['']);
+      }
+    });
+  }
 
+  getItemById(): void {
     this.route.params.subscribe(params => {
+      console.log(this.url );
       if (params.id !== undefined) {
         this.itemsService.getItem(this.api, this.url, params.id).subscribe(data => {
           if ((data !== null) && (data !== undefined)) {
@@ -99,6 +117,7 @@ export class PageFormComponent {
   }
 
   createItem(url: any, item: any) {
+    delete this.item.id;
     this.itemsService.addItem(url, item)
       .subscribe(data => {
         this.item = data;

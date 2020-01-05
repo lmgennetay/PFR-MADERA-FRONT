@@ -1,4 +1,4 @@
-<div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-4">
+<div class="corpsPage flexColumnCenter">
   <h1>GESTION DEVIS</h1><br>
   <app-search-bar [searchField]="searchField" [itemsCount]="itemsCount" [icon]="icon" [results]="results"
     [placeholder]="placeholder" (search)="onSearch($event)"></app-search-bar>
@@ -8,6 +8,7 @@
       <app-search-result [searchField]="searchField" [found]="found" [creation]="creation" [link]="link"></app-search-result>
     </div>
   </div>
+
   <a href="#" routerLink="/ajoutDevis" style="border: 0 solid ">
     <button [disabled]="!api" class="button">
       <i class="fas fa-plus fa-lg"></i> Créer un devis
@@ -17,7 +18,7 @@
   <div class="row" *ngIf="loaded && itemsCount!=0">
     <div class="col mt-4">
 
-      <app-grid [items]="items" [columns]="columns" [link]="link"></app-grid>
+      <app-grid [items]="items.listeDevis" [columns]="columns" [link]="link"></app-grid>
 
       <app-pagination [count]="itemsCount" [page]="itemsPage" [perPage]="itemsPerPage"
         (changePage)="onChangePage($event)">

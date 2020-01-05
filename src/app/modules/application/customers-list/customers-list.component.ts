@@ -4,10 +4,10 @@ import { PageListComponent } from '../../../components/page-list/page-list.compo
 
 @Component({
   selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.css']
+  templateUrl: './customers-list.component.html',
+  styleUrls: ['./customers-list.component.css']
 })
-export class UsersListComponent extends PageListComponent {
+export class CustomersListComponent extends PageListComponent {
 
   constructor(injector: Injector) {
     super(injector);
@@ -15,14 +15,14 @@ export class UsersListComponent extends PageListComponent {
 
   initialize() {
 
-    this.endpoint = 'commercial';
-    this.link = 'user';
-    this.linkRoute = 'users';
+    this.endpoint = 'clients';
+    this.link = 'client';
+    this.linkRoute = 'customers';
 
-    this.placeholder = 'Utilisateur...';
-    this.results = 'utilisateurs trouvés';
-    this.found = 'users';
-    this.creation = 'Users';
+    this.placeholder = 'client...';
+    this.results = 'clients trouvés';
+    this.found = 'customers';
+    this.creation = 'Customers';
 
     // this.loaded = false;
 
@@ -38,7 +38,7 @@ export class UsersListComponent extends PageListComponent {
       },
       {
         title: { caption: 'Id', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' },
-        data: { field: 'comm_id', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
+        data: { field: 'id', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
       },
       {
         title: { caption: 'Nom', class: 'text-primary font-weight-bold text-center' },
@@ -49,9 +49,17 @@ export class UsersListComponent extends PageListComponent {
         data: { field: 'pers_prenom', class: 'text-primary font-weight-bold text-left' }
       },
       {
+        title: { caption: 'Ville', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' },
+        data: { field: 'adre_ville', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
+      },
+      {
         title: { caption: 'Email', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' },
         data: { field: 'pers_mail', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
       },
+      {
+        title: { caption: 'tel', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' },
+        data: { field: 'pers_tel', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
+      }
     ];
 
     super.initialize();
