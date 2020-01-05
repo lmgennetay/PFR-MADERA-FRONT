@@ -1,0 +1,29 @@
+<div class="corpsPage flexColumnCenter">
+  <h1>GESTION DES UTILISATEURS</h1><br>
+  <app-search-bar [searchField]="searchField" [itemsCount]="itemsCount" [icon]="icon" [results]="results"
+    [placeholder]="placeholder" (search)="onSearch($event)"></app-search-bar>
+
+  <div class="row" *ngIf="loaded && itemsCount==0">
+    <div class="col">
+      <app-search-result [searchField]="searchField" [found]="found" [creation]="creation" [link]="link"></app-search-result>
+    </div>
+  </div>
+
+  <a href="#" routerLink="/ajoutUser" style="border: 0 solid ">
+    <button [disabled]="!api" class="button">
+      <i class="fas fa-plus fa-lg"></i> Ajouter un utilisateur
+    </button>
+  </a>
+
+  <div class="row" *ngIf="loaded && itemsCount!=0">
+    <div class="col mt-4">
+
+      <app-grid [items]="items.listeCommercials" [columns]="columns" [link]="link"></app-grid>
+
+      <app-pagination [count]="itemsCount" [page]="itemsPage" [perPage]="itemsPerPage"
+        (changePage)="onChangePage($event)">
+      </app-pagination>
+
+    </div>
+  </div>
+</div>
