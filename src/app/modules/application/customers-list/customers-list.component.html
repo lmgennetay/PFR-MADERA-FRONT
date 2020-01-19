@@ -1,4 +1,4 @@
-<div class="corpsPage flexColumnCenter">
+<div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-4">
   <h1>GESTION DES CLIENTS</h1><br>
   <app-search-bar [searchField]="searchField" [itemsCount]="itemsCount" [icon]="icon" [results]="results"
     [placeholder]="placeholder" (search)="onSearch($event)"></app-search-bar>
@@ -16,7 +16,7 @@
   </a>
 
   <div class="row" *ngIf="loaded && itemsCount!=0">
-    <div class="col mt-4">
+    <!-- <div class="col mt-4"> -->
 
       <app-grid [items]="items.listeClients" [columns]="columns" [link]="link"></app-grid>
 
@@ -24,6 +24,6 @@
         (changePage)="onChangePage($event)">
       </app-pagination>
 
-    </div>
+    <!-- </div> -->
   </div>
 </div>

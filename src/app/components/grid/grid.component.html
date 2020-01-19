@@ -1,7 +1,7 @@
-<table *ngIf="itemsCount!=0" class="table table-hover table-striped table-bordered table-sm">
+<table *ngIf="itemsCount!=0" class="table-style table table-hover table-striped table-bordered table-sm">
   <thead>
     <tr>
-      <th *ngFor="let column of columns" [class]="column.title.class">{{ column.title.caption }}</th>
+      <th *ngFor="let column of columns" class="th-style">{{ column.title.caption }}</th>
     </tr>
   </thead>
   <tbody>

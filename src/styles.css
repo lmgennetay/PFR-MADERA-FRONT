@@ -30,11 +30,13 @@ header {
 
 app-header {
   width: 100%;
+  position: fixed;
+  z-index: 10;
 }
 
 .appComponent, app-login, app-accueil, app-client, app-customer, app-quotes-form,
 app-gestion-client-menu, app-gestion-devis-menu,
-app-quotes-list, app-search-bar, app-user {
+app-quotes-list, app-search-bar, app-user, app-users-list, app-grid {
   width: 100%;
 }
 
@@ -120,6 +122,7 @@ label {
   left: 0px;
   height: 100%;
   background-color: #333333;
+  z-index: 10;
 }
 
 .menuDroite {
@@ -129,6 +132,7 @@ label {
   right: 0px;
   height: 100%;
   background-color: #333333;
+  z-index: 10;
 }
 
 nav {
@@ -152,8 +156,11 @@ a {
  * ######################################## */
 .corpsPage {
   width: 90%;
-  margin-top: 60px;
+  margin-top: 100px;
+  margin-bottom: 50px;
   padding: 10px;
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
   /* background-color: #444444; */
   /* background-color: #dadada; */
 }
@@ -184,9 +191,15 @@ a {
   align-items: center;
 }
 
+.flexStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .flexCenter, app-login, app-accueil, app-client, app-customer, app-quotes-form,
 app-gestion-client-menu, app-gestion-devis-menu,
-app-quotes-list, app-search-bar, app-user {
+app-quotes-list, app-search-bar, app-user, app-users-list, app-grid {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -262,7 +275,7 @@ button:active {
 }
 
 /** ########################################
-Formulaire
+ * Formulaire
  * ######################################## */
 input:disabled {
   background-color: rgb(210, 210, 210);
@@ -313,4 +326,15 @@ input:disabled {
   /* border-radius: 5px; */
   color: black;
   font-size: 1.1rem;
+}
+
+/** ########################################
+ * Tableau
+ * ######################################## */
+.table-style {
+  width: 100%;
+}
+
+.th-style {
+  color: #249e00;
 }
