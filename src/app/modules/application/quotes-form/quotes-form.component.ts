@@ -43,69 +43,63 @@ export class QuotesFormComponent extends PageFormComponent {
   createForm() {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listClientsUrl).subscribe(data => {
       this.listClients = data.listeClients;
-      console.log(this.listClients);
       this.setFormValue(this.listClients);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listGammesUrl).subscribe(data => {
       this.listGammes = data.listeGamme;
-      console.log(this.listGammes);
       this.setFormValue(this.listGammes);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listMaisonsUrl).subscribe(data => {
       this.listMaisons = data.listeMaison;
-      console.log( this.listMaisons);
       this.setFormValue(this.listMaisons);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listPaysUrl).subscribe(data => {
       this.listPays = data.listePays;
-      console.log(this.listPays);
       this.setFormValue(this.listPays);
     });
 
     this.form = this.fb.group({
       id: null,
-      devi_nom: [null,
+      comm_id: null,
+      devi_nom:[null,
         [Validators.required]
       ],
-      listClients: [null,
+      devi_date: null,
+      listClients: null,
+      clie_id: null,
+      listMaisons: null,
+      mais_id: [null,
         [Validators.required]
       ],
-      clie_id: [null,
-        [Validators.required]
-      ],
-      listMaisons: [null,
-        [Validators.required]
-      ],
-      maison_id: [null,
-        [Validators.required]
-      ],
-      listGammes: [null,
-        [Validators.required]
-      ],
+      listGammes: null,
       gamm_id: [null,
         [Validators.required]
       ],
       listPays: null,
-      pays_id: null,
+      pays_id: [null,
+        [Validators.required]
+      ],
       adre_region: null,
       adre_ville:  null,
       adre_cp: null,
       adre_rue: null,
-      adre_commplement: null,
-      adre_info: null
+      adre_complement: null,
+      adre_info: null,
     });
     super.createForm();
   }
   resetForm() {
     this.item.id = null;
+    this.item.comm_id = localStorage.id;
+    this.item.devi_date = null;
     this.item.devi_nom = null;
     this.listClients = null;
     this.item.clie_id = null;
     this.listMaisons = null;
-    this.item.maison_id = null;
+    this.item.mais_id = null;
     this.listGammes = null;
     this.item.gamm_id = null;
     this.listPays = null;
@@ -121,11 +115,13 @@ export class QuotesFormComponent extends PageFormComponent {
 
   setFormValue(item: any) {
     this.form.controls.id.setValue(item.id);
+    this.form.controls.comm_id.setValue(item.comm_id);
+    this.form.controls.devi_date.setValue(item.devi_date);
     this.form.controls.devi_nom.setValue(item.devi_nom);
     this.form.controls.listClients.setValue(item.listClients);
     this.form.controls.clie_id.setValue(item.clie_id);
     this.form.controls.listMaisons.setValue(item.listMaisons);
-    this.form.controls.maison_id.setValue(item.maison_id);
+    this.form.controls.mais_id.setValue(item.mais_id);
     this.form.controls.listGammes.setValue(item.listGammes);
     this.form.controls.gamm_id.setValue(item.gamm_id);
     this.form.controls.listPays.setValue(item.listPays);
@@ -134,7 +130,7 @@ export class QuotesFormComponent extends PageFormComponent {
     this.form.controls.adre_ville.setValue(item.adre_ville);
     this.form.controls.adre_cp.setValue(item.adre_cp);
     this.form.controls.adre_rue.setValue(item.adre_rue);
-    this.form.controls.adre_commplement.setValue(item.adre_commplement);
+    this.form.controls.adre_complement.setValue(item.adre_complement);
     this.form.controls.adre_info.setValue(item.adre_info);
     super.setFormValue(item);
   }
@@ -142,14 +138,20 @@ export class QuotesFormComponent extends PageFormComponent {
   get id() {
     return this.form.get('id');
   }
+  get comm_id() {
+    return this.form.get('comm_id');
+  }
+  get devi_date() {
+    return this.form.get('devi_date');
+  }
   get devi_nom() {
     return this.form.get('devi_nom');
   }
   get clie_id() {
     return this.form.get('clie_id');
   }
-  get maison_id() {
-    return this.form.get('maison_id');
+  get mais_id() {
+    return this.form.get('mais_id');
   }
   get gamm_id() {
     return this.form.get('gamm_id');
@@ -169,8 +171,8 @@ export class QuotesFormComponent extends PageFormComponent {
   get adre_rue() {
     return this.form.get('adre_rue');
   }
-  get adre_commplement() {
-    return this.form.get('adre_commplement');
+  get adre_complement() {
+    return this.form.get('adre_complement');
   }
   get adre_info() {
     return this.form.get('adre_info');

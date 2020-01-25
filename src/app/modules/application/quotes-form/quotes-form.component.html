@@ -2,8 +2,20 @@
   <div class="titreSection">DEVIS</div>
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="id" class="labelForm">Référence</label>
+      <label for="id" class="labelForm">N°</label>
       <input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50" disabled>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <div class="row">
+        <div class="flexColumnStart inputTexte">
+          <label for="comm_id" class="labelForm">Commercial</label>
+          <input type="text" name="id" formControlName="comm_id" id="comm_id" class="inputTexteContenu" maxlength="50" disabled>
+        </div>
+        <div class="flexColumnStart inputTexte ">
+          <label for="devi_date" class="labelForm">date</label>
+          <input type="date" name="devi_date" formControlName="devi_date" id="devi_date" class="inputTexteContenu" disabled>
+        </div>
+      </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="devi_nom" class="labelForm">Nom du projet</label>
@@ -29,13 +41,13 @@
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="maison_id" class="labelForm">Maison</label>
-      <select class="inputTexteContenu" name="maison_id"  formControlName="maison_id" id="maison_id" ng-model="maison_id">
+      <label for="mais_id" class="labelForm">Maison</label>
+      <select class="inputTexteContenu" name="mais_id"  formControlName="mais_id" id="mais_id" ng-model="mais_id">
         <option value="" disabled> Quel type de maison ?</option>
         <option [value]="maison.id" *ngFor="let maison of listMaisons"> {{maison.mais_nom}} </option>
       </select>
-      <div *ngIf="maison_id.invalid" class="alertFormulaire">
-        <div *ngIf="maison_id.errors.required">
+      <div *ngIf="mais_id.invalid" class="alertFormulaire">
+        <div *ngIf="mais_id.errors.required">
           Veuillez sélectioner une maison.
         </div>
       </div>
@@ -78,8 +90,8 @@
       <input type="text" name="adre_rue" formControlName="adre_rue" id="adre_rue" class="inputTexteContenu" maxlength="100">
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="adre_commplement">Complement d'adresse</label>
-      <input type="text" name="adre_commplement" formControlName="adre_commplement" id="adre_commplement" class="inputTexteContenu" maxlength="100">
+      <label for="adre_complement">Complement d'adresse</label>
+      <input type="text" name="adre_complement" formControlName="adre_complement" id="adre_complement" class="inputTexteContenu" maxlength="100">
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="adre_info">Informations complementaires</label>
@@ -89,8 +101,7 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="section flexCenter flexWrap">
       <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
-      <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api" type="submit"><i class="fas fa-plus fa-lg"></i></button>
-      <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
+      <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api"  type="submit"><i class="fas fa-plus fa-lg"></i></button>
       <button class="button" (click)="onDelete()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-trash-alt fa-lg"></i></button>
     </div>
   </form>

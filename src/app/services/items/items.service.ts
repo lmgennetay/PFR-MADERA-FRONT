@@ -186,7 +186,7 @@ export class ItemsService {
   }
 
   updateItem(body: object, id: number, link: any): Observable<any> {
-    const url = link + '/' + id;
+    const url = link;
     return this.http.put(url, body, httpOptions).pipe(
       tap(_ => this.log(`updated item id=id`)),
       catchError(this.handleError<any>('updateItem'))
