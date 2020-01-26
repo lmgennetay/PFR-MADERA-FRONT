@@ -82,6 +82,18 @@
         </div>
       </div>
     </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="pays_id" class="labelForm">Pays</label>
+      <select class="inputTexteContenu" name="pays_id"  formControlName="pays_id" id="pays_id" ng-model="pays_id">
+        <option value="" disabled> Quel niveau de gamme ?</option>
+        <option [value]="pays.id" *ngFor="let pays of listPays"> {{pays.pays_nom}} </option>
+      </select>
+      <div *ngIf="pays_id.invalid" class="alertFormulaire">
+        <div *ngIf="pays_id.errors.required">
+          Veuillez sélectioner un pays.
+        </div>
+      </div>
+    </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
         <label for="pers_mail" class="labelForm">Mail</label>
@@ -104,7 +116,6 @@
     <div class="section flexCenter flexWrap">
       <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
       <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api" type="submit"><i class="fas fa-plus fa-lg"></i></button>
-      <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
       <button class="button" (click)="onDelete()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-trash-alt fa-lg"></i></button>
     </div>
 

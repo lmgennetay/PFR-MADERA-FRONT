@@ -12,6 +12,5 @@ export class ConfigService {
     this.config.api = environment.config.api;
     this.config.url = environment.config.url;
   }
-
 }
 

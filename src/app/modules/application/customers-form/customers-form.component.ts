@@ -10,6 +10,8 @@ import { PageFormComponent } from '../../../components/page-form/page-form.compo
   styleUrls: ['./customers-form.component.css']
 })
 export class CustomersFormComponent extends PageFormComponent {
+  listPays: any;
+  listPaysUrl: any;
 
   constructor(injector: Injector, private location: Location) {
     super(injector);
@@ -19,10 +21,17 @@ export class CustomersFormComponent extends PageFormComponent {
     this.endpoint = 'client';
     this.titleForm = 'Formulaire Client';
     this.icon = 'fas fa-file-medical';
+    this.listPays = '';
+    this.listPaysUrl = 'pays/liste';
     super.initialize();
   }
 
   createForm() {
+    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listPaysUrl).subscribe(data => {
+      this.listPays = data.listePays;
+      this.setFormValue(this.listPays);
+    });
+
     this.form = this.fb.group({
       id: null,
       pers_nom: [null,
@@ -54,6 +63,8 @@ export class CustomersFormComponent extends PageFormComponent {
       pers_sexe: [null,
         [Validators.required]
       ],
+      listPays: null,
+      pays_id: null,
     });
     super.createForm();
   }
@@ -68,6 +79,8 @@ export class CustomersFormComponent extends PageFormComponent {
     this.item.adre_ville = null;
     this.item.adre_cp = null;
     this.item.adre_region = null;
+    this.listPays = null;
+    this.item.pays_id = null;
     this.item.pers_mail = null;
     this.item.pers_tel = null;
     this.item.pers_sexe = null;
@@ -84,6 +97,8 @@ export class CustomersFormComponent extends PageFormComponent {
     this.form.controls.adre_ville.setValue(item.adre_ville);
     this.form.controls.adre_cp.setValue(item.adre_cp);
     this.form.controls.adre_region.setValue(item.adre_region);
+    this.form.controls.listPays.setValue(item.listPays);
+    this.form.controls.pays_id.setValue(item.pays_id);
     this.form.controls.pers_mail.setValue(item.pers_mail);
     this.form.controls.pers_tel.setValue(item.pers_tel);
     this.form.controls.pers_sexe.setValue(item.pers_sexe);
@@ -92,22 +107,21 @@ export class CustomersFormComponent extends PageFormComponent {
   onDelete() {
     let res: any;
     res = super.onDelete();
-    console.log(res);
     this.router.navigate(['clients']);
   }
 
   onUpdate() {
     let res: any;
-    this.item = this.form.value;
-    this.item.id = this.item.comm_id;
     delete this.item.comm_confirm_mdp;
     res = super.onUpdate();
-    console.log(this.item);
     this.router.navigate(['clients']);
   }
 
   get id() {
     return this.form.get('id');
+  }
+  get comm_id() {
+    return this.form.get('comm_id');
   }
   get pers_nom() {
     return this.form.get('pers_nom');
@@ -132,6 +146,9 @@ export class CustomersFormComponent extends PageFormComponent {
   }
   get adre_region() {
     return this.form.get('adre_region');
+  }
+  get pays_id() {
+    return this.form.get('pays_id');
   }
   get pers_mail() {
     return this.form.get('pers_mail');

@@ -64,7 +64,7 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_sexe" class="labelForm">Genre</label>
-      <select class="inputTexteContenu" name="genre"  formControlName="pers_sexe" id="pers_sexe" ng-model="genre">
+      <select class="inputTexteContenu" name="genre" formControlName="pers_sexe" id="pers_sexe" ng-model="genre">
         <option value="" disabled> Quel est votre sexe ?</option>
         <option value="homme" >Homme</option>
         <option value="femme" >Femme</option>
@@ -79,7 +79,6 @@
     <div class="section flexCenter flexWrap">
       <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
       <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api" type="submit"><i class="fas fa-plus fa-lg"></i></button>
-      <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
       <button class="button" (click)="onDelete()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-trash-alt fa-lg"></i></button>
     </div>
   </form>

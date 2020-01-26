@@ -45,7 +45,7 @@ export class UsersFormComponent extends PageFormComponent {
       ],
       comm_confirm_mdp: [null,
         [Validators.required]
-      ],
+      ]
     });
     super.createForm();
   }
@@ -63,8 +63,7 @@ export class UsersFormComponent extends PageFormComponent {
   }
 
   setFormValue(item: any) {
-    item.id = item.comm_id;
-    this.form.controls.id.setValue(item.comm_id);
+    this.form.controls.id.setValue(item.id);
     this.form.controls.pers_nom.setValue(item.pers_nom);
     this.form.controls.pers_prenom.setValue(item.pers_prenom);
     this.form.controls.pers_mail.setValue(item.pers_mail);
@@ -78,17 +77,15 @@ export class UsersFormComponent extends PageFormComponent {
     let res: any;
     res = super.onDelete();
     console.log(res);
-    this.router.navigate(['users']);
+    this.router.navigate(['commercials']);
   }
 
   onUpdate() {
     let res: any;
-    this.item = this.form.value;
-    this.item.id = this.item.comm_id;
     delete this.item.comm_confirm_mdp;
     res = super.onUpdate();
     console.log(this.item);
-    this.router.navigate(['users']);
+    this.router.navigate(['commercials']);
   }
 
   get id() {

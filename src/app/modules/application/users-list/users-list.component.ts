@@ -15,9 +15,9 @@ export class UsersListComponent extends PageListComponent {
 
   initialize() {
 
-    this.endpoint = 'commercial';
+    this.endpoint = 'commercials';
     this.link = 'user';
-    this.linkRoute = 'users';
+    this.linkRoute = 'commercials';
 
     this.placeholder = 'Utilisateur...';
     this.results = 'utilisateurs trouvés';

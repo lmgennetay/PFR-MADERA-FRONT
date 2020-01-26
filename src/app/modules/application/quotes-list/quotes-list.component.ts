@@ -17,7 +17,7 @@ export class QuotesListComponent extends PageListComponent {
 
     this.endpoint = 'deviss';
     this.link = 'devis';
-    this.linkRoute = 'quotes';
+    this.linkRoute = 'devis';
 
     this.placeholder = 'devis...';
     this.results = 'devis trouvés';
