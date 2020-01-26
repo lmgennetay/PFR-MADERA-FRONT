@@ -56,6 +56,10 @@ const routes: Routes = [
     path: 'products',
     loadChildren: () => import('./modules/application/products-form/products-form.module').then(mod => mod.ProductsFormModule)
   },
+  {
+    path: 'modules',
+    loadChildren: () => import('./modules/application/modules-form-add/modules-form-add.module').then(mod => mod.ModulesFormAddModule)
+  },
   { path: '**', component: NotFoundComponent }
 ];
 

@@ -1,0 +1,13 @@
+.form button:disabled {
+  background: #DDDDDD;
+  color:white;
+}
+
+#personnaliserModule {
+  width: 30px; 
+  height: 30px;
+}
+
+select:disabled, .hiddenLabel {
+  display: none;
+}

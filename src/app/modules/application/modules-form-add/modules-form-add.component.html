@@ -1,0 +1,104 @@
+<div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-4">
+  <div class="titreSection">MODULE</div>
+  <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
+    <div class="separateurHorizontal">&nbsp;</div>
+    <!-- Familles de module -->
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="fami_modu_id" class="labelForm">Famille de module</label>
+      <select class="inputTexteContenu" name="fami_modu_id"  formControlName="fami_modu_id" id="fami_modu_id" ng-model="fami_modu_id">
+        <option value="" disabled> Quelle famille de module ?</option>
+        <!-- <option [value]="FamilleModule.id" *ngFor="let familleModule of listFamilleModules"> {{module.modu_nom}} {{module.modu_nom}}</option> -->
+      </select>
+      <div *ngIf="fami_modu_id.invalid" class="alertFormulaire">
+        <div *ngIf="fami_modu_id.errors.required">
+          Veuillez sélectionner une famille de module.
+        </div>
+      </div>
+    </div>
+    <!-- Modules -->
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="modu_id" class="labelForm">Module</label>
+      <select class="inputTexteContenu" name="modu_id"  formControlName="modu_id" id="modu_id" ng-model="modu_id">
+        <option value="" disabled> Quel module ?</option>
+        <!-- <option [value]="module.id" *ngFor="let module of listModules"> {{module.*}} </option> -->
+      </select>
+      <div *ngIf="modu_id.invalid" class="alertFormulaire">
+        <div *ngIf="modu_id.errors.required">
+          Veuillez sélectionner un module.
+        </div>
+      </div>
+    </div>
+    <!-- Nom du module -->
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="modu_nom" class="labelForm">Nom du module</label>
+      <input type="text" name="modu_nom" formControlName="modu_nom" id="modu_nom" class="inputTexteContenu" maxlength="100">
+    </div>
+    <br>
+    <div class="titreSection">PERSONNALISATION DU MODULE</div>
+    <!-- Activer la personnalisation du module -->
+    <div class="flexStart inputTexte inputTextTaille2">
+      <input type="checkbox" id="personnaliserModule">
+      <label for="personnaliserModule"> Personnaliser le module</label>
+    </div>
+    <!-- isolant -->
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="isol_id" class="labelForm hiddenLabel">Isolant</label>
+      <select class="inputTexteContenu" name="isol_id"  formControlName="isol_id" id="isol_id" ng-model="isol_id" disabled>
+        <option value="" disabled> Quel isolant ?</option>
+        <!-- <option [value]="isolant.id" *ngFor="let isolant of listIsolants"> {{module.modu_nom}} {{module.modu_nom}}</option> -->
+      </select>
+      <div *ngIf="isol_id.invalid" class="alertFormulaire">
+        <div *ngIf="isol_id.errors.required">
+          Veuillez sélectionner un isolant.
+        </div>
+      </div>
+    </div>
+    <!-- Finition intérieure -->
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="fini_inte_id" class="labelForm hiddenLabel">Finition intérieure</label>
+      <select class="inputTexteContenu" name="fini_inte_id"  formControlName="fini_inte_id" id="fini_inte_id" ng-model="fini_inte_id" disabled>
+        <option value="" disabled> Quelle finition intérieure ?</option>
+        <!-- <option [value]="FinitionInterieure.id" *ngFor="let finitionInterieure of listFinitionsInterieures"> {{module.modu_nom}} {{module.modu_nom}}</option> -->
+      </select>
+      <div *ngIf="fini_inte_id.invalid" class="alertFormulaire">
+        <div *ngIf="fini_inte_id.errors.required">
+          Veuillez sélectionner une finition intérieure.
+        </div>
+      </div>
+    </div>
+    <!-- Finition extérieure -->
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="fini_exte_id" class="labelForm hiddenLabel">Finition extérieure</label>
+      <select class="inputTexteContenu" name="fini_exte_id"  formControlName="fini_exte_id" id="fini_exte_id" ng-model="fini_exte_id" disabled>
+        <option value="" disabled> Quelle finition extérieure ?</option>
+        <!-- <option [value]="FinitionExterieure.id" *ngFor="let finitionExterieure of listFinitionsExterieures"> {{module.modu_nom}} {{module.modu_nom}}</option> -->
+      </select>
+      <div *ngIf="fini_exte_id.invalid" class="alertFormulaire">
+        <div *ngIf="fini_exte_id.errors.required">
+          Veuillez sélectionner une finition extérieure.
+        </div>
+      </div>
+    </div>
+    <!-- Sélection de la coupe de principe -->
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="coup_princ_id" class="labelForm hiddenLabel">Sélection de la coupe de principe</label>
+      <select class="inputTexteContenu" name="coup_princ_id"  formControlName="coup_princ_id" id="coup_princ_id" ng-model="coup_princ_id" disabled>
+        <option value="" disabled> Quelle coupe de principe ?</option>
+        <!-- <option [value]="CoupePrincipe.id" *ngFor="let CoupePrincipe of listCoupesPrincipe"> {{module.modu_nom}} {{module.modu_nom}}</option> -->
+      </select>
+      <div *ngIf="coup_princ_id.invalid" class="alertFormulaire">
+        <div *ngIf="coup_princ_id.errors.required">
+          Veuillez sélectionner une coupe de principe.
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="separateurHorizontal">&nbsp;</div>
+    <div class="section flexCenter flexWrap">
+      <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
+      <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api" type="submit"><i class="fas fa-plus fa-lg"></i></button>
+      <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
+      <button class="button" (click)="onDelete()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-trash-alt fa-lg"></i></button>
+    </div>
+  </form>
+</div>
