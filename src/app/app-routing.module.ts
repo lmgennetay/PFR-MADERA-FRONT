@@ -57,8 +57,12 @@ const routes: Routes = [
     loadChildren: () => import('./modules/application/products-form/products-form.module').then(mod => mod.ProductsFormModule)
   },
   {
-    path: 'modules',
+    path: 'ajoutModule',
     loadChildren: () => import('./modules/application/modules-form-add/modules-form-add.module').then(mod => mod.ModulesFormAddModule)
+  },
+  {
+    path: 'ajoutCaracteristiquesModule',
+    loadChildren: () => import('./modules/application/modules-form-carac-add/modules-form-carac-add.module').then(mod => mod.ModulesFormCaracAddModule)
   },
   { path: '**', component: NotFoundComponent }
 ];

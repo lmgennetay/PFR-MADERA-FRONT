@@ -12,6 +12,8 @@ import { Location } from '@angular/common';
 })
 
 export class ModulesFormAddComponent extends PageFormComponent {
+  public hiddenCustomOptions = false;
+
   listModules: any;
   listModulesUrl: any;
   listFamillesModules: any;
@@ -27,6 +29,14 @@ export class ModulesFormAddComponent extends PageFormComponent {
 
   constructor(injector: Injector, private location: Location) {
     super(injector);
+  }
+
+  showCustomOptions() {
+    if (this.hiddenCustomOptions == false) {
+      this.hiddenCustomOptions = true;
+    } else {
+      this.hiddenCustomOptions = false;
+    }
   }
 
   initialize() {
