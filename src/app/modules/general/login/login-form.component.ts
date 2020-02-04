@@ -24,7 +24,7 @@ export class LoginFormComponent extends PageFormComponent {
   onLogin() {
     localStorage.clear();
     super.login();
-    this.resetForm();
+    // this.resetForm();
   }
   createForm() {
     this.form = this.fb.group({
