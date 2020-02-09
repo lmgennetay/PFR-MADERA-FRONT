@@ -29,6 +29,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/application/quotes-list/quotes-list.module').then(mod => mod.QuotesListModule)
   },
   {
+    path: 'devisRecap/:id',
+    loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
+  },
+  {
     path: 'ajoutDevis',
     loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
   },
@@ -51,6 +55,18 @@ const routes: Routes = [
   {
     path: 'devis/:id',
     loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
+  },
+  {
+    path: 'devis/view/:id',
+    loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
+  },
+  {
+    path: 'devis/view/estimatif/:id',
+    loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
+  },
+  {
+    path: 'devis/view/detail/:id',
+    loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
   },
   {
     path: 'products',

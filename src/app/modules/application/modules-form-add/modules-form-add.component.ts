@@ -61,37 +61,31 @@ export class ModulesFormAddComponent extends PageFormComponent {
   createForm() {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listModulesUrl).subscribe(data => {
       this.listModules = data.listModule;
-      console.log(this.listModules);
       this.setFormValue(this.listModules);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFamillesModulesUrl).subscribe(data => {
       this.listFamillesModules = data.listeFamilleModule;
-      console.log(this.listFamillesModules);
       this.setFormValue(this.listFamillesModules);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listIsolantsUrl).subscribe(data => {
       this.listIsolants = data.listIsolant;
-      console.log( this.listIsolants);
       this.setFormValue(this.listIsolants);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFinitionsInterieuresUrl).subscribe(data => {
       this.listFinitionsInterieures = data.listFinitionInterieure;
-      console.log(this.listFinitionsInterieures);
       this.setFormValue(this.listFinitionsInterieures);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFinitionsExterieuresUrl).subscribe(data => {
       this.listFinitionsExterieures = data.listFinitionExterieure;
-      console.log(this.listFinitionsExterieures);
       this.setFormValue(this.listFinitionsExterieures);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listCoupesPrincipeUrl).subscribe(data => {
       this.listCoupesPrincipe = data.listCoupePrincipe;
-      console.log(this.listCoupesPrincipe);
       this.setFormValue(this.listCoupesPrincipe);
     });
 

@@ -51,7 +51,6 @@ export class ProductsFormComponent extends PageFormComponent {
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listGammesUrl).subscribe(data => {
       this.listGammes = data.listeGammes;
-      console.log(data);
       this.setFormValue(this.listGammes);
     });
 

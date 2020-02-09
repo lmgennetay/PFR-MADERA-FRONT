@@ -41,7 +41,6 @@ export class ModulesFormCaracAddComponent extends PageFormComponent {
   createForm() {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listTypesAnglesUrl).subscribe(data => {
       this.listTypesAngles = data.listModule;
-      console.log(this.listTypesAngles);
       this.setFormValue(this.listTypesAngles);
     });
 

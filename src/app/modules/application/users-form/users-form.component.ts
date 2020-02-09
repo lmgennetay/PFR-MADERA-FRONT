@@ -76,7 +76,6 @@ export class UsersFormComponent extends PageFormComponent {
   onDelete() {
     let res: any;
     res = super.onDelete();
-    console.log(res);
     this.router.navigate(['commercials']);
   }
 
@@ -84,7 +83,6 @@ export class UsersFormComponent extends PageFormComponent {
     let res: any;
     delete this.item.comm_confirm_mdp;
     res = super.onUpdate();
-    console.log(this.item);
     this.router.navigate(['commercials']);
   }
 

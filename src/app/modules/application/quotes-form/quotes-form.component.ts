@@ -64,9 +64,7 @@ export class QuotesFormComponent extends PageFormComponent {
     this.form = this.fb.group({
       id: null,
       comm_id: null,
-      devi_nom:[null,
-        [Validators.required]
-      ],
+      devi_nom: null,
       devi_date: null,
       listClients: null,
       clie_id: null,
@@ -88,9 +86,11 @@ export class QuotesFormComponent extends PageFormComponent {
       adre_rue: null,
       adre_complement: null,
       adre_info: null,
+      devi_prix: 0.00,
     });
     super.createForm();
   }
+
   resetForm() {
     this.item.id = null;
     this.item.comm_id = localStorage.id;
@@ -110,6 +110,7 @@ export class QuotesFormComponent extends PageFormComponent {
     this.item.adre_rue = null;
     this.item.adre_commplement = null;
     this.item.adre_info = null;
+    this.item.devi_prix = 0.00;
     super.resetForm();
   }
 
@@ -132,6 +133,7 @@ export class QuotesFormComponent extends PageFormComponent {
     this.form.controls.adre_rue.setValue(item.adre_rue);
     this.form.controls.adre_complement.setValue(item.adre_complement);
     this.form.controls.adre_info.setValue(item.adre_info);
+    this.form.controls.devi_prix.setValue(item.devi_prix);
     super.setFormValue(item);
   }
 
@@ -177,7 +179,13 @@ export class QuotesFormComponent extends PageFormComponent {
   get adre_info() {
     return this.form.get('adre_info');
   }
+  get devi_prix() {
+    return this.form.get('devi_prix');
+  }
   backClicked() {
     this.location.back();
+  }
+  goView() {
+    this.router.navigateByUrl('/devis/view/' +  this.item.id);
   }
 }
