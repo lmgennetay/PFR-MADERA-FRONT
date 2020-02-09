@@ -80,8 +80,8 @@
 
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="section flexCenter flexWrap">
-        <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
-        <a class="button" target="_blank" href="http://127.0.0.1:8000/PFR-MADERA/devis/dossier_technique/{{ id }}"><i class="fas fa-file-invoice fa-lg"></i></a>
-        <a class="button" target="_blank" href="http://127.0.0.1:8000/PFR-MADERA/devis/dossier_estimatif/{{ id }}"><i class="fas fa-file-invoice-dollar fa-lg"></i></a>
+        <button class="button" (click)="backClicked()" data-toggle="tooltip" title="Retour"><i class="fas fa-arrow-left fa-lg"></i></button>
+        <a class="button" target="_blank" href="http://127.0.0.1:8000/PFR-MADERA/devis/dossier_technique/{{ id }}" data-toggle="tooltip" title="Dossier technique"><i class="fas fa-file-invoice fa-lg"></i></a>
+        <a class="button" target="_blank" href="http://127.0.0.1:8000/PFR-MADERA/devis/dossier_estimatif/{{ id }}" data-toggle="tooltip" title="Dossier estimatif"><i class="fas fa-file-invoice-dollar fa-lg"></i></a>
     </div>
 </div>
