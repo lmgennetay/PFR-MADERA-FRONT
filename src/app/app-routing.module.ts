@@ -4,13 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AccueilComponent } from './modules/general/accueil/accueil.component';
 import { LoginFormComponent } from './modules/general/login/login-Form.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
-import { GestionClientMenuComponent } from './modules/general/gestion-client-menu/gestion-client-menu.component';
+import { ConfigrationMenuComponent } from './modules/general/configuration-menu/configration-menu.component';
 import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/gestion-devis-menu.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./modules/general/login/login-form.module').then(mod => mod.LoginFormModule)},
   { path: 'accueil', component: AccueilComponent },
-  { path: 'gestionClient', component: GestionClientMenuComponent },
+  { path: 'configurateur', component: ConfigrationMenuComponent },
   { path: 'gestionDevis', component: GestionDevisMenuComponent },
   {
     path: 'login',
