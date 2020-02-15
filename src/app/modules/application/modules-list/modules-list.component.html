@@ -1,5 +1,5 @@
 <div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-4">
-  <h1>GESTION DEVIS</h1><br>
+  <h1>Liste des modules</h1><br>
   <app-search-bar [searchField]="searchField" [itemsCount]="itemsCount" [icon]="icon" [results]="results"
     [placeholder]="placeholder" (search)="onSearch($event)"></app-search-bar>
 
@@ -9,21 +9,16 @@
     </div>
   </div>
 
-  <a href="#" routerLink="/ajoutDevis" style="border: 0 solid ">
+  <a href="#" routerLink="/ajoutModule" style="border: 0 solid ">
     <button [disabled]="!api" class="button">
-      <i class="fas fa-plus fa-lg"></i> Créer un devis
+      <i class="fas fa-plus fa-lg"></i> Ajouter un module
     </button>
   </a>
 
   <div class="row" *ngIf="loaded && itemsCount!=0">
-    <!-- <div class="col mt-4"> -->
-
-      <app-grid [items]="items.listeDevis" [columns]="columns" [link]="link"></app-grid>
-
+      <app-grid [items]="items.listeModule" [columns]="columns" [link]="link"></app-grid>
       <app-pagination [count]="itemsCount" [page]="itemsPage" [perPage]="itemsPerPage"
         (changePage)="onChangePage($event)">
       </app-pagination>
-
-    <!-- </div> -->
   </div>
 </div>

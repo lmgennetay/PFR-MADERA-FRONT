@@ -5,13 +5,13 @@ import { PageFormComponent } from '../../../components/page-form/page-form.compo
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-modules-form-add',
+  selector: 'app-modules-form',
   templateUrl: './modules-form.component.html',
   styleUrls: ['./modules-form.component.css'],
   providers: [DatePipe]
 })
 
-export class ModulesFormAddComponent extends PageFormComponent {
+export class ModulesFormComponent extends PageFormComponent {
   public hiddenCustomOptions = false;
 
   listModules: any;
@@ -32,7 +32,7 @@ export class ModulesFormAddComponent extends PageFormComponent {
   }
 
   showCustomOptions() {
-    if (this.hiddenCustomOptions == false) {
+    if (this.hiddenCustomOptions === false) {
       this.hiddenCustomOptions = true;
     } else {
       this.hiddenCustomOptions = false;
@@ -198,5 +198,8 @@ export class ModulesFormAddComponent extends PageFormComponent {
   }
   backClicked() {
     this.location.back();
+  }
+  goCarac(){
+    this.router.navigateByUrl('/CaracteristiquesModule/' + this.item.id);
   }
 }

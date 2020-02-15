@@ -188,4 +188,7 @@ export class QuotesFormComponent extends PageFormComponent {
   goView() {
     this.router.navigateByUrl('/devis/view/' +  this.item.id);
   }
+  goModule() {
+    this.router.navigateByUrl('/modules/devis/' + this.item.id);
+  }
 }

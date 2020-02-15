@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { QuotesListComponent } from './quotes-list.component';
-import { QuotesListRoutingModule } from './quotes-list-routing.module';
+import { ModulesListComponent } from './modules-list.component';
+import { ModulesListRoutingModule } from './modules-list-routing.module';
 
 import { GridModule } from '../../../components/grid/grid.module';
 import { PaginationModule } from '../../../components/pagination/pagination.module';
@@ -12,21 +12,21 @@ import { SearchResultModule } from '../../../components/search-result/search-res
 
 @NgModule({
   declarations: [
-    QuotesListComponent,
+    ModulesListComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    QuotesListRoutingModule,
+    ModulesListRoutingModule,
     GridModule,
     PaginationModule,
     SearchBarModule,
     SearchResultModule,
   ],
   exports: [
-    QuotesListComponent
+    ModulesListComponent
   ],
   providers: [
   ],
 })
-export class QuotesListModule { }
+export class ModulesListModule { }

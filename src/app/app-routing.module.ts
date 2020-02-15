@@ -73,14 +73,28 @@ const routes: Routes = [
     loadChildren: () => import('./modules/application/products-form/products-form.module').then(mod => mod.ProductsFormModule)
   },
   {
+    path: 'modules/devis/:id',
+    loadChildren: () => import('./modules/application/modules-list/modules-list.module').then(mod => mod.ModulesListModule)
+  },
+  {
+    path: 'module/:id',
+    loadChildren: () => import('./modules/application/modules-form/modules-form.module').then(mod => mod.ModulesFormModule)
+  },
+  {
     path: 'ajoutModule',
-    loadChildren: () => import('./modules/application/modules-form-add/modules-form-add.module').then(mod => mod.ModulesFormAddModule)
+    loadChildren: () => import('./modules/application/modules-form/modules-form.module').then(mod => mod.ModulesFormModule)
+  },
+  {
+    path: 'CaracteristiquesModule',
+    loadChildren: () => import('./modules/application/modules-form-carac/modules-form-carac.module').then(mod => mod.ModulesFormCaracModule)
   },
   {
     path: 'ajoutCaracteristiquesModule',
-    loadChildren: () => import('./modules/application/modules-form-carac-add/modules-form-carac-add.module').then(mod => mod.ModulesFormCaracAddModule)
+    loadChildren: () => import('./modules/application/modules-form-carac/modules-form-carac.module').then(mod => mod.ModulesFormCaracModule)
   },
-  { path: '**', component: NotFoundComponent }
+  {
+    path: '**', component: NotFoundComponent
+  }
 ];
 
 @NgModule({

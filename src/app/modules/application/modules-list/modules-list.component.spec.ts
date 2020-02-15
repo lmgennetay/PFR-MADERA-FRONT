@@ -10,11 +10,11 @@ import { GridModule } from '../../../components/grid/grid.module';
 import { PaginationModule } from '../../../components/pagination/pagination.module';
 import { ConfigService } from '../../../services/config/config.service';
 
-import { QuotesListComponent } from './quotes-list.component';
+import { ModulesListComponent } from './modules-list.component';
 
-describe('QuotesListComponent', () => {
-  let component: QuotesListComponent;
-  let fixture: ComponentFixture<QuotesListComponent>;
+describe('ModulesListComponent', () => {
+  let component: ModulesListComponent;
+  let fixture: ComponentFixture<ModulesListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -32,14 +32,14 @@ describe('QuotesListComponent', () => {
         ConfigService,
       ],
       declarations: [
-        QuotesListComponent
+        ModulesListComponent
       ]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QuotesListComponent);
+    fixture = TestBed.createComponent(ModulesListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

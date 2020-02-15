@@ -4,10 +4,10 @@ import { PageListComponent } from '../../../components/page-list/page-list.compo
 
 @Component({
   selector: 'app-quotes-list',
-  templateUrl: './quotes-list.component.html',
-  styleUrls: ['./quotes-list.component.css']
+  templateUrl: './modules-list.component.html',
+  styleUrls: ['./modules-list.component.css']
 })
-export class QuotesListComponent extends PageListComponent {
+export class ModulesListComponent extends PageListComponent {
 
   constructor(injector: Injector) {
     super(injector);
@@ -15,14 +15,14 @@ export class QuotesListComponent extends PageListComponent {
 
   initialize() {
 
-    this.endpoint = 'deviss';
-    this.link = 'devis';
-    this.linkRoute = 'devis';
+    this.endpoint = 'module/liste/devis/1';
+    this.link = 'module';
+    this.linkRoute = 'modules';
 
-    this.placeholder = 'devis...';
-    this.results = 'devis trouvés';
-    this.found = 'quotes';
-    this.creation = 'Quote';
+    this.placeholder = 'modules...';
+    this.results = 'modules trouvés';
+    this.found = 'modules';
+    this.creation = 'Modules';
 
     // this.loaded = false;
 
@@ -41,22 +41,16 @@ export class QuotesListComponent extends PageListComponent {
         data: { field: 'id', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
       },
       {
-        title: { caption: 'Nom', class: 'text-primary font-weight-bold text-center' },
-        data: { field: 'devi_nom', class: 'text-primary font-weight-bold text-center' }
-      },
-      {
-        type: 'date',
-        title: { caption: 'Date', class: 'text-primary font-weight-bold text-center' },
-        data: { field: 'devi_date' , class: 'text-primary font-weight-bold text-center' }
+        title: { caption: 'Nom', class: 'text-primary font-weight-bold' },
+        data: { field: 'modu_nom', class: 'text-primary font-weight-bold' }
       },
       {
         type: 'euro',
-        title: { caption: 'Prix', class: 'text-primary font-weight-bold text-center' },
-        data: { field: 'devi_prix', class: 'text-primary font-weight-bold text-center' }
+        title: { caption: 'Prix', class: 'text-primary font-weight-bold text-right' },
+        data: { field: 'modu_prix_unitaire', class: 'text-primary font-weight-bold text-right' }
       }
     ];
 
     super.initialize();
   }
-
 }

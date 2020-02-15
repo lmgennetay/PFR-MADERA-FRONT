@@ -37,7 +37,7 @@ app-header {
 .appComponent, app-login, app-accueil, app-client, app-customer, app-quotes-form,
 app-gestion-client-menu, app-gestion-devis-menu,
 app-quotes-list, app-search-bar, app-user, app-users-list, app-grid,
-app-modules-form-add {
+app-modules-form {
   width: 100%;
 }
 
@@ -199,9 +199,9 @@ a {
 }
 
 .flexCenter, app-login, app-accueil, app-client, app-customer, app-quotes-form,
-app-gestion-client-menu, app-gestion-devis-menu,
+app-gestion-client-menu, app-gestion-devis-menu, app-modules-form, app-modules-list,
 app-quotes-list, app-search-bar, app-user, app-users-list, app-grid,
-app-modules-form-add {
+app-modules-form {
   display: flex;
   justify-content: center;
   align-items: center;
