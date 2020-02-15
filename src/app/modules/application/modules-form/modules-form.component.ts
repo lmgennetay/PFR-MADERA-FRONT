@@ -6,8 +6,8 @@ import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-modules-form-add',
-  templateUrl: './modules-form-add.component.html',
-  styleUrls: ['./modules-form-add.component.css'],
+  templateUrl: './modules-form.component.html',
+  styleUrls: ['./modules-form.component.css'],
   providers: [DatePipe]
 })
 
