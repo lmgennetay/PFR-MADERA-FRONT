@@ -3,6 +3,7 @@ import { Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PageFormComponent } from '../../../components/page-form/page-form.component';
 import { Location } from '@angular/common';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-quotes-form',
@@ -26,6 +27,8 @@ export class QuotesViewComponent extends PageFormComponent {
   listEtatsUrl: any;
   listEtapes: any;
   listEtapesUrl: any;
+  listModules: any;
+  listModulesUrl: any;
   id: any;
   comm_id: any;
   devi_nom: any;
@@ -54,11 +57,13 @@ export class QuotesViewComponent extends PageFormComponent {
   commercialN: any;
   commercialP: any;
 
+
   constructor(injector: Injector, private location: Location) {
     super(injector);
   }
 
   initialize() {
+    this.id = this.route.snapshot.paramMap.get('id');
     this.endpoint = 'devis';
     this.titleForm = 'Formulaire Devis';
     this.icon = 'fas fa-file-medical';
@@ -76,6 +81,8 @@ export class QuotesViewComponent extends PageFormComponent {
     this.listEtapesUrl = 'etapes';
     this.listEtats = '';
     this.listEtatsUrl = 'etats';
+    this.listModules = '';
+    this.listModulesUrl = 'module/liste/devis/' + this.id;
     super.initialize();
   }
 
@@ -114,6 +121,11 @@ export class QuotesViewComponent extends PageFormComponent {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listEtapesUrl).subscribe(data => {
       this.listEtapes = data.listeEtape;
       this.setFormValue(this.listEtapes);
+    });
+
+    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listModulesUrl).subscribe(data => {
+      this.listModules = data.listeModule;
+      this.setFormValue(this.listModules);
     });
   }
 

@@ -199,7 +199,7 @@ export class ModulesFormComponent extends PageFormComponent {
   backClicked() {
     this.location.back();
   }
-  goCarac(){
+  goCarac() {
     this.router.navigateByUrl('/CaracteristiquesModule/' + this.item.id);
   }
 }

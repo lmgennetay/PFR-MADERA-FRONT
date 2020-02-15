@@ -29,8 +29,28 @@ const routes: Routes = [
     loadChildren: () => import('./modules/application/quotes-list/quotes-list.module').then(mod => mod.QuotesListModule)
   },
   {
+    path: 'client/devis/:id',
+    loadChildren: () => import('./modules/application/quotes-list/quotes-list.module').then(mod => mod.QuotesListModule)
+  },
+  {
+    path: 'devis/:id',
+    loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
+  },
+  {
     path: 'devisRecap/:id',
     loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
+  },
+  {
+    path: 'devis/view/:id',
+      loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
+  },
+  {
+    path: 'devis/view/estimatif/:id',
+      loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
+  },
+  {
+    path: 'devis/view/detail/:id',
+      loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
   },
   {
     path: 'ajoutDevis',
@@ -51,26 +71,6 @@ const routes: Routes = [
   {
     path: 'user/:id',
     loadChildren: () => import('./modules/application/users-form/users-form.module').then(mod => mod.UsersFormModule)
-  },
-  {
-    path: 'devis/:id',
-    loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
-  },
-  {
-    path: 'devis/view/:id',
-    loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
-  },
-  {
-    path: 'devis/view/estimatif/:id',
-    loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
-  },
-  {
-    path: 'devis/view/detail/:id',
-    loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
-  },
-  {
-    path: 'products',
-    loadChildren: () => import('./modules/application/products-form/products-form.module').then(mod => mod.ProductsFormModule)
   },
   {
     path: 'modules/devis/:id',
