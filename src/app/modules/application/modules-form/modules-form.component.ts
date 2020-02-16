@@ -91,111 +91,88 @@ export class ModulesFormComponent extends PageFormComponent {
 
     this.form = this.fb.group({
       id: null,
-      listModules: [null,
+      listFamillesModules: null,
+      fami_modu_id: [null,
+        [Validators.required]
+      ],
+      listModules: null,
+      modu_id: [null,
         [Validators.required]
       ],
       modu_nom: [null,
         [Validators.required]
       ],
-      listIsolants: [null,
-        [Validators.required]
-      ],
-      maison_id: [null,
-        [Validators.required]
-      ],
-      listFamillesModules: [null,
-        [Validators.required]
-      ],
-      gamm_id: [null,
-        [Validators.required]
-      ],
+      listIsolants: null,
+      isol_id: null,
       listFinitionsInterieures: null,
-      pays_id: null,
-      adre_region: null,
-      adre_ville:  null,
-      adre_cp: null,
-      adre_rue: null,
-      adre_commplement: null,
-      adre_info: null
+      fini_inte_id: null,
+      listFinitionsExterieures: null,
+      fini_exte_id: null,
+      listCoupesPrincipe: null,
+      coup_princ_id: null
     });
     super.createForm();
   }
   resetForm() {
     this.item.id = null;
-    this.item.devi_nom = null;
-    this.listModules = null;
-    this.item.clie_id = null;
-    this.listIsolants = null;
-    this.item.maison_id = null;
     this.listFamillesModules = null;
-    this.item.gamm_id = null;
+    this.item.fami_modu_id = null;
+    this.listModules = null;
+    this.item.modu_id = null;
+    this.item.modu_nom = null;
+    this.listIsolants = null;
+    this.item.isol_id = null;
     this.listFinitionsInterieures = null;
-    this.item.pays_id = null;
-    this.item.adre_region = null;
-    this.item.adre_ville = null;
-    this.item.adre_cp = null;
-    this.item.adre_rue = null;
-    this.item.adre_commplement = null;
-    this.item.adre_info = null;
+    this.item.fini_inte_id = null;
+    this.listFinitionsExterieures = null;
+    this.item.fini_exte_id = null;
+    this.listCoupesPrincipe = null;
+    this.item.coup_princ_id = null;
     super.resetForm();
   }
 
   setFormValue(item: any) {
     this.form.controls.id.setValue(item.id);
-    this.form.controls.devi_nom.setValue(item.devi_nom);
-    this.form.controls.listModules.setValue(item.listModules);
-    this.form.controls.clie_id.setValue(item.clie_id);
-    this.form.controls.listIsolants.setValue(item.listIsolants);
-    this.form.controls.maison_id.setValue(item.maison_id);
     this.form.controls.listFamillesModules.setValue(item.listFamillesModules);
-    this.form.controls.gamm_id.setValue(item.gamm_id);
+    this.form.controls.fami_modu_id.setValue(item.fami_modu_id);
+    this.form.controls.listModules.setValue(item.listModules);
+    this.form.controls.modu_id.setValue(item.modu_id);
+    this.form.controls.listIsolants.setValue(item.listIsolants);
+    this.form.controls.isol_id.setValue(item.isol_id);
     this.form.controls.listFinitionsInterieures.setValue(item.listFinitionsInterieures);
-    this.form.controls.pays_id.setValue(item.pays_id);
-    this.form.controls.adre_region.setValue(item.adre_region);
-    this.form.controls.adre_ville.setValue(item.adre_ville);
-    this.form.controls.adre_cp.setValue(item.adre_cp);
-    this.form.controls.adre_rue.setValue(item.adre_rue);
-    this.form.controls.adre_commplement.setValue(item.adre_commplement);
-    this.form.controls.adre_info.setValue(item.adre_info);
+    this.form.controls.fini_inte_id.setValue(item.fini_inte_id);
+    this.form.controls.listFinitionExterieure.setValue(item.listFinitionExterieure);
+    this.form.controls.fini_exte_id.setValue(item.fini_exte_id);
+    this.form.controls.listCoupePrincipe.setValue(item.listCoupePrincipe);
+    this.form.controls.coup_princ_id.setValue(item.coup_princ_id);
     super.setFormValue(item);
   }
 
   get id() {
     return this.form.get('id');
   }
-  get devi_nom() {
-    return this.form.get('devi_nom');
+  get fami_modu_id() {
+    return this.form.get('fami_modu_id');
   }
-  get clie_id() {
-    return this.form.get('clie_id');
+  get modu_id() {
+    return this.form.get('modu_id');
   }
-  get maison_id() {
-    return this.form.get('maison_id');
+  get modu_nom() {
+    return this.form.get('modu_nom');
   }
-  get gamm_id() {
-    return this.form.get('gamm_id');
+  get isol_id() {
+    return this.form.get('isol_id');
   }
-  get pays_id() {
-    return this.form.get('pays_id');
+  get fini_inte_id() {
+    return this.form.get('fini_inte_id');
   }
-  get adre_region() {
-    return this.form.get('adre_region');
+  get fini_exte_id() {
+    return this.form.get('fini_exte_id');
   }
-  get adre_ville() {
-    return this.form.get('adre_ville');
+  get coup_princ_id() {
+    return this.form.get('coup_princ_id');
   }
-  get adre_cp() {
-    return this.form.get('adre_cp');
-  }
-  get adre_rue() {
-    return this.form.get('adre_rue');
-  }
-  get adre_commplement() {
-    return this.form.get('adre_commplement');
-  }
-  get adre_info() {
-    return this.form.get('adre_info');
-  }
+  
   backClicked() {
     this.location.back();
   }
