@@ -14,7 +14,6 @@ export class CustomersListComponent extends PageListComponent {
   }
 
   initialize() {
-
     this.endpoint = 'clients';
     this.link = 'client';
     this.linkRoute = 'customers';

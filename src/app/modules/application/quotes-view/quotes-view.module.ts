@@ -2,21 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ProductsFormRoutingModule } from './products-form-routing.module';
-import { ProductsFormComponent } from './products-form.component';
+import { QuotesViewRoutingModule } from './quotes-view-routing.module';
+import { QuotesViewComponent } from './quotes-view.component';
 
 @NgModule({
   declarations: [
-    ProductsFormComponent
+    QuotesViewComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ProductsFormRoutingModule
+    QuotesViewRoutingModule
   ],
   exports: [
-    ProductsFormComponent
+    QuotesViewComponent
   ],
 })
-export class ProductsFormModule { }
+export class QuotesViewModule { }

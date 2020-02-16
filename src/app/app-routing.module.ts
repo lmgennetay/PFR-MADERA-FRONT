@@ -4,13 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AccueilComponent } from './modules/general/accueil/accueil.component';
 import { LoginFormComponent } from './modules/general/login/login-Form.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
-import { GestionClientMenuComponent } from './modules/general/gestion-client-menu/gestion-client-menu.component';
+import { ConfigrationMenuComponent } from './modules/general/configuration-menu/configration-menu.component';
 import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/gestion-devis-menu.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./modules/general/login/login-form.module').then(mod => mod.LoginFormModule)},
   { path: 'accueil', component: AccueilComponent },
-  { path: 'gestionClient', component: GestionClientMenuComponent },
+  { path: 'configurateur', component: ConfigrationMenuComponent },
   { path: 'gestionDevis', component: GestionDevisMenuComponent },
   {
     path: 'login',
@@ -27,6 +27,30 @@ const routes: Routes = [
   {
     path: 'devis',
     loadChildren: () => import('./modules/application/quotes-list/quotes-list.module').then(mod => mod.QuotesListModule)
+  },
+  {
+    path: 'client/devis/:id',
+    loadChildren: () => import('./modules/application/quotes-list/quotes-list.module').then(mod => mod.QuotesListModule)
+  },
+  {
+    path: 'devis/:id',
+    loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
+  },
+  {
+    path: 'devisRecap/:id',
+    loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
+  },
+  {
+    path: 'devis/view/:id',
+      loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
+  },
+  {
+    path: 'devis/view/estimatif/:id',
+      loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
+  },
+  {
+    path: 'devis/view/detail/:id',
+      loadChildren: () => import('./modules/application/quotes-view/quotes-view.module').then(mod => mod.QuotesViewModule)
   },
   {
     path: 'ajoutDevis',
@@ -49,22 +73,28 @@ const routes: Routes = [
     loadChildren: () => import('./modules/application/users-form/users-form.module').then(mod => mod.UsersFormModule)
   },
   {
-    path: 'devis/:id',
-    loadChildren: () => import('./modules/application/quotes-form/quotes-form.module').then(mod => mod.QuotesFormModule)
+    path: 'modules/devis/:id',
+    loadChildren: () => import('./modules/application/modules-list/modules-list.module').then(mod => mod.ModulesListModule)
   },
   {
-    path: 'products',
-    loadChildren: () => import('./modules/application/products-form/products-form.module').then(mod => mod.ProductsFormModule)
+    path: 'module/:id',
+    loadChildren: () => import('./modules/application/modules-form/modules-form.module').then(mod => mod.ModulesFormModule)
   },
   {
     path: 'ajoutModule',
-    loadChildren: () => import('./modules/application/modules-form-add/modules-form-add.module').then(mod => mod.ModulesFormAddModule)
+    loadChildren: () => import('./modules/application/modules-form/modules-form.module').then(mod => mod.ModulesFormModule)
+  },
+  {
+    path: 'CaracteristiquesModule',
+    loadChildren: () => import('./modules/application/modules-form-carac/modules-form-carac.module').then(mod => mod.ModulesFormCaracModule)
   },
   {
     path: 'ajoutCaracteristiquesModule',
-    loadChildren: () => import('./modules/application/modules-form-carac-add/modules-form-carac-add.module').then(mod => mod.ModulesFormCaracAddModule)
+    loadChildren: () => import('./modules/application/modules-form-carac/modules-form-carac.module').then(mod => mod.ModulesFormCaracModule)
   },
-  { path: '**', component: NotFoundComponent }
+  {
+    path: '**', component: NotFoundComponent
+  }
 ];
 
 @NgModule({

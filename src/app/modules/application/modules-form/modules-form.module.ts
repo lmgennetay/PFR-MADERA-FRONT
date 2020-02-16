@@ -2,21 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ModulesFormAddRoutingModule } from './modules-form-add-routing.module';
-import { ModulesFormAddComponent } from './modules-form-add.component';
+import { ModulesFormRoutingModule } from './modules-form-routing.module';
+import { ModulesFormComponent } from './modules-form.component';
 
 @NgModule({
   declarations: [
-    ModulesFormAddComponent
+    ModulesFormComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ModulesFormAddRoutingModule
+    ModulesFormRoutingModule
   ],
   exports: [
-    ModulesFormAddComponent
+    ModulesFormComponent
   ],
 })
-export class ModulesFormAddModule { }
+export class ModulesFormModule { }

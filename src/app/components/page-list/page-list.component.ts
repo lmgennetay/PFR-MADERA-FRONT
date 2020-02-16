@@ -91,9 +91,14 @@ export class PageListComponent {
           if (page >= totalPages) {
             this.itemsPage = totalPages;
           }
+          if (this.select !== undefined ) {
+            this.url = this.configService.config.url + this.select;
+          }
+
           this.itemsService.getItems(
             this.api, this.url, this.itemsPerPage, this.itemsPage, this.query)
             .subscribe(items => {
+              console.log(this.select);
               this.items = items;
               this.loaded = true;
             });

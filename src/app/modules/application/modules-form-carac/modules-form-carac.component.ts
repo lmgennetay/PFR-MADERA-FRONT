@@ -6,12 +6,12 @@ import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-modules-form-carac-add',
-  templateUrl: './modules-form-carac-add.component.html',
-  styleUrls: ['./modules-form-carac-add.component.css'],
+  templateUrl: './modules-form-carac.component.html',
+  styleUrls: ['./modules-form-carac.component.css'],
   providers: [DatePipe]
 })
 
-export class ModulesFormCaracAddComponent extends PageFormComponent {
+export class ModulesFormCaracComponent extends PageFormComponent {
   public hiddenCustomOptions = false;
 
   listTypesAngles: any;
@@ -22,7 +22,7 @@ export class ModulesFormCaracAddComponent extends PageFormComponent {
   }
 
   showCustomOptions() {
-    if (this.hiddenCustomOptions == false) {
+    if (this.hiddenCustomOptions === false) {
       this.hiddenCustomOptions = true;
     } else {
       this.hiddenCustomOptions = false;
@@ -41,7 +41,6 @@ export class ModulesFormCaracAddComponent extends PageFormComponent {
   createForm() {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listTypesAnglesUrl).subscribe(data => {
       this.listTypesAngles = data.listModule;
-      console.log(this.listTypesAngles);
       this.setFormValue(this.listTypesAngles);
     });
 

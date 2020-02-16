@@ -2,19 +2,13 @@
   <div class="titreSection">DEVIS</div>
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="id" class="labelForm">N°</label>
-      <input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50" disabled>
-    </div>
-    <div class="flexColumnStart inputTexte inputTextTaille2">
       <div class="row">
-        <div class="flexColumnStart inputTexte">
-          <label for="comm_id" class="labelForm">Commercial</label>
-          <input type="text" name="id" formControlName="comm_id" id="comm_id" class="inputTexteContenu" maxlength="50" disabled>
-        </div>
-        <div class="flexColumnStart inputTexte ">
-          <label for="devi_date" class="labelForm">date</label>
-          <input type="date" name="devi_date" formControlName="devi_date" id="devi_date" class="inputTexteContenu" disabled>
-        </div>
+          <div class="col-lg-1"><label for="id" class="labelForm">N°</label></div>
+          <div class="col-lg-2"><input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50" disabled></div>
+          <div class="col-lg-3"><label for="comm_id" class="labelForm">Commercial :</label></div>
+          <div class="col-lg-1"><input type="text" name="id" formControlName="comm_id" id="comm_id" class="inputTexteContenu" maxlength="50" disabled></div>
+          <div class="col-lg-2"><label for="devi_date" class="labelForm">date :</label></div>
+          <div class="col-lg-3"><input type="date" name="devi_date" formControlName="devi_date" id="devi_date" class="inputTexteContenu" disabled></div>
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
@@ -99,10 +93,17 @@
     </div>
     <br>
     <div class="separateurHorizontal">&nbsp;</div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="devi_prix">Prix</label>
+      <input type="text" name="devi_prix" formControlName="devi_prix" id="devi_prix" class="inputTexteContenu" maxlength="100">€
+    </div>
+    <div class="separateurHorizontal">&nbsp;</div>
     <div class="section flexCenter flexWrap">
       <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
       <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api"  type="submit"><i class="fas fa-plus fa-lg"></i></button>
       <button class="button" (click)="onDelete()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-trash-alt fa-lg"></i></button>
+      <button class="button" (click)="goView()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-file fa-lg"></i></button>
+      <button class="button" (click)="goModule()"><i class="fas fa-arrow-right fa-lg"></i></button>
     </div>
   </form>
 </div>

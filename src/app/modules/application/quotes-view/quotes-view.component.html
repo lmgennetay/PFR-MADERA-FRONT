@@ -1,0 +1,107 @@
+<div class="corpsPage col-xs-12 col-md-8 col-lg-4 ">
+    <div class="titreSection">DEVIS N°</div>
+    <div class="row">
+        <div class="col-xs-6 col-md-2 col-lg-2"><label >N°</label></div>
+        <div class="col-xs-6 col-md-2 col-lg-2 text-right"><span style="font-size: 1.4em; color: black"> {{ id }}  </span></div>
+        <div class="col-xs-6 col-md-5 col-lg-5 text-right"><label >Date du devis</label></div>
+        <div class="col-xs-6 col-md-3 col-lg-3 text-left"><span style="font-size: 1.4em; color: black"> {{ devi_date }}  </span></div>
+    </div>
+
+    <div class="titreSection">VOTRE CONTACT</div>
+    <div class="row">
+        <div class="col-xs-6 col-md-2 col-lg-2"><label>Nom</label></div>
+        <div class="col-xs-6 col-md-7 col-lg-4"><span style="font-size: 1.4em; color: black"> {{ commercialN }} </span></div>
+        <div class="col-xs-6 col-md-2 col-lg-2"><label>Prénom</label></div>
+        <div class="col-xs-6 col-md-7 col-lg-4"><span style="font-size: 1.4em; color: black"> {{ commercialP }} </span></div>
+    </div>
+
+    <div class="titreSection">STATUT DU DEVIS</div>
+    <div class="row">
+        <div class="col-xs-6 col-md-5 col-lg-5 text-right"><label>Statut :</label></div>
+        <div class="col-xs-6 col-md-7 col-lg-7 text-left"><span style="font-size: 1.4em; color: black"> {{ etat }} </span></div>
+    </div>
+
+
+    <div class="separateurHorizontal">&nbsp;</div>
+    <div class="titreSection">DESCRIPTIF DU PROJET</div>
+    <div><span class="text-left" style="font-size: 1.4em; color: black"> {{ devi_nom }}  </span></div>
+
+    <div class="separateurHorizontal">&nbsp;</div>
+    <div class="titreSection">INFORMATION CLIENT</div>
+    <div class="titreSection">MAISON</div>
+    <div class="row">
+        <div class="col-xs-6 col-md-2 col-lg-2"><label>Nom</label></div>
+        <div class="col-xs-6 col-md-7 col-lg-4"><span style="font-size: 1.4em; color: black"> {{ clientN }}</span></div>
+        <div class="col-xs-6 col-md-2 col-lg-2"><label>Prénom</label></div>
+        <div class="col-xs-6 col-md-7 col-lg-4"><span style="font-size: 1.4em; color: black"> {{ clientP }}</span></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-4 col-lg-3"><label>Adresse :</label></div>
+        <div class="col-xs-12 col-md-8 col-lg-9"><span style="font-size: 1.4em; color: black"> {{ adre_rue }}  </span></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-5 col-lg-5"><label>Complément d'adresse : </label></div>
+        <div class="col-xs-8 col-md-6 col-lg-6"><span  style="font-size: 1.4em; color: black"> {{ adre_complement }}  </span></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-6 col-lg-6"><label>Informations complémentaires : </label></div>
+        <div class="col-xs-8 col-md-6 col-lg-6"><span class="text-left" style="font-size: 1.4em; color: black"> {{ adre_info }}  </span></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-md-4 col-lg-3"><label>Code postal :</label></div>
+        <div class="col-xs-4 col-md-4 col-lg-2"><span class="text-right" style="font-size: 1.4em; color: black"> {{ adre_cp }}  </span></div>
+        <div class="col-xs-4 col-md-4 col-lg-3"><label>Ville :</label></div>
+        <div class="col-xs-4 col-md-4 col-lg-4"><span class="text-left" style="font-size: 1.4em; color: black"> {{ adre_ville }}  </span></div>
+        <div class="col-xs-4 col-md-4 col-lg-2"><label>Region :</label></div>
+        <div class="col-xs-4 col-md-4 col-lg-4 text-left"><span style="font-size: 1.4em; color: black"> {{ adre_region }}  </span></div>
+        <div class="col-xs-4 col-md-4 col-lg-2"><label>Pays :</label></div>
+        <div class="col-xs-4 col-md-4 col-lg-4 text-left"><span style="font-size: 1.4em; color: black"> {{ pays }}  </span></div>
+    </div>
+    <div class="titreSection">MAISON</div>
+    <div class="row">
+        <div class="col-xs-6 col-md-5 col-lg-5 text-right"><label>Type maison !</label></div>
+        <div class="col-xs-6 col-md-7 col-lg-7 text-left"><span style="font-size: 1.4em; color: black"> {{ maison }} </span></div>
+    </div>
+    <div class="titreSection">GAMME</div>
+    <div class="row">
+        <div class="col-xs-6 col-md-5 col-lg-5 text-right"><label>Niveau de gamme :</label></div>
+        <div class="col-xs-6 col-md-7 col-lg-7 text-left"><span style="font-size: 1.4em; color: black"> {{ gamme }} </span></div>
+    </div>
+    <div class="titreSection">PRIX</div>
+    <div class="row">
+        <div class="col-xs-6 col-md-5 col-lg-5 text-right"><label>Prix :</label></div>
+        <div class="col-xs-6 col-md-7 col-lg-7 text-left"><span style="font-size: 1.4em; color: black"> {{ devi_prix }} € </span></div>
+    </div>
+    <div class="titreSection">ETAPE</div>
+    <div class="row">
+        <div class="col-xs-6 col-md-5 col-lg-5 text-right"><label>Etape :</label></div>
+        <div class="col-xs-6 col-md-7 col-lg-7 text-left"><span style="font-size: 1.4em; color: black"> {{ etape }} </span></div>
+    </div>
+    <div class="titreSection">MODULES</div>
+    <div class="row">
+      <table class="table offset-lg-1 col-lg-10" style="padding: 10px">
+        <thead>
+          <tr>
+            <th><span>Nom du module</span></th>
+            <th><span>Prix U.</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let module of listModules">
+            <td><span>{{module.modu_nom}}</span></td>
+            <td><span>{{module.modu_prix_unitaire}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="titreSection">ETAT D'AVANCEMANT</div>
+    <div class="row">
+      <div class="offset-1 col-xs-6 col-md-7 col-lg-7 text-left"><span style="font-size: 1.4em; color: black"> {{ etape }} </span></div>
+    </div>
+  <div class="separateurHorizontal">&nbsp;</div>
+    <div class="section flexCenter flexWrap">
+        <button class="button" (click)="backClicked()" data-toggle="tooltip" title="Retour"><i class="fas fa-arrow-left fa-lg"></i></button>
+        <a class="button" target="_blank" href="http://127.0.0.1:8000/PFR-MADERA/devis/dossier_technique/{{ id }}" data-toggle="tooltip" title="Dossier technique"><i class="fas fa-file-invoice fa-lg"></i></a>
+        <a class="button" target="_blank" href="http://127.0.0.1:8000/PFR-MADERA/devis/dossier_estimatif/{{ id }}" data-toggle="tooltip" title="Dossier estimatif"><i class="fas fa-file-invoice-dollar fa-lg"></i></a>
+    </div>
+</div>

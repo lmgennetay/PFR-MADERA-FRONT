@@ -33,7 +33,6 @@ export class PageFormComponent {
   public fb: FormBuilder;
 
   constructor(injector: Injector) {
-
     this.route = injector.get(ActivatedRoute);
     this.router = injector.get(Router);
     this.configService = injector.get(ConfigService);

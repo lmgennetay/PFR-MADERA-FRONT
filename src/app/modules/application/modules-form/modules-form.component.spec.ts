@@ -4,11 +4,11 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfigService } from '../../../services/config/config.service';
 
-import { ProductsFormComponent } from './products-form.component';
+import { ModulesFormComponent } from './modules-form.component';
 
-describe('QuotesComponent', () => {
-  let component: ProductsFormComponent;
-  let fixture: ComponentFixture<ProductsFormComponent>;
+describe('ModulesComponent', () => {
+  let component: ModulesFormComponent;
+  let fixture: ComponentFixture<ModulesFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -22,14 +22,14 @@ describe('QuotesComponent', () => {
         ConfigService,
       ],
       declarations: [
-        ProductsFormComponent
+        ModulesFormComponent
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProductsFormComponent);
+    fixture = TestBed.createComponent(ModulesFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

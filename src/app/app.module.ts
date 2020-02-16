@@ -13,7 +13,7 @@ import { HeaderModule } from './components/header/header.module';
 import { ConfigService } from './services/config/config.service';
 import { PageFormComponent } from './components/page-form/page-form.component';
 import { PageListComponent } from './components/page-list/page-list.component';
-import { GestionClientMenuComponent } from './modules/general/gestion-client-menu/gestion-client-menu.component';
+import { ConfigrationMenuComponent } from './modules/general/configuration-menu/configration-menu.component';
 import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/gestion-devis-menu.component';
 
 @NgModule({
@@ -24,7 +24,7 @@ import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/
     // HomeComponent,
     // LoginFormComponent,
     PageFormComponent,
-    GestionClientMenuComponent,
+    ConfigrationMenuComponent,
     GestionDevisMenuComponent,
     PageListComponent
   ],

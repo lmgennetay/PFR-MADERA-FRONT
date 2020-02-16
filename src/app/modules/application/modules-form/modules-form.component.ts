@@ -5,13 +5,13 @@ import { PageFormComponent } from '../../../components/page-form/page-form.compo
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-modules-form-add',
-  templateUrl: './modules-form-add.component.html',
-  styleUrls: ['./modules-form-add.component.css'],
+  selector: 'app-modules-form',
+  templateUrl: './modules-form.component.html',
+  styleUrls: ['./modules-form.component.css'],
   providers: [DatePipe]
 })
 
-export class ModulesFormAddComponent extends PageFormComponent {
+export class ModulesFormComponent extends PageFormComponent {
   public hiddenCustomOptions = false;
 
   listModules: any;
@@ -32,7 +32,7 @@ export class ModulesFormAddComponent extends PageFormComponent {
   }
 
   showCustomOptions() {
-    if (this.hiddenCustomOptions == false) {
+    if (this.hiddenCustomOptions === false) {
       this.hiddenCustomOptions = true;
     } else {
       this.hiddenCustomOptions = false;
@@ -61,37 +61,31 @@ export class ModulesFormAddComponent extends PageFormComponent {
   createForm() {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listModulesUrl).subscribe(data => {
       this.listModules = data.listModule;
-      console.log(this.listModules);
       this.setFormValue(this.listModules);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFamillesModulesUrl).subscribe(data => {
       this.listFamillesModules = data.listeFamilleModule;
-      console.log(this.listFamillesModules);
       this.setFormValue(this.listFamillesModules);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listIsolantsUrl).subscribe(data => {
       this.listIsolants = data.listIsolant;
-      console.log( this.listIsolants);
       this.setFormValue(this.listIsolants);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFinitionsInterieuresUrl).subscribe(data => {
       this.listFinitionsInterieures = data.listFinitionInterieure;
-      console.log(this.listFinitionsInterieures);
       this.setFormValue(this.listFinitionsInterieures);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFinitionsExterieuresUrl).subscribe(data => {
       this.listFinitionsExterieures = data.listFinitionExterieure;
-      console.log(this.listFinitionsExterieures);
       this.setFormValue(this.listFinitionsExterieures);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listCoupesPrincipeUrl).subscribe(data => {
       this.listCoupesPrincipe = data.listCoupePrincipe;
-      console.log(this.listCoupesPrincipe);
       this.setFormValue(this.listCoupesPrincipe);
     });
 
@@ -204,5 +198,8 @@ export class ModulesFormAddComponent extends PageFormComponent {
   }
   backClicked() {
     this.location.back();
+  }
+  goCarac() {
+    this.router.navigateByUrl('/CaracteristiquesModule/' + this.item.id);
   }
 }

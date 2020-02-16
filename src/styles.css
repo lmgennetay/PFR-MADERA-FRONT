@@ -37,7 +37,7 @@ app-header {
 .appComponent, app-login, app-accueil, app-client, app-customer, app-quotes-form,
 app-gestion-client-menu, app-gestion-devis-menu,
 app-quotes-list, app-search-bar, app-user, app-users-list, app-grid,
-app-modules-form-add {
+app-modules-form {
   width: 100%;
 }
 
@@ -199,9 +199,9 @@ a, a:hover {
 }
 
 .flexCenter, app-login, app-accueil, app-client, app-customer, app-quotes-form,
-app-gestion-client-menu, app-gestion-devis-menu,
+app-gestion-client-menu, app-gestion-devis-menu, app-modules-form, app-modules-list,
 app-quotes-list, app-search-bar, app-user, app-users-list, app-grid,
-app-modules-form-add {
+app-modules-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,6 +229,17 @@ app-modules-form-add {
  * Boutons
  * ######################################## */
 button {
+  margin: 10px;
+  padding: 10px 40px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: #249e00;
+  border: none;
+  cursor: pointer;
+}
+a.button {
+  width: 104px;
   margin: 10px;
   padding: 10px 40px;
   color: white;

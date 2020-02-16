@@ -14,15 +14,20 @@ export class CustomersFormComponent extends PageFormComponent {
   listPaysUrl: any;
 
   constructor(injector: Injector, private location: Location) {
+
     super(injector);
+
   }
 
   initialize() {
+
+
     this.endpoint = 'client';
     this.titleForm = 'Formulaire Client';
     this.icon = 'fas fa-file-medical';
     this.listPays = '';
     this.listPaysUrl = 'pays/liste';
+
     super.initialize();
   }
 
@@ -162,5 +167,8 @@ export class CustomersFormComponent extends PageFormComponent {
 
   backClicked() {
     this.location.back();
+  }
+  goDevis() {
+    this.router.navigateByUrl('/client/devis/' + this.item.id);
   }
 }
