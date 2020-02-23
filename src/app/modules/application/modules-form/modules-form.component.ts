@@ -92,7 +92,7 @@ export class ModulesFormComponent extends PageFormComponent {
     this.form = this.fb.group({
       id: null,
       listFamillesModules: null,
-      fami_modu_id: [null,
+      famo_id: [null,
         [Validators.required]
       ],
       listModules: null,
@@ -102,57 +102,61 @@ export class ModulesFormComponent extends PageFormComponent {
       modu_nom: [null,
         [Validators.required]
       ],
+      modu_prix_unitaire: [null,
+        [Validators.required]
+      ],
       listIsolants: null,
       isol_id: null,
       listFinitionsInterieures: null,
-      fini_inte_id: null,
+      fiin_id: null,
       listFinitionsExterieures: null,
-      fini_exte_id: null,
+      fiex_id: null,
       listCoupesPrincipe: null,
-      coup_princ_id: null
+      cctp_id: null
     });
     super.createForm();
   }
   resetForm() {
     this.item.id = null;
     this.listFamillesModules = null;
-    this.item.fami_modu_id = null;
+    this.item.famo_id = null;
     this.listModules = null;
     this.item.modu_id = null;
     this.item.modu_nom = null;
+    this.item.modu_prix_unitaire = null;
     this.listIsolants = null;
     this.item.isol_id = null;
     this.listFinitionsInterieures = null;
-    this.item.fini_inte_id = null;
+    this.item.fiin_id = null;
     this.listFinitionsExterieures = null;
-    this.item.fini_exte_id = null;
+    this.item.fiex_id = null;
     this.listCoupesPrincipe = null;
-    this.item.coup_princ_id = null;
+    this.item.cctp_id = null;
     super.resetForm();
   }
 
   setFormValue(item: any) {
     this.form.controls.id.setValue(item.id);
     this.form.controls.listFamillesModules.setValue(item.listFamillesModules);
-    this.form.controls.fami_modu_id.setValue(item.fami_modu_id);
+    this.form.controls.famo_id.setValue(item.famo_id);
     this.form.controls.listModules.setValue(item.listModules);
     this.form.controls.modu_id.setValue(item.modu_id);
     this.form.controls.listIsolants.setValue(item.listIsolants);
     this.form.controls.isol_id.setValue(item.isol_id);
     this.form.controls.listFinitionsInterieures.setValue(item.listFinitionsInterieures);
-    this.form.controls.fini_inte_id.setValue(item.fini_inte_id);
+    this.form.controls.fiin_id.setValue(item.fiin_id);
     this.form.controls.listFinitionExterieure.setValue(item.listFinitionExterieure);
-    this.form.controls.fini_exte_id.setValue(item.fini_exte_id);
+    this.form.controls.fiex_id.setValue(item.fiex_id);
     this.form.controls.listCoupePrincipe.setValue(item.listCoupePrincipe);
-    this.form.controls.coup_princ_id.setValue(item.coup_princ_id);
+    this.form.controls.cctp_id.setValue(item.cctp_id);
     super.setFormValue(item);
   }
 
   get id() {
     return this.form.get('id');
   }
-  get fami_modu_id() {
-    return this.form.get('fami_modu_id');
+  get famo_id() {
+    return this.form.get('famo_id');
   }
   get modu_id() {
     return this.form.get('modu_id');
@@ -160,17 +164,20 @@ export class ModulesFormComponent extends PageFormComponent {
   get modu_nom() {
     return this.form.get('modu_nom');
   }
+  get modu_prix_unitaire() {
+    return this.form.get('modu_prix_unitaire');
+  }
   get isol_id() {
     return this.form.get('isol_id');
   }
-  get fini_inte_id() {
-    return this.form.get('fini_inte_id');
+  get fiin_id() {
+    return this.form.get('fiin_id');
   }
-  get fini_exte_id() {
-    return this.form.get('fini_exte_id');
+  get fiex_id() {
+    return this.form.get('fiex_id');
   }
-  get coup_princ_id() {
-    return this.form.get('coup_princ_id');
+  get cctp_id() {
+    return this.form.get('cctp_id');
   }
   
   backClicked() {

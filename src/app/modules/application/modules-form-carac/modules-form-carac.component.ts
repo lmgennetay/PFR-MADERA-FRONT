@@ -21,26 +21,18 @@ export class ModulesFormCaracComponent extends PageFormComponent {
     super(injector);
   }
 
-  showCustomOptions() {
-    if (this.hiddenCustomOptions === false) {
-      this.hiddenCustomOptions = true;
-    } else {
-      this.hiddenCustomOptions = false;
-    }
-  }
-
   initialize() {
-    this.endpoint = 'modules';
-    this.titleForm = 'Formulaire Module';
+    this.endpoint = 'caracteristiques';
+    this.titleForm = 'Formulaire Caractéristique';
     this.icon = 'fas fa-file-medical';
     this.listTypesAngles = '';
-    this.listTypesAnglesUrl = 'modules';
+    this.listTypesAnglesUrl = 'typesAngles/list';
     super.initialize();
   }
 
   createForm() {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listTypesAnglesUrl).subscribe(data => {
-      this.listTypesAngles = data.listModule;
+      this.listTypesAngles = data.listTypesAngles;
       this.setFormValue(this.listTypesAngles);
     });
 
@@ -55,7 +47,8 @@ export class ModulesFormCaracComponent extends PageFormComponent {
       longueur: [null,
         [Validators.required]
       ],
-      listTypesAngles: [null,
+      listTypesAngles: null,
+      cara_type_angle: [null,
         [Validators.required]
       ],
       degre: [null,
