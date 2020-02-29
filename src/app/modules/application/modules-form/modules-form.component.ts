@@ -40,52 +40,52 @@ export class ModulesFormComponent extends PageFormComponent {
   }
 
   initialize() {
-    this.endpoint = 'modules';
+    this.endpoint = 'module';
     this.titleForm = 'Formulaire Module';
     this.icon = 'fas fa-file-medical';
     this.listModules = '';
     this.listModulesUrl = 'modules';
     this.listFamillesModules = '';
-    this.listFamillesModulesUrl = 'famillesModules/liste';
+    this.listFamillesModulesUrl = 'type_module/liste';
     this.listIsolants = '';
-    this.listIsolantsUrl = 'isolants/liste';
+    this.listIsolantsUrl = 'isolant/liste';
     this.listFinitionsInterieures = '';
-    this.listFinitionsInterieuresUrl = 'finitionsInterieures/liste';
+    this.listFinitionsInterieuresUrl = 'finitionInterieur/liste';
     this.listFinitionsExterieures = '';
-    this.listFinitionsExterieuresUrl = 'finitionsExterieures/liste';
+    this.listFinitionsExterieuresUrl = 'finitionExterieur/liste';
     this.listCoupesPrincipe = '';
-    this.listCoupesPrincipeUrl = 'coupesPrincipe/liste';
+    this.listCoupesPrincipeUrl = 'cctp/liste';
     super.initialize();
   }
 
   createForm() {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listModulesUrl).subscribe(data => {
-      this.listModules = data.listModule;
+      this.listModules = data.listeModule;
       this.setFormValue(this.listModules);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFamillesModulesUrl).subscribe(data => {
-      this.listFamillesModules = data.listeFamilleModule;
+      this.listFamillesModules = data.listeTypeModule;
       this.setFormValue(this.listFamillesModules);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listIsolantsUrl).subscribe(data => {
-      this.listIsolants = data.listIsolant;
+      this.listIsolants = data.listeIsolant;
       this.setFormValue(this.listIsolants);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFinitionsInterieuresUrl).subscribe(data => {
-      this.listFinitionsInterieures = data.listFinitionInterieure;
+      this.listFinitionsInterieures = data.listeFinitionInterieur;
       this.setFormValue(this.listFinitionsInterieures);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFinitionsExterieuresUrl).subscribe(data => {
-      this.listFinitionsExterieures = data.listFinitionExterieure;
+      this.listFinitionsExterieures = data.listeFinitionExterieur;
       this.setFormValue(this.listFinitionsExterieures);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listCoupesPrincipeUrl).subscribe(data => {
-      this.listCoupesPrincipe = data.listCoupePrincipe;
+      this.listCoupesPrincipe = data.listeCctp;
       this.setFormValue(this.listCoupesPrincipe);
     });
 
@@ -118,6 +118,7 @@ export class ModulesFormComponent extends PageFormComponent {
   }
   resetForm() {
     this.item.id = null;
+    this.item.comm_id = localStorage.id;
     this.listFamillesModules = null;
     this.item.famo_id = null;
     this.listModules = null;
@@ -136,18 +137,21 @@ export class ModulesFormComponent extends PageFormComponent {
   }
 
   setFormValue(item: any) {
+    console.log( item);
     this.form.controls.id.setValue(item.id);
     this.form.controls.listFamillesModules.setValue(item.listFamillesModules);
-    this.form.controls.famo_id.setValue(item.famo_id);
+    this.form.controls.famo_id.setValue(item.tymo_id);
     this.form.controls.listModules.setValue(item.listModules);
     this.form.controls.modu_id.setValue(item.modu_id);
+    this.form.controls.modu_nom.setValue(item.modu_nom);
+    this.form.controls.modu_prix_unitaire.setValue(item.modu_prix_unitaire);
     this.form.controls.listIsolants.setValue(item.listIsolants);
     this.form.controls.isol_id.setValue(item.isol_id);
     this.form.controls.listFinitionsInterieures.setValue(item.listFinitionsInterieures);
     this.form.controls.fiin_id.setValue(item.fiin_id);
-    this.form.controls.listFinitionExterieure.setValue(item.listFinitionExterieure);
+    this.form.controls.listFinitionsExterieures.setValue(item.listFinitionsExterieures);
     this.form.controls.fiex_id.setValue(item.fiex_id);
-    this.form.controls.listCoupePrincipe.setValue(item.listCoupePrincipe);
+    this.form.controls.listCoupesPrincipe.setValue(item.listCoupesPrincipe);
     this.form.controls.cctp_id.setValue(item.cctp_id);
     super.setFormValue(item);
   }
@@ -179,11 +183,11 @@ export class ModulesFormComponent extends PageFormComponent {
   get cctp_id() {
     return this.form.get('cctp_id');
   }
-  
+
   backClicked() {
     this.location.back();
   }
   goCarac() {
-    this.router.navigateByUrl('/CaracteristiquesModule/' + this.item.id);
+    this.router.navigateByUrl('/caracteristiques/' + this.item.id);
   }
 }

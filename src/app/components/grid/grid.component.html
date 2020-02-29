@@ -42,6 +42,12 @@
         <div *ngIf="column.type=='smallimg'" (click)="selectItem(record['id'])">
           <img src="{{ record[column.data.field] }}" height="129" width="90" class="shadow-lg rounded" style="cursor: pointer">
         </div>
+
+        <div class="text-center" *ngIf="column.type=='delete'" (click)="onDelete(this.url, column.endPoint, record['id'])">
+          <a class="text-center btn-md btn-danger" *ngIf="record[column.data.field]!=null"
+             href="#" ><i class="fa fa-trash"></i></a>
+        </div>
+
       </td>
     </tr>
   </tbody>

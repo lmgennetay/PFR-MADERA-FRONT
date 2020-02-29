@@ -6,12 +6,12 @@ import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-modules-form-carac-add',
-  templateUrl: './modules-form-carac.component.html',
-  styleUrls: ['./modules-form-carac.component.css'],
+  templateUrl: './caracteristiques-form.component.html',
+  styleUrls: ['./caracteristiques-form.component.css'],
   providers: [DatePipe]
 })
 
-export class ModulesFormCaracComponent extends PageFormComponent {
+export class CaracteristiquesFormComponent extends PageFormComponent {
   public hiddenCustomOptions = false;
 
   listTypesAngles: any;
@@ -22,7 +22,7 @@ export class ModulesFormCaracComponent extends PageFormComponent {
   }
 
   initialize() {
-    this.endpoint = 'caracteristiques';
+    this.endpoint = 'caracteristique';
     this.titleForm = 'Formulaire Caractéristique';
     this.icon = 'fas fa-file-medical';
     this.listTypesAngles = '';
@@ -38,20 +38,20 @@ export class ModulesFormCaracComponent extends PageFormComponent {
 
     this.form = this.fb.group({
       id: null,
-      section: [null,
+      cara_section: [null,
         [Validators.required]
       ],
-      hauteur: [null,
+      cara_hauteur: [null,
         [Validators.required]
       ],
-      longueur: [null,
+      cara_longueur: [null,
         [Validators.required]
       ],
       listTypesAngles: null,
       cara_type_angle: [null,
         [Validators.required]
       ],
-      degre: [null,
+      cara_angle: [null,
         [Validators.required]
       ],
     });
@@ -59,51 +59,41 @@ export class ModulesFormCaracComponent extends PageFormComponent {
   }
   resetForm() {
     this.item.id = null;
-    this.item.section = null;
-    this.item.hauteur = null;
-    this.item.longueur = null;
+    this.item.cara_section = null;
+    this.item.cara_hauteur = null;
+    this.item.cara_longueur = null;
     this.listTypesAngles = null;
-    this.item.degre = null;
+    this.item.cara_angle = null;
     super.resetForm();
   }
 
   setFormValue(item: any) {
     this.form.controls.id.setValue(item.id);
-    this.form.controls.devi_nom.setValue(item.devi_nom);
-    this.form.controls.listModules.setValue(item.listModules);
-    this.form.controls.clie_id.setValue(item.clie_id);
-    this.form.controls.listIsolants.setValue(item.listIsolants);
-    this.form.controls.maison_id.setValue(item.maison_id);
-    this.form.controls.listFamillesModules.setValue(item.listFamillesModules);
-    this.form.controls.gamm_id.setValue(item.gamm_id);
-    this.form.controls.listFinitionsInterieures.setValue(item.listFinitionsInterieures);
-    this.form.controls.pays_id.setValue(item.pays_id);
-    this.form.controls.adre_region.setValue(item.adre_region);
-    this.form.controls.adre_ville.setValue(item.adre_ville);
-    this.form.controls.adre_cp.setValue(item.adre_cp);
-    this.form.controls.adre_rue.setValue(item.adre_rue);
-    this.form.controls.adre_commplement.setValue(item.adre_commplement);
-    this.form.controls.adre_info.setValue(item.adre_info);
+    this.form.controls.cara_section.setValue(item.cara_section);
+    this.form.controls.cara_hauteur.setValue(item.cara_hauteur);
+    this.form.controls.cara_longueur.setValue(item.cara_longueur);
+    this.form.controls.listTypesAngles.setValue(item.listTypesAngles);
+    this.form.controls.cara_angle.setValue(item.cara_angle);
     super.setFormValue(item);
   }
 
   get id() {
     return this.form.get('id');
   }
-  get devi_nom() {
-    return this.form.get('devi_nom');
+  get cara_section() {
+    return this.form.get('cara_section');
   }
-  get clie_id() {
-    return this.form.get('clie_id');
+  get cara_hauteur() {
+    return this.form.get('cara_hauteur');
   }
-  get maison_id() {
-    return this.form.get('maison_id');
+  get cara_longueur() {
+    return this.form.get('cara_longueur');
   }
-  get gamm_id() {
-    return this.form.get('gamm_id');
+  get cara_type_angle() {
+    return this.form.get('cara_type_angle');
   }
-  get pays_id() {
-    return this.form.get('pays_id');
+  get cara_angle() {
+    return this.form.get('cara_angle');
   }
   backClicked() {
     this.location.back();

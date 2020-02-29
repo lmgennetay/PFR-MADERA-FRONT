@@ -3,10 +3,14 @@
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <!-- Familles de module -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="famo_id" class="labelForm">Famille de module</label>
+      <div class="row">
+        <div class="col-lg-1"><label for="id" class="labelForm">N°</label></div>
+        <div class="col-lg-3"><input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu text-right" maxlength="50" disabled></div>
+      </div>
+      <label for="famo_id" class="labelForm">Type de module</label>
       <select class="inputTexteContenu" name="famo_id"  formControlName="famo_id" id="famo_id" ng-model="famo_id">
         <option value="" disabled> Quelle famille de module ?</option>
-        <option [value]="FamilleModule.id" *ngFor="let familleModule of listFamilleModules"> {{module.modu_nom}} </option>
+        <option [value]="familleModule.id" *ngFor="let familleModule of listFamillesModules"> {{familleModule.tymo_nom}} </option>
       </select>
       <div *ngIf="famo_id.invalid" class="alertFormulaire">
         <div *ngIf="famo_id.errors.required">
@@ -48,7 +52,7 @@
       <label for="isol_id" class="labelForm">Isolant</label>
       <select class="inputTexteContenu" name="isol_id"  formControlName="isol_id" id="isol_id" ng-model="isol_id">
         <option value="" disabled> Quel isolant ?</option>
-        <option [value]="isolant.id" *ngFor="let isolant of listIsolants"> {{module.modu_nom}} {{module.modu_nom}}</option>
+        <option [value]="isolant.id" *ngFor="let isolant of listIsolants"> {{isolant.isol_nom}}</option>
       </select>
       <!-- <div *ngIf="isol_id.invalid" class="alertFormulaire">
         <div *ngIf="isol_id.errors.required">
@@ -61,7 +65,7 @@
       <label for="fiin_id" class="labelForm">Finition intérieure</label>
       <select class="inputTexteContenu" name="fiin_id"  formControlName="fiin_id" id="fiin_id" ng-model="fiin_id">
         <option value="" disabled> Quelle finition intérieure ?</option>
-        <option [value]="FinitionInterieure.id" *ngFor="let finitionInterieure of listFinitionsInterieures"> {{module.modu_nom}} {{module.modu_nom}}</option>
+        <option [value]="finitionInterieure.id" *ngFor="let finitionInterieure of listFinitionsInterieures"> {{finitionInterieure.fiin_nom}}</option>
       </select>
       <!-- <div *ngIf="fiin_id.invalid" class="alertFormulaire">
         <div *ngIf="fiin_id.errors.required">
@@ -74,7 +78,7 @@
       <label for="fiex_id" class="labelForm">Finition extérieure</label>
       <select class="inputTexteContenu" name="fiex_id"  formControlName="fiex_id" id="fiex_id" ng-model="fiex_id">
         <option value="" disabled> Quelle finition extérieure ?</option>
-        <option [value]="FinitionExterieure.id" *ngFor="let finitionExterieure of listFinitionsExterieures"> {{module.modu_nom}} {{module.modu_nom}}</option>
+        <option [value]="finitionExterieure.id" *ngFor="let finitionExterieure of listFinitionsExterieures"> {{finitionExterieure.fiex_nom}}</option>
       </select>
       <!-- <div *ngIf="fiex_id.invalid" class="alertFormulaire">
         <div *ngIf="fiex_id.errors.required">
@@ -87,7 +91,7 @@
       <label for="cctp_id" class="labelForm">Sélection de la coupe de principe</label>
       <select class="inputTexteContenu" name="cctp_id"  formControlName="cctp_id" id="cctp_id" ng-model="cctp_id">
         <option value="" disabled> Quelle coupe de principe ?</option>
-        <option [value]="CoupePrincipe.id" *ngFor="let CoupePrincipe of listCoupesPrincipe"> {{module.modu_nom}} {{module.modu_nom}}</option>
+        <option [value]="CoupePrincipe.id" *ngFor="let CoupePrincipe of listCoupesPrincipe"> {{CoupePrincipe.cctp_nom}}</option>
       </select>
       <!-- <div *ngIf="cctp_id.invalid" class="alertFormulaire">
         <div *ngIf="cctp_id.errors.required">

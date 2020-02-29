@@ -85,12 +85,20 @@ const routes: Routes = [
     loadChildren: () => import('./modules/application/modules-form/modules-form.module').then(mod => mod.ModulesFormModule)
   },
   {
-    path: 'CaracteristiquesModule',
-    loadChildren: () => import('./modules/application/modules-form-carac/modules-form-carac.module').then(mod => mod.ModulesFormCaracModule)
+    path: 'caracteristiquesModule',
+    loadChildren: () => import('./modules/application/caracteristiques-form/caracteristiques-form.module').then(mod => mod.CaracteristiquesFormModule)
+  },
+  {
+    path: 'caracteristiques/:id',
+    loadChildren: () => import('./modules/application/caracteristiques-list/caracteristiques-list.module').then(mod => mod.CaracteristiquesListModule)
+  },
+  {
+    path: 'caracteristique/:id',
+    loadChildren: () => import('./modules/application/caracteristiques-form/caracteristiques-form.module').then(mod => mod.CaracteristiquesFormModule)
   },
   {
     path: 'ajoutCaracteristiquesModule',
-    loadChildren: () => import('./modules/application/modules-form-carac/modules-form-carac.module').then(mod => mod.ModulesFormCaracModule)
+    loadChildren: () => import('./modules/application/caracteristiques-form/caracteristiques-form.module').then(mod => mod.CaracteristiquesFormModule)
   },
   {
     path: '**', component: NotFoundComponent

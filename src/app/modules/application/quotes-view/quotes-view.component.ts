@@ -56,34 +56,36 @@ export class QuotesViewComponent extends PageFormComponent {
   etap_id: any;
   commercialN: any;
   commercialP: any;
-
-
   constructor(injector: Injector, private location: Location) {
     super(injector);
   }
 
   initialize() {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.endpoint = 'devis';
-    this.titleForm = 'Formulaire Devis';
-    this.icon = 'fas fa-file-medical';
-    this.listClients = '';
-    this.listClientsUrl = 'clients';
-    this.listCommercials = '';
-    this.listCommercialsUrl = 'commercials';
-    this.listGammes = '';
-    this.listGammesUrl = 'gamme/liste';
-    this.listMaisons = '';
-    this.listMaisonsUrl = 'maison/liste';
-    this.listPays = '';
-    this.listPaysUrl = 'pays/liste';
-    this.listEtapes = '';
-    this.listEtapesUrl = 'etapes';
-    this.listEtats = '';
-    this.listEtatsUrl = 'etats';
-    this.listModules = '';
-    this.listModulesUrl = 'module/liste/devis/' + this.id;
-    super.initialize();
+    if ( localStorage.date === undefined || (Date.now() - new Date(localStorage.date).getTime() ) >= 86400000 ) {
+      this.router.navigateByUrl('/');
+    } else {
+      this.id = this.route.snapshot.paramMap.get('id');
+      this.endpoint = 'devis';
+      this.titleForm = 'Formulaire Devis';
+      this.icon = 'fas fa-file-medical';
+      this.listClients = '';
+      this.listClientsUrl = 'clients';
+      this.listCommercials = '';
+      this.listCommercialsUrl = 'commercials';
+      this.listGammes = '';
+      this.listGammesUrl = 'gamme/liste';
+      this.listMaisons = '';
+      this.listMaisonsUrl = 'maison/liste';
+      this.listPays = '';
+      this.listPaysUrl = 'pays/liste';
+      this.listEtapes = '';
+      this.listEtapesUrl = 'etapes';
+      this.listEtats = '';
+      this.listEtatsUrl = 'etats';
+      this.listModules = '';
+      this.listModulesUrl = 'module/liste/devis/' + this.id;
+      super.initialize();
+    }
   }
 
   createForm() {

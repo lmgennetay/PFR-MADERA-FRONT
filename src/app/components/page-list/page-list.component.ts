@@ -40,6 +40,8 @@ export class PageListComponent {
   itemsPage = 1;
   itemsPerPage = 4;
 
+  item: any = {};
+
   public route: ActivatedRoute;
   public router: Router;
   public configService: ConfigService;
@@ -98,7 +100,6 @@ export class PageListComponent {
           this.itemsService.getItems(
             this.api, this.url, this.itemsPerPage, this.itemsPage, this.query)
             .subscribe(items => {
-              console.log(this.select);
               this.items = items;
               this.loaded = true;
             });

@@ -19,6 +19,7 @@ export class PageFormComponent {
   loginId: string;
   loginToken: string;
   urlSelect: any;
+  urlParent: any;
   endpoint: any;
   select: any;
   icon: any;
@@ -47,7 +48,7 @@ export class PageFormComponent {
   initialize() {
       this.api = this.configService.config.api;
       this.url = this.configService.config.url + this.endpoint;
-      this.urlSelect = this.configService.config.url + this.select;
+      this.url = this.configService.config.url + this.endpoint;
   }
 
   createForm() {
@@ -59,6 +60,7 @@ export class PageFormComponent {
           if ( data.result === 'OK' && ( data.token !== null || data.token !== undefined) ) {
               localStorage.token = data.token_utilisateur;
               localStorage.id = data.id;
+              localStorage.date = data.datetoken_utilisateur;
               this.router.navigate(['accueil']);
           } else {
               this.router.navigate(['']);
@@ -102,9 +104,10 @@ export class PageFormComponent {
   }
 
   onDelete() {
+    alert('page ' + this.url);
     this.item.connection = {loginId : localStorage.id, loginToken : localStorage.token};
     if ((this.item.id !== undefined) && (this.item.id != null)) {
-      this.deleteItem(this.url, this.item.id);
+      this.deleteItem(this.url, this.item);
     }
   }
 
@@ -132,9 +135,10 @@ export class PageFormComponent {
       });
   }
 
-  deleteItem(url: any, id: number) {
+  deleteItem(url: any, item: any) {
     this.item.connection = {loginId : localStorage.id, loginToken : localStorage.token};
-    this.itemsService.deleteItem(url, id)
+    alert(url);
+    this.itemsService.deleteItem(url, item)
       .subscribe(data => {
         this.resetForm();
       });

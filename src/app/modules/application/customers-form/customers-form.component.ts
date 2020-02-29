@@ -20,15 +20,16 @@ export class CustomersFormComponent extends PageFormComponent {
   }
 
   initialize() {
-
-
-    this.endpoint = 'client';
-    this.titleForm = 'Formulaire Client';
-    this.icon = 'fas fa-file-medical';
-    this.listPays = '';
-    this.listPaysUrl = 'pays/liste';
-
-    super.initialize();
+    if ( localStorage.date === undefined || (Date.now() - new Date(localStorage.date).getTime() ) >= 86400000 ) {
+      this.router.navigateByUrl('/');
+    } else {
+      this.endpoint = 'client';
+      this.titleForm = 'Formulaire Client';
+      this.icon = 'fas fa-file-medical';
+      this.listPays = '';
+      this.listPaysUrl = 'pays/liste';
+      super.initialize();
+    }
   }
 
   createForm() {

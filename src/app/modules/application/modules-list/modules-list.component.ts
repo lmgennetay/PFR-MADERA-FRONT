@@ -48,6 +48,12 @@ export class ModulesListComponent extends PageListComponent {
         type: 'euro',
         title: { caption: 'Prix', class: 'text-primary font-weight-bold text-right' },
         data: { field: 'modu_prix_unitaire', class: 'text-primary font-weight-bold text-right' }
+      },
+      {
+        type: 'delete',
+        endPoint: 'module',
+        title: { caption: 'Prix', class: 'text-primary font-weight-bold text-right' },
+        data: { field: 'id' }
       }
     ];
 

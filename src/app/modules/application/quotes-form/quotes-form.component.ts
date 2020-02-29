@@ -26,18 +26,22 @@ export class QuotesFormComponent extends PageFormComponent {
   }
 
   initialize() {
-    this.endpoint = 'devis';
-    this.titleForm = 'Formulaire Devis';
-    this.icon = 'fas fa-file-medical';
-    this.listClients = '';
-    this.listClientsUrl = 'clients';
-    this.listGammes = '';
-    this.listGammesUrl = 'gamme/liste';
-    this.listMaisons = '';
-    this.listMaisonsUrl = 'maison/liste';
-    this.listPays = '';
-    this.listPaysUrl = 'pays/liste';
-    super.initialize();
+    if ( localStorage.date === undefined || (Date.now() - new Date(localStorage.date).getTime() ) >= 86400000 ) {
+      this.router.navigateByUrl('/');
+    } else {
+      this.endpoint = 'devis';
+      this.titleForm = 'Formulaire Devis';
+      this.icon = 'fas fa-file-medical';
+      this.listClients = '';
+      this.listClientsUrl = 'clients';
+      this.listGammes = '';
+      this.listGammesUrl = 'gamme/liste';
+      this.listMaisons = '';
+      this.listMaisonsUrl = 'maison/liste';
+      this.listPays = '';
+      this.listPaysUrl = 'pays/liste';
+      super.initialize();
+    }
   }
 
   createForm() {
@@ -188,7 +192,8 @@ export class QuotesFormComponent extends PageFormComponent {
   goView() {
     this.router.navigateByUrl('/devis/view/' +  this.item.id);
   }
-  goModule() {
+
+    goModule() {
     this.router.navigateByUrl('/modules/devis/' + this.item.id);
   }
 }

@@ -191,11 +191,12 @@ export class ItemsService {
     );
   }
 
-  deleteItem(link: any, id: number): Observable<any> {
+  deleteItem(link: any, id: any): Observable<any> {
     const url = link + '/' + id;
+    alert('service ' + url);
     return this.http.delete<any>(url).pipe(
       tap(_ => this.log(`deleted item id=${id}`)),
-      catchError(this.handleError<any>('deleteItem'))
+      catchError( this.handleError<any>('deleteItem'))
     );
   }
 
