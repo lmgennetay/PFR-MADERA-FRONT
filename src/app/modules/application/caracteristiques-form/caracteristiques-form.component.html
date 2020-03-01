@@ -1,5 +1,5 @@
 <div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-4">
-  <div class="titreSection">AJOUT DE CARACTÉRISTIQUE SUR LE MODULE</div>
+  <div class="titreSection">CARACTÉRISTIQUE DU MODULE</div>
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <div class="separateurHorizontal">&nbsp;</div>
     <!-- Section -->
@@ -22,6 +22,8 @@
       <label for="cara_type_angle" class="labelForm">Type d'angle</label>
       <select class="inputTexteContenu" name="cara_type_angle"  formControlName="cara_type_angle" id="cara_type_angle" ng-model="cara_type_angle">
         <option value="" disabled> Quel type d'angle ?</option>
+        <option value="1">Entrant</option>
+        <option value="2">Sortant</option>
         <!-- <option [value]="typeAngle.id" *ngFor="let typeAngle of listTypesAngles"> {{caracteristique.typeAngle}} {{caracteristique.typeAngle}}</option> -->
       </select>
       <!-- <div *ngIf="type_angle.invalid" class="alertFormulaire">

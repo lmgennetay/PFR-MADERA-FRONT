@@ -22,7 +22,7 @@ export class AccueilComponent implements OnInit {
   }
 
   ngOnInit() {
-    if ( localStorage.id !== null && localStorage.id !== undefined && localStorage.token !== null && localStorage.token === undefined ) {
+    if ( localStorage.user_id !== null && localStorage.user_id !== undefined && localStorage.token !== null && localStorage.token === undefined ) {
       this.router.navigate(['']);
     }
   }

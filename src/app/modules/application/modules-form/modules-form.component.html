@@ -1,23 +1,26 @@
 <div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-4">
   <div class="titreSection">MODULE</div>
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
+    <!-- Champs cache -->
+    <input type="text" name="devi_id" formControlName="devi_id" id="devi_id" class="inputTexteContenu text-right" >
     <!-- Familles de module -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <div class="row">
         <div class="col-lg-1"><label for="id" class="labelForm">N°</label></div>
         <div class="col-lg-3"><input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu text-right" maxlength="50" disabled></div>
       </div>
-      <label for="famo_id" class="labelForm">Type de module</label>
-      <select class="inputTexteContenu" name="famo_id"  formControlName="famo_id" id="famo_id" ng-model="famo_id">
+      <label for="tymo_id" class="labelForm">Type de module</label>
+      <select  (ngModelChange)="onChangeTypeModule($event)" class="inputTexteContenu" name="tymo_id"  formControlName="tymo_id" id="tymo_id" ng-model="tymo_id">
         <option value="" disabled> Quelle famille de module ?</option>
         <option [value]="familleModule.id" *ngFor="let familleModule of listFamillesModules"> {{familleModule.tymo_nom}} </option>
       </select>
-      <div *ngIf="famo_id.invalid" class="alertFormulaire">
-        <div *ngIf="famo_id.errors.required">
+      <div *ngIf="tymo_id.invalid" class="alertFormulaire">
+        <div *ngIf="tymo_id.errors.required">
           Veuillez sélectionner une famille de module.
         </div>
       </div>
     </div>
+
     <!-- Modules -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="modu_id" class="labelForm">Module</label>
@@ -31,6 +34,7 @@
         </div>
       </div>
     </div>
+
     <!-- Nom du module -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="modu_nom" class="labelForm">Nom du module</label>
@@ -99,13 +103,20 @@
         </div>
       </div> -->
     </div>
+    <!-- Sélection de la coupe de principe -->
+    <div class="flexColumnStart inputTexte inputTextTaille2" *ngIf="hiddenCustomOptions">
+      <label for="couv_id" class="labelForm">Sélection de la couverture</label>
+      <select class="inputTexteContenu" name="couv_id"  formControlName="couv_id" id="couv_id" ng-model="couv_id">
+        <option value="" disabled> Quelle coupe de principe ?</option>
+        <option [value]="couverture.id" *ngFor="let couverture of listCouvertures"> {{couverture.couv_nom}}</option>
+      </select>
+    </div>
     <br>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="section flexCenter flexWrap">
       <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
-      <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api" type="submit"><i class="fas fa-plus fa-lg"></i></button>
+      <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api" type="submit"><i class="fas fa-save fa-lg"></i></button>
       <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
-      <button class="button" (click)="onDelete()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-trash-alt fa-lg"></i></button>
       <button class="button" (click)="goCarac()"><i class="fas fa-arrow-right fa-lg"></i></button>
     </div>
   </form>

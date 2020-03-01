@@ -15,7 +15,7 @@ export class ModulesListComponent extends PageListComponent {
 
   initialize() {
 
-    this.endpoint = 'module/liste/devis/1';
+    this.endpoint = 'module/liste/devis/' + localStorage.devis_id;
     this.link = 'module';
     this.linkRoute = 'modules';
 
@@ -58,5 +58,6 @@ export class ModulesListComponent extends PageListComponent {
     ];
 
     super.initialize();
+    console.log(localStorage);
   }
 }

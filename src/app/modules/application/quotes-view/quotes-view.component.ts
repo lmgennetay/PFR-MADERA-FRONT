@@ -92,42 +92,42 @@ export class QuotesViewComponent extends PageFormComponent {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listCommercialsUrl).subscribe(data => {
       console.log(data);
       this.listCommercials = data.listeCommercials;
-      this.setFormValue(this.listCommercials);
+      this.listCommercials = this.listCommercials;
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listClientsUrl).subscribe(data => {
       this.listClients = data.listeClients;
-      this.setFormValue(this.listClients);
+      this.listClients = this.listClients;
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listGammesUrl).subscribe(data => {
       this.listGammes = data.listeGamme;
-      this.setFormValue(this.listGammes);
+      this.listGammes = this.listGammes;
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listMaisonsUrl).subscribe(data => {
       this.listMaisons = data.listeMaison;
-      this.setFormValue(this.listMaisons);
+      this.listMaisons = this.listMaisons;
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listPaysUrl).subscribe(data => {
       this.listPays = data.listePays;
-      this.setFormValue(this.listPays);
+      this.listPays = this.listPays;
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listEtatsUrl).subscribe(data => {
       this.listEtats = data.listeEtat;
-      this.setFormValue(this.listEtats);
+      this.listEtats = this.listEtats;
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listEtapesUrl).subscribe(data => {
       this.listEtapes = data.listeEtape;
-      this.setFormValue(this.listEtapes);
+      this.listEtapes = this.listEtapes;
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listModulesUrl).subscribe(data => {
       this.listModules = data.listeModule;
-      this.setFormValue(this.listModules);
+      this.listModules = this.listModules;
     });
   }
 

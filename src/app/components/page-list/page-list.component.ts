@@ -147,6 +147,5 @@ export class PageListComponent {
     this.searchField = query;
     this.search();
   }
-
 }
 

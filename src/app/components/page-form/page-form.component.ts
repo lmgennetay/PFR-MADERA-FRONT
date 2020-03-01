@@ -59,7 +59,7 @@ export class PageFormComponent {
       this.itemsService.login(this.url, this.item).subscribe(data => {
           if ( data.result === 'OK' && ( data.token !== null || data.token !== undefined) ) {
               localStorage.token = data.token_utilisateur;
-              localStorage.id = data.id;
+              localStorage.user_id = data.id;
               localStorage.date = data.datetoken_utilisateur;
               this.router.navigate(['accueil']);
           } else {
@@ -105,21 +105,22 @@ export class PageFormComponent {
 
   onDelete() {
     alert('page ' + this.url);
-    this.item.connection = {loginId : localStorage.id, loginToken : localStorage.token};
+    this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
     if ((this.item.id !== undefined) && (this.item.id != null)) {
       this.deleteItem(this.url, this.item);
     }
   }
 
   onCopy() {
-    this.item.connection = {loginId : localStorage.id, loginToken : localStorage.token};
+    this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
     this.item.id = null;
     this.form.get('id').setValue(null);
   }
 
   createItem(url: any, item: any) {
-    this.item.connection = {loginId : localStorage.id, loginToken : localStorage.token};
+    this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
     delete this.item.id;
+    console.log(url);
     this.itemsService.addItem(url, item)
       .subscribe(data => {
         this.item = data;
@@ -127,21 +128,22 @@ export class PageFormComponent {
   }
 
   updateItem(url: any, item: any, id: number) {
-    this.item.connection = {loginId : localStorage.id, loginToken : localStorage.token};
+    this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
     this.itemsService.updateItem(item, id, url)
       .subscribe(data => {
         this.item = data;
+        console.log(this.item);
         this.form.setValue(this.item);
       });
   }
 
   deleteItem(url: any, item: any) {
-    this.item.connection = {loginId : localStorage.id, loginToken : localStorage.token};
-    alert(url);
+    this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
+    alert('url ' + url);
     this.itemsService.deleteItem(url, item)
-      .subscribe(data => {
-        this.resetForm();
-      });
+    .subscribe(data => {
+      this.resetForm();
+    });
   }
 
 }

@@ -74,6 +74,7 @@ export class UsersFormComponent extends PageFormComponent {
   }
 
   onDelete() {
+    alert('user');
     let res: any;
     res = super.onDelete();
     this.router.navigate(['commercials']);

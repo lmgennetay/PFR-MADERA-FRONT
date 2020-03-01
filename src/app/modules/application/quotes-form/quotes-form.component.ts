@@ -47,22 +47,22 @@ export class QuotesFormComponent extends PageFormComponent {
   createForm() {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listClientsUrl).subscribe(data => {
       this.listClients = data.listeClients;
-      this.setFormValue(this.listClients);
+      this.form.controls.listClients.setValue(this.listClients);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listGammesUrl).subscribe(data => {
       this.listGammes = data.listeGamme;
-      this.setFormValue(this.listGammes);
+      this.form.controls.listGammes.setValue(this.listGammes);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listMaisonsUrl).subscribe(data => {
       this.listMaisons = data.listeMaison;
-      this.setFormValue(this.listMaisons);
+      this.form.controls.listMaisons.setValue(this.listMaisons);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listPaysUrl).subscribe(data => {
       this.listPays = data.listePays;
-      this.setFormValue(this.listPays);
+      this.form.controls.listPays.setValue(this.listPays);
     });
 
     this.form = this.fb.group({
@@ -97,7 +97,7 @@ export class QuotesFormComponent extends PageFormComponent {
 
   resetForm() {
     this.item.id = null;
-    this.item.comm_id = localStorage.id;
+    this.item.comm_id = localStorage.user_id;
     this.item.devi_date = null;
     this.item.devi_nom = null;
     this.listClients = null;
@@ -139,6 +139,8 @@ export class QuotesFormComponent extends PageFormComponent {
     this.form.controls.adre_info.setValue(item.adre_info);
     this.form.controls.devi_prix.setValue(item.devi_prix);
     super.setFormValue(item);
+    localStorage.devis_id = this.form.get('id').value;
+    console.log(localStorage);
   }
 
   get id() {
@@ -193,7 +195,9 @@ export class QuotesFormComponent extends PageFormComponent {
     this.router.navigateByUrl('/devis/view/' +  this.item.id);
   }
 
-    goModule() {
+  goModule() {
+    localStorage.gamme = this.form.get('gamm_id').value;
+    localStorage.source = 'module';
     this.router.navigateByUrl('/modules/devis/' + this.item.id);
   }
 }

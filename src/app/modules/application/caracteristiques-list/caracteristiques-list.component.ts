@@ -41,22 +41,27 @@ export class CaracteristiquesListComponent extends PageListComponent {
         data: { field: 'id', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell' }
       },
       {
+        type: 'mm',
         title: { caption: 'Section', class: 'text-primary font-weight-bold' },
         data: { field: 'cara_section', class: 'text-primary font-weight-bold' }
       },
       {
+        type: 'mm',
         title: { caption: 'Hauteur', class: 'text-primary font-weight-bold' },
         data: { field: 'cara_hauteur', class: 'text-primary font-weight-bold' }
       },
       {
+        type: 'mm',
         title: { caption: 'Longueur', class: 'text-primary font-weight-bold' },
         data: { field: 'cara_longueur', class: 'text-primary font-weight-bold' }
       },
       {
+        type: 'angle',
         title: { caption: 'Type angle', class: 'text-primary font-weight-bold' },
         data: { field: 'cara_type_angle', class: 'text-primary font-weight-bold' }
       },
       {
+        type: 'd',
         title: { caption: 'Deger angle', class: 'text-primary font-weight-bold' },
         data: { field: 'cara_degre_angle', class: 'text-primary font-weight-bold' }
       },

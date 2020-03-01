@@ -56,6 +56,7 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
       ],
     });
     super.createForm();
+    console.log(localStorage);
   }
   resetForm() {
     this.item.id = null;
@@ -73,6 +74,7 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
     this.form.controls.cara_hauteur.setValue(item.cara_hauteur);
     this.form.controls.cara_longueur.setValue(item.cara_longueur);
     this.form.controls.listTypesAngles.setValue(item.listTypesAngles);
+    this.form.controls.cara_type_angle.setValue(item.cara_type_angle);
     this.form.controls.cara_angle.setValue(item.cara_angle);
     super.setFormValue(item);
   }

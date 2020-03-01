@@ -26,6 +26,8 @@ export class ModulesFormComponent extends PageFormComponent {
   listFinitionsExterieuresUrl: any;
   listCoupesPrincipe: any;
   listCoupesPrincipeUrl: any;
+  listCouvertures: any;
+  listCouverturesUrl: any;
 
   constructor(injector: Injector, private location: Location) {
     super(injector);
@@ -44,7 +46,7 @@ export class ModulesFormComponent extends PageFormComponent {
     this.titleForm = 'Formulaire Module';
     this.icon = 'fas fa-file-medical';
     this.listModules = '';
-    this.listModulesUrl = 'modules';
+    this.listModulesUrl = 'module/liste/gamme/' + localStorage.gamme + '/type/1';
     this.listFamillesModules = '';
     this.listFamillesModulesUrl = 'type_module/liste';
     this.listIsolants = '';
@@ -53,52 +55,63 @@ export class ModulesFormComponent extends PageFormComponent {
     this.listFinitionsInterieuresUrl = 'finitionInterieur/liste';
     this.listFinitionsExterieures = '';
     this.listFinitionsExterieuresUrl = 'finitionExterieur/liste';
+    this.listCouvertures = '';
+    this.listCouverturesUrl = 'couverture/liste';
     this.listCoupesPrincipe = '';
     this.listCoupesPrincipeUrl = 'cctp/liste';
     super.initialize();
   }
 
   createForm() {
-    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listModulesUrl).subscribe(data => {
-      this.listModules = data.listeModule;
-      this.setFormValue(this.listModules);
-    });
+    // this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listModulesUrl).subscribe(data => {
+    //   this.listModules = data.listeModule;
+    //   this.form.controls.listModules.setValue(this.listModules);
+    // });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFamillesModulesUrl).subscribe(data => {
       this.listFamillesModules = data.listeTypeModule;
-      this.setFormValue(this.listFamillesModules);
+      this.form.controls.listFamillesModules.setValue(this.listFamillesModules);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listIsolantsUrl).subscribe(data => {
       this.listIsolants = data.listeIsolant;
-      this.setFormValue(this.listIsolants);
+      this.form.controls.listIsolants.setValue(this.listIsolants);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFinitionsInterieuresUrl).subscribe(data => {
       this.listFinitionsInterieures = data.listeFinitionInterieur;
-      this.setFormValue(this.listFinitionsInterieures);
+      this.form.controls.listFinitionsInterieures.setValue(this.listFinitionsInterieures);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFinitionsExterieuresUrl).subscribe(data => {
       this.listFinitionsExterieures = data.listeFinitionExterieur;
-      this.setFormValue(this.listFinitionsExterieures);
+      this.form.controls.listFinitionsExterieures.setValue(this.listFinitionsExterieures);
     });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listCoupesPrincipeUrl).subscribe(data => {
       this.listCoupesPrincipe = data.listeCctp;
-      this.setFormValue(this.listCoupesPrincipe);
+      this.form.controls.listCoupesPrincipe.setValue(this.listCoupesPrincipe);
+    });
+
+    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listCoupesPrincipeUrl).subscribe(data => {
+      this.listCoupesPrincipe = data.listeCctp;
+      this.form.controls.listCoupesPrincipe.setValue(this.listCoupesPrincipe);
+    });
+
+    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listCouverturesUrl).subscribe(data => {
+      this.listCouvertures = data.listeCouverture;
+      this.form.controls.listCouvertures.setValue(this.listCouvertures);
     });
 
     this.form = this.fb.group({
       id: null,
+      devi_id: localStorage.devis_id,
       listFamillesModules: null,
-      famo_id: [null,
+      tymo_id: [null,
         [Validators.required]
       ],
       listModules: null,
-      modu_id: [null,
-        [Validators.required]
-      ],
+      modu_id: null,
       modu_nom: [null,
         [Validators.required]
       ],
@@ -112,15 +125,18 @@ export class ModulesFormComponent extends PageFormComponent {
       listFinitionsExterieures: null,
       fiex_id: null,
       listCoupesPrincipe: null,
-      cctp_id: null
+      cctp_id: null,
+      listCouvertures: null,
+      couv_id: null
     });
     super.createForm();
   }
   resetForm() {
     this.item.id = null;
-    this.item.comm_id = localStorage.id;
+    this.item.devi_id = null;
+    this.item.comm_id = localStorage.user_id;
     this.listFamillesModules = null;
-    this.item.famo_id = null;
+    this.item.tymo_id = null;
     this.listModules = null;
     this.item.modu_id = null;
     this.item.modu_nom = null;
@@ -133,14 +149,19 @@ export class ModulesFormComponent extends PageFormComponent {
     this.item.fiex_id = null;
     this.listCoupesPrincipe = null;
     this.item.cctp_id = null;
+    this.listCouvertures = null;
+    this.item.couv_id = null;
     super.resetForm();
   }
 
   setFormValue(item: any) {
-    console.log( item);
+    // console.log(item);
+    item.devi_id = localStorage.devis_id;
+    localStorage.module_id = item.id;
+    this.form.controls.devi_id.setValue(item.devi_id);
     this.form.controls.id.setValue(item.id);
     this.form.controls.listFamillesModules.setValue(item.listFamillesModules);
-    this.form.controls.famo_id.setValue(item.tymo_id);
+    this.form.controls.tymo_id.setValue(item.tymo_id);
     this.form.controls.listModules.setValue(item.listModules);
     this.form.controls.modu_id.setValue(item.modu_id);
     this.form.controls.modu_nom.setValue(item.modu_nom);
@@ -153,14 +174,20 @@ export class ModulesFormComponent extends PageFormComponent {
     this.form.controls.fiex_id.setValue(item.fiex_id);
     this.form.controls.listCoupesPrincipe.setValue(item.listCoupesPrincipe);
     this.form.controls.cctp_id.setValue(item.cctp_id);
+    this.form.controls.listCouvertures.setValue(item.listCouvertures);
+    this.form.controls.couv_id.setValue(item.couv_id);
     super.setFormValue(item);
+    console.log(localStorage);
   }
 
   get id() {
     return this.form.get('id');
   }
-  get famo_id() {
-    return this.form.get('famo_id');
+  get tymo_id() {
+    return this.form.get('tymo_id');
+  }
+  get devi_id() {
+    return this.form.get('devi_id');
   }
   get modu_id() {
     return this.form.get('modu_id');
@@ -183,11 +210,27 @@ export class ModulesFormComponent extends PageFormComponent {
   get cctp_id() {
     return this.form.get('cctp_id');
   }
+  get couv_id() {
+    return this.form.get('couv_id');
+  }
 
   backClicked() {
     this.location.back();
   }
   goCarac() {
     this.router.navigateByUrl('/caracteristiques/' + this.item.id);
+  }
+
+  onChangeTypeModule(newValue) {
+    if (newValue !== undefined ) {
+      this.itemsService.getItemSelect(this.api,
+        this.configService.config.url + 'module/liste/gamme/' + localStorage.gamme + '/type/' + newValue).subscribe(
+        data => {
+          this.listModules = data.listeModule;
+          this.form.controls.listModules.setValue(this.listModules);
+          this.form.controls.modu_id.setValue(newValue);
+        }
+      );
+    }
   }
 }

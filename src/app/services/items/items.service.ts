@@ -183,24 +183,24 @@ export class ItemsService {
     );
   }
 
-  updateItem(body: object, id: number, link: any): Observable<any> {
-    const url = link;
-    return this.http.put(url, body, httpOptions).pipe(
-      tap(_ => this.log(`updated item id=id`)),
+  updateItem(item: object, id: number, url: any): Observable<any> {
+    console.log(item);
+    return this.http.put(url, item, httpOptions).pipe(
+      tap(_ => this.log(`updated item id=${id}`)),
       catchError(this.handleError<any>('updateItem'))
     );
   }
 
-  deleteItem(link: any, id: any): Observable<any> {
-    const url = link + '/' + id;
-    alert('service ' + url);
-    return this.http.delete<any>(url).pipe(
+  deleteItem(url: any, id: any): Observable<any> {
+    alert('service ' + url + '/' + id);
+    return this.http.delete<any>(url + '/' + id).pipe(
       tap(_ => this.log(`deleted item id=${id}`)),
       catchError( this.handleError<any>('deleteItem'))
     );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
+    //alert( operation );
     return (error: any): Observable<T> => {
       console.error(error);
       this.log(`${operation} failed: ${error.message}`);
@@ -209,6 +209,7 @@ export class ItemsService {
   }
 
   private log(message: string) {
+    //alert( message );
   }
 
 }
