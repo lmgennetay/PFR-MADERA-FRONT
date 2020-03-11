@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/general/login/login-form.module').then(mod => mod.LoginFormModule)
   },
   {
+    path: 'logout',
+    loadChildren: () => import('./modules/general/logout/logout-form.module').then(mod => mod.LogoutFormModule)
+  },
+  {
     path: 'clients',
     loadChildren: () => import('./modules/application/customers-list/customers-list.module').then(mod => mod.CustomersListModule)
   },
