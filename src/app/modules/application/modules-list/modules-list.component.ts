@@ -52,12 +52,14 @@ export class ModulesListComponent extends PageListComponent {
       {
         type: 'delete',
         endPoint: 'module',
+        source: 'modules/devis/' + localStorage.devis_id,
         title: { caption: 'Prix', class: 'text-primary font-weight-bold text-right' },
         data: { field: 'id' }
       }
     ];
 
     super.initialize();
+    localStorage.source = 'devis';
     console.log(localStorage);
   }
 }

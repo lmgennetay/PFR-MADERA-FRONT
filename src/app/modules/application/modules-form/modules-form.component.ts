@@ -63,10 +63,10 @@ export class ModulesFormComponent extends PageFormComponent {
   }
 
   createForm() {
-    // this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listModulesUrl).subscribe(data => {
-    //   this.listModules = data.listeModule;
-    //   this.form.controls.listModules.setValue(this.listModules);
-    // });
+    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listModulesUrl).subscribe(data => {
+      this.listModules = data.listeModule;
+      this.form.controls.listModules.setValue(this.listModules);
+    });
 
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listFamillesModulesUrl).subscribe(data => {
       this.listFamillesModules = data.listeTypeModule;
@@ -195,9 +195,9 @@ export class ModulesFormComponent extends PageFormComponent {
   get modu_nom() {
     return this.form.get('modu_nom');
   }
-  get modu_prix_unitaire() {
-    return this.form.get('modu_prix_unitaire');
-  }
+  // get modu_prix_unitaire() {
+  //   return this.form.get('modu_prix_unitaire');
+  // }
   get isol_id() {
     return this.form.get('isol_id');
   }

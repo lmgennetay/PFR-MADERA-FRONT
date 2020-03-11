@@ -104,7 +104,7 @@ export class PageFormComponent {
   }
 
   onDelete() {
-    alert('page ' + this.url);
+    // alert('page ' + this.url);
     this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
     if ((this.item.id !== undefined) && (this.item.id != null)) {
       this.deleteItem(this.url, this.item);
@@ -139,7 +139,7 @@ export class PageFormComponent {
 
   deleteItem(url: any, item: any) {
     this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
-    alert('url ' + url);
+    // alert('url ' + url);
     this.itemsService.deleteItem(url, item)
     .subscribe(data => {
       this.resetForm();

@@ -56,28 +56,28 @@
           <img src="{{ record[column.data.field] }}" height="129" width="90" class="shadow-lg rounded" style="cursor: pointer">
         </div>
 
-          <div *ngIf="column.type=='mm'" (click)="selectItem(record['id'])" style="cursor: pointer">
-            {{ record[column.data.field] }} mm
-          </div>
-
-          <div *ngIf="column.type=='angle'" (click)="selectItem(record['id'])" style="cursor: pointer">
-            <div *ngIf="record[column.data.field] == 1 ; else angle" >
-              Entrant
-            </div>
-            <ng-template #angle>
-              Sortant
-            </ng-template>
-          </div>
-
-          <div *ngIf="column.type=='d'" (click)="selectItem(record['id'])" style="cursor: pointer">
-            {{ record[column.data.field] }} °
-          </div>
-
-          <div class="text-center" *ngIf="column.type=='delete'" (click)="onDelete(this.url, column.endPoint, record['id'])">
-          <a class="text-center btn-md btn-danger" *ngIf="record[column.data.field]!=null"
-             href="#" ><i class="fa fa-trash"></i></a>
+        <div *ngIf="column.type=='mm'" (click)="selectItem(record['id'])" style="cursor: pointer">
+          {{ record[column.data.field] }} mm
         </div>
 
+        <div *ngIf="column.type=='angle'" (click)="selectItem(record['id'])" style="cursor: pointer">
+          <div *ngIf="record[column.data.field] == 1 ; else angle" >
+            Entrant
+          </div>
+          <ng-template #angle>
+            Sortant
+          </ng-template>
+        </div>
+
+        <div *ngIf="column.type=='d'" (click)="selectItem(record['id'])" style="cursor: pointer">
+          {{ record[column.data.field] }} °
+        </div>
+
+        <div class="text-center" *ngIf="column.type=='delete'" (click)="onDelete(this.url, column.endPoint, record['id'], column.source)">
+          <a class="text-center btn-md btn-danger" *ngIf="record[column.data.field]!=null">
+            <i class="fa fa-trash"></i>
+          </a>
+        </div>
       </td>
     </tr>
   </tbody>

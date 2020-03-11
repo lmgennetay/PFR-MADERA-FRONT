@@ -67,4 +67,6 @@ export class CustomersListComponent extends PageListComponent {
     }
   }
 
+
+
 }

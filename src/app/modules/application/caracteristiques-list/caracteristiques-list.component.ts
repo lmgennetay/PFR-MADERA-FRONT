@@ -15,7 +15,7 @@ export class CaracteristiquesListComponent extends PageListComponent {
 
   initialize() {
 
-    this.endpoint = 'caracteristique/liste/module/1';
+    this.endpoint = 'caracteristique/liste/module/' + localStorage.module_id;
     this.link = 'caracteristique';
     this.linkRoute = 'caracteristiques';
 
@@ -67,7 +67,8 @@ export class CaracteristiquesListComponent extends PageListComponent {
       },
       {
         type: 'delete',
-        endPoint: 'module',
+        endPoint: 'caracteristique',
+        source: 'caracteristiques/' + localStorage.module_id,
         title: { caption: '', class: 'text-primary font-weight-bold text-right' },
         data: { field: 'id' }
       }

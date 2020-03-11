@@ -111,7 +111,7 @@ export class CustomersFormComponent extends PageFormComponent {
     super.setFormValue(item);
   }
   onDelete() {
-    alert('client');
+    // alert('client');
     let res: any;
     res = super.onDelete();
     this.router.navigate(['clients']);

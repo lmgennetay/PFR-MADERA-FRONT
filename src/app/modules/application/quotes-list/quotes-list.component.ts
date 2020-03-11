@@ -55,6 +55,13 @@ export class QuotesListComponent extends PageListComponent {
           type: 'euro',
           title: {caption: 'Prix', class: 'text-primary font-weight-bold text-center'},
           data: {field: 'devi_prix', class: 'text-primary font-weight-bold text-center'}
+        },
+        {
+          type: 'delete',
+          endPoint: 'devis',
+          source: 'devis',
+          title: { caption: 'Action', class: 'text-primary font-weight-bold text-right' },
+          data: { field: 'id' }
         }
       ];
 

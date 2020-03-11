@@ -1,6 +1,7 @@
 <div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-4">
   <div class="titreSection">CARACTÉRISTIQUE DU MODULE</div>
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
+    <input type="text" name="modu_id" hidden formControlName="modu_id" id="modu_id" class="inputTexteContenu text-right" >
     <div class="separateurHorizontal">&nbsp;</div>
     <!-- Section -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
@@ -24,13 +25,7 @@
         <option value="" disabled> Quel type d'angle ?</option>
         <option value="1">Entrant</option>
         <option value="2">Sortant</option>
-        <!-- <option [value]="typeAngle.id" *ngFor="let typeAngle of listTypesAngles"> {{caracteristique.typeAngle}} {{caracteristique.typeAngle}}</option> -->
       </select>
-      <!-- <div *ngIf="type_angle.invalid" class="alertFormulaire">
-        <div *ngIf="type_angle.errors.required">
-          Veuillez sélectionner un type d'angle.
-        </div>
-      </div> -->
     </div>
     <!-- Degré -->
     <div class="flexColumnStart inputTexte inputTextTaille2">

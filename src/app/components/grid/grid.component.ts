@@ -49,16 +49,24 @@ export class GridComponent {
     this.router.navigate(['/' + this.link, id]);
   }
 
-  onDelete(url: any, endPoint: any, id: any) {
+  onDelete(url: any, endPoint: any, id: any, source: any) {
+    console.log(source);
+    // alert(source);
     this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
     if ((id !== undefined) && (id != null)) {
       // alert('grid: url ' + url + ' | endpoint ' + endPoint + ' | id ' + id);
       url = url + endPoint;
-      this.itemsService.deleteItem(url, id).subscribe(data => {
-        // console.log(data);
-        // this.router.navigateByUrl('/modules/devis/1');
+      this.itemsService.deleteItem(url, id).subscribe({
+        next: value => this.refresh(source),
+        error: err => console.error(err)
       });
-      alert('after delete ');
     }
   }
+
+  refresh(source){
+    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/' + source ]);
+    });
+  }
+
 }
