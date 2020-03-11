@@ -25,7 +25,7 @@ header {
   height: 60px;
   margin: 0px;
   padding: 0px;
-  background-color: #333333;
+  background-color: black;
 }
 
 app-header {
@@ -37,7 +37,7 @@ app-header {
 .appComponent, app-login, app-accueil, app-client, app-customer, app-quotes-form,
 app-gestion-client-menu, app-gestion-devis-menu,
 app-quotes-list, app-search-bar, app-user, app-users-list, app-grid,
-app-modules-form, app-modules-form-carac-add {
+app-modules-form, app-modules-form-carac-add, app-grid {
   width: 100%;
 }
 
@@ -51,6 +51,13 @@ app-modules-form, app-modules-form-carac-add {
   height: 2px;
   margin: 5px 0px;
   border-bottom: 2px solid #249e00;
+}
+
+.separateurVertical {
+  width: 1px;
+  height: 30px;
+  margin: 0px 5px 0px 10px;
+  border-right: 2px solid white;
 }
 
 /** ########################################
@@ -136,12 +143,16 @@ label {
   z-index: 10;
 }
 
+.menu {
+  padding: 0px 10px;
+}
+
 nav {
   width: 90%;
   margin-left: 10px;
 }
 
-a, a:hover {
+/* a, a:hover {
   width: 90%;
   padding: 5px 10px;
   text-decoration: none;
@@ -150,7 +161,7 @@ a, a:hover {
   font-weight: bold;
   color: #249e00;
   border: 2px solid #249e00;
-}
+} */
 
 /** ########################################
  * Corps de la page
@@ -160,8 +171,11 @@ a, a:hover {
   margin-top: 100px;
   margin-bottom: 50px;
   padding: 10px;
-  border-left: 1px solid #eeeeee;
-  border-right: 1px solid #eeeeee;
+  /* border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee; */
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  box-shadow: 3px 3px 15px #999999;
   /* background-color: #444444; */
   /* background-color: #dadada; */
 }
@@ -201,7 +215,7 @@ a, a:hover {
 .flexCenter, app-login, app-accueil, app-client, app-customer, app-quotes-form,
 app-gestion-client-menu, app-gestion-devis-menu, app-modules-form, app-modules-list,
 app-quotes-list, app-search-bar, app-user, app-users-list, app-grid,
-app-modules-form, app-modules-form-carac-add {
+app-modules-form, app-modules-form-carac-add, app-grid {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -351,4 +365,34 @@ input:disabled {
 
 .th-style {
   color: #249e00;
+}
+
+.table-style td {
+  color: black!important;
+}
+
+.page-item.active .page-link {
+  background-color: #249e00!important;
+  border-color: #249e00!important;
+}
+
+.page-item.active:hover .page-link:hover {
+  z-index: 2!important;
+  color: #249e00!important;
+  text-decoration: none!important;
+  background-color: #e9ecef!important;
+  border-color: #dee2e6!important;
+}
+
+.green {
+  color: #249e00;
+}
+
+.iconesMenu {
+  margin: 0px 5px;
+  font-size: 2rem;
+}
+
+.iconesMenu:hover {
+  color: #30ce00;
 }
