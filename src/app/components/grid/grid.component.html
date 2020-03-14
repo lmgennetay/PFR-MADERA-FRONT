@@ -74,7 +74,7 @@
         </div>
 
         <div class="text-center" *ngIf="column.type=='delete'" (click)="onDelete(this.url, column.endPoint, record['id'], column.source)">
-          <a class="text-center btn-md btn-danger" *ngIf="record[column.data.field]!=null">
+          <a class="text-center btn-md btnTrash" *ngIf="record[column.data.field]!=null">
             <i class="fa fa-trash"></i>
           </a>
         </div>
