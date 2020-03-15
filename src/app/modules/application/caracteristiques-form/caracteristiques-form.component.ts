@@ -31,10 +31,10 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
   }
 
   createForm() {
-    this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listTypesAnglesUrl).subscribe(data => {
-      this.listTypesAngles = data.listTypesAngles;
-      this.setFormValue(this.listTypesAngles);
-    });
+    // this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listTypesAnglesUrl).subscribe(data => {
+    //   this.listTypesAngles = data.listTypesAngles;
+    //   this.setFormValue(this.listTypesAngles);
+    // });
 
     this.form = this.fb.group({
       id: null,
@@ -48,7 +48,7 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
       cara_longueur: [null,
         [Validators.required]
       ],
-      listTypesAngles: null,
+      listTypesAngles: 0,
       cara_type_angle: [null,
         [Validators.required]
       ],

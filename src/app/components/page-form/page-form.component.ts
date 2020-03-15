@@ -114,7 +114,12 @@ export class PageFormComponent {
   onCopy() {
     this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
     this.item.id = null;
-    this.form.get('id').setValue(null);
+    // this.form.get('id').setValue(null);
+    if ((this.item.id === null) || (this.item.id === undefined)) {
+      this.createItem(this.url, this.item);
+    } else {
+      this.updateItem(this.url, this.item, this.item.id);
+    }
   }
 
   createItem(url: any, item: any) {
@@ -124,6 +129,7 @@ export class PageFormComponent {
     this.itemsService.addItem(url, item)
       .subscribe(data => {
         this.item = data;
+        alert('Création effectuée');
       });
   }
 
@@ -132,8 +138,9 @@ export class PageFormComponent {
     this.itemsService.updateItem(item, id, url)
       .subscribe(data => {
         this.item = data;
-        console.log(this.item);
+        console.log(data);
         this.form.setValue(this.item);
+        alert('les données ont été modifiées');
       });
   }
 

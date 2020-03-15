@@ -1,6 +1,7 @@
 import { Component, Injector } from '@angular/core';
 
 import { PageListComponent } from '../../../components/page-list/page-list.component';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-quotes-list',
@@ -9,7 +10,7 @@ import { PageListComponent } from '../../../components/page-list/page-list.compo
 })
 export class QuotesListComponent extends PageListComponent {
 
-  constructor(injector: Injector) {
+  constructor(injector: Injector, private location: Location) {
     super(injector);
   }
 
@@ -67,6 +68,10 @@ export class QuotesListComponent extends PageListComponent {
 
       super.initialize();
     }
+  }
+
+  backClicked() {
+    this.location.back();
   }
 
 }

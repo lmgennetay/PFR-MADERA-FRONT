@@ -117,7 +117,7 @@
       <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
       <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api" type="submit"><i class="fas fa-plus fa-lg"></i></button>
       <button class="button" (click)="onDelete()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-trash-alt fa-lg"></i></button>
-      <button class="button" (click)="goDevis()"><i class="fas fa-arrow-right fa-lg"></i></button>
+      <button class="button" (click)="goDevis()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-arrow-right fa-lg"></i></button>
     </div>
 
     <!-- <button class="button" (click)="onUpdate()"><i class="fas fa-save fa-lg"></i>&nbsp; Enregistrer</button>

@@ -67,6 +67,9 @@ export class QuotesFormComponent extends PageFormComponent {
 
     this.form = this.fb.group({
       id: null,
+      resultat: null,
+      etap_id: null,
+      etat_id: null,
       comm_id: null,
       devi_nom: null,
       devi_date: null,
@@ -97,6 +100,9 @@ export class QuotesFormComponent extends PageFormComponent {
 
   resetForm() {
     this.item.id = null;
+    this.item.resultat = null;
+    this.item.etap_id = null;
+    this.item.etat_id = null;
     this.item.comm_id = localStorage.user_id;
     this.item.devi_date = null;
     this.item.devi_nom = null;
@@ -119,6 +125,9 @@ export class QuotesFormComponent extends PageFormComponent {
   }
 
   setFormValue(item: any) {
+    this.form.controls.resultat.setValue('');
+    this.form.controls.etap_id.setValue(item.etap_id);
+    this.form.controls.etat_id.setValue(item.etat_id);
     this.form.controls.id.setValue(item.id);
     this.form.controls.comm_id.setValue(item.comm_id);
     this.form.controls.devi_date.setValue(item.devi_date);
@@ -189,7 +198,7 @@ export class QuotesFormComponent extends PageFormComponent {
     return this.form.get('devi_prix');
   }
   backClicked() {
-    this.location.back();
+    this.router.navigateByUrl('/devis');
   }
   goView() {
     this.router.navigateByUrl('/devis/view/' +  this.item.id);

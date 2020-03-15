@@ -100,7 +100,7 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="section flexCenter flexWrap">
       <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
-      <button class="button" (click)="onUpdate()" [disabled]="form.invalid || !api"  type="submit"><i class="fas fa-save fa-lg"></i></button>
+      <button class="button" (click)="onUpdate()" [disabled]="form.invalid"  type="submit"><i class="fas fa-save fa-lg"></i></button>
       <button class="button" (click)="goView()" [disabled]="(id.value == undefined && id.value == null) || !api "><i class="fas fa-eye fa-lg"></i></button>
       <button class="button" (click)="goModule()"><i class="fas fa-arrow-right fa-lg"></i></button>
     </div>

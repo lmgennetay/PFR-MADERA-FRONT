@@ -105,6 +105,8 @@ export class ModulesFormComponent extends PageFormComponent {
 
     this.form = this.fb.group({
       id: null,
+      resultat: null,
+      modu_prix_total: null,
       devi_id: localStorage.devis_id,
       listFamillesModules: null,
       tymo_id: [null,
@@ -115,9 +117,7 @@ export class ModulesFormComponent extends PageFormComponent {
       modu_nom: [null,
         [Validators.required]
       ],
-      modu_prix_unitaire: [null,
-        [Validators.required]
-      ],
+      modu_prix_unitaire: null,
       listIsolants: null,
       isol_id: null,
       listFinitionsInterieures: null,
@@ -133,6 +133,8 @@ export class ModulesFormComponent extends PageFormComponent {
   }
   resetForm() {
     this.item.id = null;
+    this.item.resultat = null;
+    this.item.modu_prix_total = null;
     this.item.devi_id = null;
     this.item.comm_id = localStorage.user_id;
     this.listFamillesModules = null;
@@ -162,10 +164,13 @@ export class ModulesFormComponent extends PageFormComponent {
     this.form.controls.id.setValue(item.id);
     this.form.controls.listFamillesModules.setValue(item.listFamillesModules);
     this.form.controls.tymo_id.setValue(item.tymo_id);
+
     this.form.controls.listModules.setValue(item.listModules);
     this.form.controls.modu_id.setValue(item.modu_id);
+
     this.form.controls.modu_nom.setValue(item.modu_nom);
     this.form.controls.modu_prix_unitaire.setValue(item.modu_prix_unitaire);
+
     this.form.controls.listIsolants.setValue(item.listIsolants);
     this.form.controls.isol_id.setValue(item.isol_id);
     this.form.controls.listFinitionsInterieures.setValue(item.listFinitionsInterieures);
@@ -195,9 +200,9 @@ export class ModulesFormComponent extends PageFormComponent {
   get modu_nom() {
     return this.form.get('modu_nom');
   }
-  // get modu_prix_unitaire() {
-  //   return this.form.get('modu_prix_unitaire');
-  // }
+  get modu_prix_unitaire() {
+    return this.form.get('modu_prix_unitaire');
+  }
   get isol_id() {
     return this.form.get('isol_id');
   }

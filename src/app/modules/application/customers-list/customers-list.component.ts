@@ -1,6 +1,7 @@
 import { Component, Injector } from '@angular/core';
 
 import { PageListComponent } from '../../../components/page-list/page-list.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-users-list',
@@ -9,7 +10,7 @@ import { PageListComponent } from '../../../components/page-list/page-list.compo
 })
 export class CustomersListComponent extends PageListComponent {
 
-  constructor(injector: Injector) {
+  constructor(injector: Injector, private location: Location) {
     super(injector);
   }
 
@@ -61,12 +62,20 @@ export class CustomersListComponent extends PageListComponent {
         {
           title: {caption: 'tel', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
           data: {field: 'pers_tel', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+        },
+        {
+          type: 'delete',
+          endPoint: 'client',
+          source: 'clients',
+          title: { caption: '', class: 'text-primary font-weight-bold text-right' },
+          data: { field: 'id' }
         }
       ];
       super.initialize();
     }
   }
 
-
-
+  backClicked() {
+    this.location.back();
+  }
 }

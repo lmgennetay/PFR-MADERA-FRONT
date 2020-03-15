@@ -135,19 +135,11 @@ export class ItemsService {
   getItem(api: boolean, url: any, id: number): Observable<any> {
     let result: any = {};
     if (id !== undefined) {
-      if (api) {
         const urlParameter = url + '/' + id;
         result = this.http.get<any>(urlParameter).pipe(
           tap(_ => this.log(`fetched item id=${id}`)),
           catchError(this.handleError<any>(`getItem id=${id}`))
         );
-      } else {
-        const urlParameter = url;
-        result = this.http.get<any>(urlParameter).pipe(
-          map((value: string) => this.filterJsonItem(value, id)),
-          catchError(this.handleError('getItems', []))
-        );
-      }
     }
     return result;
   }
