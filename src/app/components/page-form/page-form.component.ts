@@ -129,7 +129,7 @@ export class PageFormComponent {
     this.itemsService.addItem(url, item)
       .subscribe(data => {
         this.item = data;
-        alert('Création effectuée');
+        // alert('Création effectuée');
       });
   }
 
@@ -140,7 +140,7 @@ export class PageFormComponent {
         this.item = data;
         console.log(data);
         this.form.setValue(this.item);
-        alert('les données ont été modifiées');
+        // alert('les données ont été modifiées');
       });
   }
 

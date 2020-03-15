@@ -36,7 +36,7 @@ export class CustomersListComponent extends PageListComponent {
       this.columns = [
         {
           type: 'num',
-          title: {caption: 'N°', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          title: {caption: 'N°', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
           data: {field: 'N°', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
@@ -60,14 +60,14 @@ export class CustomersListComponent extends PageListComponent {
           data: {field: 'pers_mail', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
-          title: {caption: 'tel', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          title: {caption: 'Tel', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
           data: {field: 'pers_tel', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
           type: 'delete',
           endPoint: 'client',
           source: 'clients',
-          title: { caption: '', class: 'text-primary font-weight-bold text-right' },
+          title: { caption: 'Action', class: 'text-primary font-weight-bold text-right' },
           data: { field: 'id' }
         }
       ];

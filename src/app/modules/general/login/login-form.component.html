@@ -18,17 +18,20 @@
         <div *ngIf="mdp_utilisateur.errors.required">
           Veuillez saisir un mot de passe.
         </div>
+        <div *ngIf="mdp_utilisateur.errors.minlength">
+          Le mot de passe nécessite un minimum de 8 caractères.
+        </div>
       </div>
     </div>
 
-    <div class="flexStart inputTexte inputTextTaille2">
+    <!-- <div class="flexStart inputTexte inputTextTaille2">
         <input type="checkbox" id="remember">
         <label for="remember"> Se souvenir de moi  </label>
-    </div>
+    </div> -->
 
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="section flexCenter flexWrap">
-      <button class="button" (click)="onLogin()" [disabled]="form.invalid || !api" type="submit"><i class=""></i>SE CONNECTER</button>
+      <button class="button" (click)="onLogin()" [disabled]="form.invalid || !api" type="submit">SE CONNECTER</button>
     </div>
 <!--    <div class="section flexCenter flexWrap">-->
 <!--      <button class="button"  type="submit"><i class=""></i>Mot de passe oublié</button>-->

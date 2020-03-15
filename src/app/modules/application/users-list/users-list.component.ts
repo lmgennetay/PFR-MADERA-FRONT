@@ -59,7 +59,7 @@ export class UsersListComponent extends PageListComponent {
           type: 'delete',
           endPoint: 'commercial',
           source: 'commercials',
-          title: { caption: '', class: 'text-primary font-weight-bold text-right' },
+          title: { caption: 'Action', class: 'text-primary font-weight-bold text-right' },
           data: { field: 'id' }
         }
       ];

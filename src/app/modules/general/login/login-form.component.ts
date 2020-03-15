@@ -32,8 +32,8 @@ export class LoginFormComponent extends PageFormComponent {
         [Validators.required]
       ],
       mdp_utilisateur: [null,
-        [Validators.required]
-      ]
+        [Validators.required, Validators.minLength]
+      ],
     });
     super.createForm();
   }

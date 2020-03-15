@@ -328,11 +328,12 @@ input:disabled {
 .inputTexteContenu {
   width: 100%;
   margin-bottom: 0px;
-  background: transparent;
+  background: white;
   border: 1px solid rgb(210, 210, 210);
   border-radius: 5px;
   color: black;
   font-size: 1.1rem;
+  padding: 5px;
 }
 
 .alertFormulaire {
@@ -382,6 +383,7 @@ input:disabled {
   text-decoration: none!important;
   background-color: #e9ecef!important;
   border-color: #dee2e6!important;
+  cursor: pointer;
 }
 
 .green {
@@ -395,4 +397,12 @@ input:disabled {
 
 .iconesMenu:hover {
   color: #30ce00;
+}
+
+.prixSpec {
+  transform: translateX(-20px);
+}
+
+#devi_prix {
+  width: 100%;
 }

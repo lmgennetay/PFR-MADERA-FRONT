@@ -1,4 +1,4 @@
-<div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-4">
+<div class="corpsPage flexColumnCenter col-xs-12 col-md-8 col-lg-6">
   <div class="titreSection">CLIENT</div>
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <div class="flexColumnStart inputTexte inputTextTaille2">
@@ -26,7 +26,7 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_sexe" class="labelForm">Genre</label>
-      <select name="genre" formControlName="pers_sexe" id="pers_sexe" ng-model="genre">
+      <select name="genre" class="inputTexteContenu" formControlName="pers_sexe" id="pers_sexe" ng-model="genre">
         <option value="" disabled> Quel est votre sexe ?</option>
         <option value="homme" >Homme</option>
         <option value="femme" >Femme</option>
@@ -48,11 +48,11 @@
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="adre_complement" class="labelForm">Adresse complementaire</label>
+      <label for="adre_complement" class="labelForm">Adresse complémentaire</label>
       <input type="text" name="adre_complement" formControlName="adre_complement" id="adre_complement" class="inputTexteContenu" maxlength="100">
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="adre_info" class="labelForm">Info</label>
+      <label for="adre_info" class="labelForm">Informations complémentaires</label>
       <input type="text" name="adre_info" formControlName="adre_info" id="adre_info" class="inputTexteContenu" maxlength="100">
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
@@ -74,18 +74,18 @@
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="adre_region" class="labelForm">Region</label>
+      <label for="adre_region" class="labelForm">Région</label>
       <input type="text" name="adre_region" formControlName="adre_region" id="adre_region" class="inputTexteContenu" maxlength="100">
       <div *ngIf="adre_region.invalid" class="alertFormulaire">
         <div *ngIf="adre_region.errors.required">
-          Veuillez saisir la region.
+          Veuillez saisir la région.
         </div>
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pays_id" class="labelForm">Pays</label>
       <select class="inputTexteContenu" name="pays_id"  formControlName="pays_id" id="pays_id" ng-model="pays_id">
-        <option value="" disabled> Quel niveau de gamme ?</option>
+        <option value="" disabled> Quel pays ?</option>
         <option [value]="pays.id" *ngFor="let pays of listPays"> {{pays.pays_nom}} </option>
       </select>
       <div *ngIf="pays_id.invalid" class="alertFormulaire">
@@ -100,7 +100,7 @@
         <input type="text" name="pers_mail" formControlName="pers_mail" id="pers_mail" class="inputTexteContenu" maxlength="100">
       <div *ngIf="pers_mail.invalid" class="alertFormulaire">
         <div *ngIf="pers_mail.errors.required">
-          Veuillez saisir votre email.
+          Veuillez saisir un email.
         </div>
       </div>
     </div>
@@ -109,7 +109,7 @@
       <input type="text" name="pers_tel" formControlName="pers_tel" id="pers_tel" class="inputTexteContenu" maxlength="10">
       <div *ngIf="pers_tel.invalid" class="alertFormulaire">
         <div *ngIf="pers_tel.errors.required">
-          Veuillez saisir votre n° de téléphone.
+          Veuillez saisir un numéro de téléphone.
         </div>
       </div>
     </div>
