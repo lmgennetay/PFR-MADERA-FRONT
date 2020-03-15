@@ -13,7 +13,7 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="devi_nom" class="labelForm">Nom du projet</label>
-      <input type="text" name="devi_nom" formControlName="devi_nom" id="devi_nom" class="inputTexteContenu" maxlength="50">
+      <input type="text" name="devi_nom" formControlName="devi_nom" id="devi_nom" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': devi_nom.invalid}" maxlength="50">
       <div *ngIf="devi_nom.invalid" class="alertFormulaire">
         <div *ngIf="devi_nom.errors.required">
           Veuillez saisir un nom de projet.
@@ -24,64 +24,50 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="clie_id" class="labelForm">Client</label>
-      <select class="inputTexteContenu" name="clie_id"  formControlName="clie_id" id="clie_id" ng-model="clie_id">
+      <select class="inputTexteContenu" name="clie_id"  formControlName="clie_id" id="clie_id" ng-model="clie_id" [ngClass]="{'inputTexteContenuInvalide': clie_id.invalid}">
         <option value="" disabled> Le client ?</option>
         <option [value]="client.id" *ngFor="let client of listClients"> {{client.pers_nom}} {{client.pers_prenom}}</option>
       </select>
       <div *ngIf="clie_id.invalid" class="alertFormulaire">
         <div *ngIf="clie_id.errors.required">
-          Veuillez sélectioner un client.
+          Veuillez sélectionner un client.
         </div>
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="mais_id" class="labelForm">Maison</label>
-      <select class="inputTexteContenu" name="mais_id"  formControlName="mais_id" id="mais_id" ng-model="mais_id">
+      <select class="inputTexteContenu" name="mais_id"  formControlName="mais_id" id="mais_id" ng-model="mais_id" [ngClass]="{'inputTexteContenuInvalide': mais_id.invalid}">
         <option value="" disabled> Quel type de maison ?</option>
         <option [value]="maison.id" *ngFor="let maison of listMaisons"> {{maison.mais_nom}} </option>
       </select>
       <div *ngIf="mais_id.invalid" class="alertFormulaire">
         <div *ngIf="mais_id.errors.required">
-          Veuillez sélectioner une maison.
+          Veuillez sélectionner une maison.
         </div>
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="gamm_id" class="labelForm">Gamme du produit</label>
-      <select class="inputTexteContenu" name="gamm_id"  formControlName="gamm_id" id="gamm_id" ng-model="gamm_id">
+      <select class="inputTexteContenu" name="gamm_id"  formControlName="gamm_id" id="gamm_id" ng-model="gamm_id" [ngClass]="{'inputTexteContenuInvalide': gamm_id.invalid}">
         <option value="" disabled> Quel niveau de gamme ?</option>
         <option [value]="gamme.id" *ngFor="let gamme of listGammes"> {{gamme.gamm_nom}} </option>
       </select>
       <div *ngIf="gamm_id.invalid" class="alertFormulaire">
         <div *ngIf="gamm_id.errors.required">
-          Veuillez sélectioner un niveau de gamme.
+          Veuillez sélectionner un niveau de gamme.
         </div>
       </div>
     </div>
     <br>
     <div class="titreSection">ADRESSE CHANTIER</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="pays_id" class="labelForm">Pays</label>
-      <select class="inputTexteContenu" name="pays_id"  formControlName="pays_id" id="pays_id" ng-model="pays_id">
-        <option value="" disabled> Quel est le pays ?</option>
-        <option [value]="pays.id" *ngFor="let pays of listPays"> {{pays.pays_nom}} </option>
-      </select>
-    </div>
-    <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="adre_region" class="labelForm">Region</label>
-      <input type="text" name="adre_region" formControlName="adre_region" id="adre_region" class="inputTexteContenu" maxlength="100">
-    </div>
-    <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="adre_ville" class="labelForm">Ville</label>
-      <input type="text" name="adre_ville" formControlName="adre_ville" id="adre_ville" class="inputTexteContenu" maxlength="100">
-    </div>
-    <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="adre_cp" class="labelForm">Code Postal</label>
-      <input type="text" name="adre_cp" formControlName="adre_cp" id="adre_cp" class="inputTexteContenu" maxlength="5">
-    </div>
-    <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="adre_rue" class="labelForm">Adresse</label>
-      <input type="text" name="adre_rue" formControlName="adre_rue" id="adre_rue" class="inputTexteContenu" maxlength="100">
+      <input type="text" name="adre_rue" formControlName="adre_rue" id="adre_rue" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': adre_rue.invalid}" maxlength="100">
+      <div *ngIf="adre_rue.invalid" class="alertFormulaire">
+        <div *ngIf="adre_rue.errors.required">
+          Veuillez saisir une adresse.
+        </div>
+      </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="adre_complement">Complement d'adresse</label>
@@ -91,12 +77,54 @@
       <label for="adre_info">Informations complémentaires</label>
       <input type="text" name="adre_info" formControlName="adre_info" id="adre_info" class="inputTexteContenu" maxlength="100">
     </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="adre_cp" class="labelForm">Code Postal</label>
+      <input type="text" name="adre_cp" formControlName="adre_cp" id="adre_cp" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': adre_cp.invalid}" maxlength="5" pattern="[0-9]*">
+      <div *ngIf="adre_cp.invalid" class="alertFormulaire">
+        <div *ngIf="adre_cp.errors.required">
+          Veuillez saisir le code postal.
+        </div>
+        <div *ngIf="adre_cp.errors.pattern">
+          Le code postal ne peut pas contenir d'autres caractères que des chiffres.
+        </div>
+      </div>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="adre_ville" class="labelForm">Ville</label>
+      <input type="text" name="adre_ville" formControlName="adre_ville" id="adre_ville" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': adre_ville.invalid}" maxlength="100">
+      <div *ngIf="adre_ville.invalid" class="alertFormulaire">
+        <div *ngIf="adre_ville.errors.required">
+          Veuillez saisir la ville.
+        </div>
+      </div>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="adre_region" class="labelForm">Région</label>
+      <input type="text" name="adre_region" formControlName="adre_region" id="adre_region" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': adre_region.invalid}" maxlength="100">
+      <div *ngIf="adre_region.invalid" class="alertFormulaire">
+        <div *ngIf="adre_region.errors.required">
+          Veuillez saisir la région.
+        </div>
+      </div>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="pays_id" class="labelForm">Pays</label>
+      <select class="inputTexteContenu" name="pays_id"  formControlName="pays_id" id="pays_id" ng-model="pays_id" [ngClass]="{'inputTexteContenuInvalide': pays_id.invalid}">
+        <option value="" disabled> Quel est le pays ?</option>
+        <option [value]="pays.id" *ngFor="let pays of listPays"> {{pays.pays_nom}} </option>
+      </select>
+      <div *ngIf="pays_id.invalid" class="alertFormulaire">
+        <div *ngIf="pays_id.errors.required">
+          Veuillez sélectionner un pays.
+        </div>
+      </div>
+    </div>
     <br>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="devi_prix">Prix</label>
       <div class="flexSpaceBetween section">
-        <input type="text" name="devi_prix" formControlName="devi_prix" id="devi_prix" class="inputTexteContenu" maxlength="100">
+        <input type="text" name="devi_prix" formControlName="devi_prix" id="devi_prix" class="inputTexteContenu" maxlength="100" disabled>
         <label class="prixSpec">€</label>
       </div>
     </div>

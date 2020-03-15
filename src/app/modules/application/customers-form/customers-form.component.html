@@ -8,7 +8,7 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_nom" class="labelForm">Nom</label>
-      <input type="text" name="pers_nom" formControlName="pers_nom" id="pers_nom" class="inputTexteContenu" maxlength="50">
+      <input type="text" name="pers_nom" formControlName="pers_nom" id="pers_nom" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_nom.invalid}" maxlength="50">
       <div *ngIf="pers_nom.invalid" class="alertFormulaire">
         <div *ngIf="pers_nom.errors.required">
           Veuillez saisir un nom.
@@ -17,7 +17,7 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_prenom" class="labelForm">Prénom</label>
-      <input type="text" name="pers_prenom" formControlName="pers_prenom" id="pers_prenom" class="inputTexteContenu" maxlength="50">
+      <input type="text" name="pers_prenom" formControlName="pers_prenom" id="pers_prenom" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_prenom.invalid}" maxlength="50">
       <div *ngIf="pers_prenom.invalid" class="alertFormulaire">
         <div *ngIf="pers_prenom.errors.required">
           Veuillez saisir un prénom.
@@ -26,21 +26,21 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_sexe" class="labelForm">Genre</label>
-      <select name="genre" class="inputTexteContenu" formControlName="pers_sexe" id="pers_sexe" ng-model="genre">
+      <select name="genre" class="inputTexteContenu" formControlName="pers_sexe" id="pers_sexe" ng-model="genre" [ngClass]="{'inputTexteContenuInvalide': pers_sexe.invalid}">
         <option value="" disabled> Quel est votre sexe ?</option>
         <option value="homme" >Homme</option>
         <option value="femme" >Femme</option>
       </select>
       <div *ngIf="pers_sexe.invalid" class="alertFormulaire">
         <div *ngIf="pers_sexe.errors.required">
-          Veuillez sélectioner un sexe.
+          Veuillez sélectionner un sexe.
         </div>
       </div>
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="adre_rue" class="labelForm">Adresse</label>
-      <input type="text" name="adre_rue" formControlName="adre_rue" id="adre_rue" class="inputTexteContenu" maxlength="100">
+      <input type="text" name="adre_rue" formControlName="adre_rue" id="adre_rue" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': adre_rue.invalid}" maxlength="100">
       <div *ngIf="adre_rue.invalid" class="alertFormulaire">
         <div *ngIf="adre_rue.errors.required">
           Veuillez saisir une adresse.
@@ -57,16 +57,19 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="adre_cp" class="labelForm">Code Postal</label>
-      <input type="text" name="adre_cp" formControlName="adre_cp" id="adre_cp" class="inputTexteContenu" maxlength="5">
+      <input type="text" name="adre_cp" formControlName="adre_cp" id="adre_cp" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': adre_cp.invalid}" maxlength="5" pattern="[0-9]*">
       <div *ngIf="adre_cp.invalid" class="alertFormulaire">
         <div *ngIf="adre_cp.errors.required">
           Veuillez saisir le code postal.
+        </div>
+        <div *ngIf="adre_cp.errors.pattern">
+          Le code postal ne peut pas contenir d'autres caractères que des chiffres.
         </div>
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="adre_ville" class="labelForm">Ville</label>
-      <input type="text" name="adre_ville" formControlName="adre_ville" id="adre_ville" class="inputTexteContenu" maxlength="100">
+      <input type="text" name="adre_ville" formControlName="adre_ville" id="adre_ville" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': adre_ville.invalid}" maxlength="100">
       <div *ngIf="adre_ville.invalid" class="alertFormulaire">
         <div *ngIf="adre_ville.errors.required">
           Veuillez saisir la ville.
@@ -75,7 +78,7 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="adre_region" class="labelForm">Région</label>
-      <input type="text" name="adre_region" formControlName="adre_region" id="adre_region" class="inputTexteContenu" maxlength="100">
+      <input type="text" name="adre_region" formControlName="adre_region" id="adre_region" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': adre_region.invalid}" maxlength="100">
       <div *ngIf="adre_region.invalid" class="alertFormulaire">
         <div *ngIf="adre_region.errors.required">
           Veuillez saisir la région.
@@ -84,32 +87,38 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pays_id" class="labelForm">Pays</label>
-      <select class="inputTexteContenu" name="pays_id"  formControlName="pays_id" id="pays_id" ng-model="pays_id">
+      <select class="inputTexteContenu" name="pays_id" formControlName="pays_id" id="pays_id" ng-model="pays_id" [ngClass]="{'inputTexteContenuInvalide': pays_id.invalid}">
         <option value="" disabled> Quel pays ?</option>
         <option [value]="pays.id" *ngFor="let pays of listPays"> {{pays.pays_nom}} </option>
       </select>
       <div *ngIf="pays_id.invalid" class="alertFormulaire">
         <div *ngIf="pays_id.errors.required">
-          Veuillez sélectioner un pays.
+          Veuillez sélectionner un pays.
         </div>
       </div>
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
         <label for="pers_mail" class="labelForm">Mail</label>
-        <input type="text" name="pers_mail" formControlName="pers_mail" id="pers_mail" class="inputTexteContenu" maxlength="100">
+        <input type="text" name="pers_mail" formControlName="pers_mail" id="pers_mail" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_mail.invalid}" maxlength="100" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
       <div *ngIf="pers_mail.invalid" class="alertFormulaire">
         <div *ngIf="pers_mail.errors.required">
           Veuillez saisir un email.
+        </div>
+        <div *ngIf="pers_mail.errors.pattern">
+          Le mail doit contenir un @ et un point avec un nom de domaine.
         </div>
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_tel" class="labelForm">Tel</label>
-      <input type="text" name="pers_tel" formControlName="pers_tel" id="pers_tel" class="inputTexteContenu" maxlength="10">
+      <input type="text" name="pers_tel" formControlName="pers_tel" id="pers_tel" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_tel.invalid}" maxlength="10" pattern="[0-9]*">
       <div *ngIf="pers_tel.invalid" class="alertFormulaire">
         <div *ngIf="pers_tel.errors.required">
           Veuillez saisir un numéro de téléphone.
+        </div>
+        <div *ngIf="pers_tel.errors.pattern">
+          Le numéro de téléphone ne peut pas contenir d'autres caractères que des chiffres.
         </div>
       </div>
     </div>

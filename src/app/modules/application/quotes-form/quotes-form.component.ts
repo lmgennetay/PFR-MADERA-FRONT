@@ -71,10 +71,14 @@ export class QuotesFormComponent extends PageFormComponent {
       etap_id: null,
       etat_id: null,
       comm_id: null,
-      devi_nom: null,
+      devi_nom: [null,
+        [Validators.required]
+      ],
       devi_date: null,
       listClients: null,
-      clie_id: null,
+      clie_id: [null,
+        [Validators.required]
+      ],
       listMaisons: null,
       mais_id: [null,
         [Validators.required]
@@ -87,10 +91,18 @@ export class QuotesFormComponent extends PageFormComponent {
       pays_id: [null,
         [Validators.required]
       ],
-      adre_region: null,
-      adre_ville:  null,
-      adre_cp: null,
-      adre_rue: null,
+      adre_region: [null,
+        [Validators.required]
+      ],
+      adre_ville:  [null,
+        [Validators.required]
+      ],
+      adre_cp: [null,
+        [Validators.required, Validators.pattern]
+      ],
+      adre_rue: [null,
+        [Validators.required]
+      ],
       adre_complement: null,
       adre_info: null,
       devi_prix: 0.00,

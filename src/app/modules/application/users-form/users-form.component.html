@@ -8,7 +8,7 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_nom" class="labelForm">Nom</label>
-      <input type="text" name="pers_nom" formControlName="pers_nom" id="pers_nom" class="inputTexteContenu" maxlength="50">
+      <input type="text" name="pers_nom" formControlName="pers_nom" id="pers_nom" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_nom.invalid}" maxlength="50">
       <div *ngIf="pers_nom.invalid" class="alertFormulaire">
         <div *ngIf="pers_nom.errors.required">
           Veuillez saisir un nom.
@@ -17,8 +17,8 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_prenom" class="labelForm">Prénom</label>
-      <input type="text" name="pers_prenom" formControlName="pers_prenom" id="pers_prenom" class="inputTexteContenu" maxlength="50">
-      <div *ngIf="pers_prenom.invalid" class="pers_prenom">
+      <input type="text" name="pers_prenom" formControlName="pers_prenom" id="pers_prenom" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_prenom.invalid}" maxlength="50">
+      <div *ngIf="pers_prenom.invalid" class="alertFormulaire">
         <div *ngIf="pers_prenom.errors.required">
           Veuillez saisir un prénom.
         </div>
@@ -27,7 +27,7 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_mail" class="labelForm">Email</label>
-      <input type="email" name="pers_mail" formControlName="pers_mail" id="pers_mail" class="inputTexteContenu" maxlength="100">
+      <input type="email" name="pers_mail" formControlName="pers_mail" id="pers_mail" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_mail.invalid}" maxlength="100">
       <div *ngIf="pers_mail.invalid" class="alertFormulaire">
         <div *ngIf="pers_mail.errors.required">
           Veuillez saisir un mail.
@@ -35,17 +35,17 @@
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="pers_tel" class="labelForm">téléphone</label>
-      <input type="text" name="pers_tel" formControlName="pers_tel" id="pers_tel" class="inputTexteContenu" maxlength="10">
+      <label for="pers_tel" class="labelForm">Téléphone</label>
+      <input type="text" name="pers_tel" formControlName="pers_tel" id="pers_tel" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_tel.invalid}" maxlength="10">
       <div *ngIf="pers_tel.invalid" class="alertFormulaire">
         <div *ngIf="pers_tel.errors.required">
-          Veuillez saisir un n° téléphone.
+          Veuillez saisir un numéro de téléphone.
         </div>
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="comm_mdp" class="labelForm">Mot de passe</label>
-      <input type="password" name="comm_mdp" formControlName="comm_mdp" id="comm_mdp" class="inputTexteContenu" minlength="8">
+      <input type="password" name="comm_mdp" formControlName="comm_mdp" id="comm_mdp" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': comm_mdp.invalid}" minlength="8">
       <div *ngIf="comm_mdp.invalid" class="alertFormulaire">
         <div *ngIf="comm_mdp.errors.required">
           Veuillez saisir un mot de passe.
@@ -54,7 +54,7 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="comm_confirm_mdp" class="labelForm">Confirmer le Mot de passe</label>
-      <input type="password" name="comm_confirm_mdp" formControlName="comm_confirm_mdp" id="comm_confirm_mdp" class="inputTexteContenu" minlength="8">
+      <input type="password" name="comm_confirm_mdp" formControlName="comm_confirm_mdp" id="comm_confirm_mdp" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': comm_confirm_mdp.invalid}" minlength="8">
       <div *ngIf="comm_confirm_mdp.invalid" class="alertFormulaire">
         <div *ngIf="comm_confirm_mdp.errors.required">
           Veuillez confirmer votre mot de passe.
@@ -64,14 +64,14 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_sexe" class="labelForm">Genre</label>
-      <select class="inputTexteContenu" name="genre" formControlName="pers_sexe" id="pers_sexe" ng-model="genre">
+      <select class="inputTexteContenu" name="genre" formControlName="pers_sexe" id="pers_sexe" ng-model="genre" [ngClass]="{'inputTexteContenuInvalide': pers_sexe.invalid}">
         <option value="" disabled> Quel est votre sexe ?</option>
         <option value="homme" >Homme</option>
         <option value="femme" >Femme</option>
       </select>
       <div *ngIf="pers_sexe.invalid" class="alertFormulaire">
         <div *ngIf="pers_sexe.errors.required">
-          Veuillez sélectioner un sexe.
+          Veuillez sélectionner un sexe.
         </div>
       </div>
     </div>

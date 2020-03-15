@@ -3,7 +3,7 @@
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="mail_utilisateur" class="labelForm">Adresse mail</label>
-      <input type="text" name="mail_utilisateur" formControlName="mail_utilisateur" id="mail_utilisateur" class="inputTexteContenu" minlength="0">
+      <input type="text" name="mail_utilisateur" formControlName="mail_utilisateur" id="mail_utilisateur" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': mail_utilisateur.invalid}" minlength="0">
       <div *ngIf="mail_utilisateur.invalid" class="alertFormulaire">
         <div *ngIf="mail_utilisateur.errors.required">
           Veuiller saisir un email.
@@ -13,7 +13,7 @@
 
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="mdp_utilisateur" class="labelForm">Mot de passe</label>
-      <input type="password" name="mdp_utilisateur" formControlName="mdp_utilisateur" id="mdp_utilisateur" class="inputTexteContenu" minlength="8">
+      <input type="password" name="mdp_utilisateur" formControlName="mdp_utilisateur" id="mdp_utilisateur" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': mdp_utilisateur.invalid}" minlength="8">
       <div *ngIf="mdp_utilisateur.invalid" class="alertFormulaire">
         <div *ngIf="mdp_utilisateur.errors.required">
           Veuillez saisir un mot de passe.

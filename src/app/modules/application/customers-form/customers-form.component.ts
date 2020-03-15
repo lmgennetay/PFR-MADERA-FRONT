@@ -55,22 +55,24 @@ export class CustomersFormComponent extends PageFormComponent {
         [Validators.required]
       ],
       adre_cp: [null,
-        [Validators.required]
+        [Validators.required, Validators.pattern]
       ],
       adre_region: [null,
         [Validators.required]
       ],
       pers_mail: [null,
-        [Validators.required]
+        [Validators.required, Validators.pattern]
       ],
       pers_tel: [null,
-        [Validators.required]
+        [Validators.required, Validators.pattern]
       ],
       pers_sexe: [null,
         [Validators.required]
       ],
       listPays: null,
-      pays_id: null,
+      pays_id: [null,
+        [Validators.required]
+      ],
     });
     super.createForm();
   }
