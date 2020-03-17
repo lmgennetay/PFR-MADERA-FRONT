@@ -1,6 +1,5 @@
 import {Component, Injector} from '@angular/core';
 import { Validators } from '@angular/forms';
-
 import {PageFormComponent} from '../../../components/page-form/page-form.component';
 
 @Component({
