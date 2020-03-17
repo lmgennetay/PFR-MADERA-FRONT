@@ -1,7 +1,7 @@
 <table *ngIf="itemsCount!=0" class="table-style table table-hover table-striped table-bordered table-sm">
   <thead>
     <tr>
-      <th *ngFor="let column of columns" class="th-style">{{ column.title.caption }}</th>
+      <th *ngFor="let column of columns" [class]="column.title.class">{{ column.title.caption }}</th>
     </tr>
   </thead>
   <tbody>
@@ -28,7 +28,7 @@
         </div>
 
         <div *ngIf="column.type=='date'" (click)="selectItem(record['id'])" style="cursor: pointer">
-          {{ record[column.data.field]['date'] }}
+          {{ record[column.data.field]['date'] | date :'d/MM/yyyy' }}
         </div>
 
         <div *ngIf="column.type=='wiki'">
@@ -48,12 +48,14 @@
 
         <div *ngIf="column.type=='checkbox'" (click)="selectItem(record['id'])">
           <div class="form-check ">
-            <input class="form-check-input" type="checkbox" value="" [checked]="record[column.data.field]" style="cursor: pointer">
+            <input class="form-check-input" type="checkbox" value="" [checked]="record[column.data.field]"
+              style="cursor: pointer">
           </div>
         </div>
 
         <div *ngIf="column.type=='smallimg'" (click)="selectItem(record['id'])">
-          <img src="{{ record[column.data.field] }}" height="129" width="90" class="shadow-lg rounded" style="cursor: pointer">
+          <img src="{{ record[column.data.field] }}" height="129" width="90" class="shadow-lg rounded"
+            style="cursor: pointer">
         </div>
 
         <div *ngIf="column.type=='mm'" (click)="selectItem(record['id'])" style="cursor: pointer">
@@ -61,7 +63,7 @@
         </div>
 
         <div *ngIf="column.type=='angle'" (click)="selectItem(record['id'])" style="cursor: pointer">
-          <div *ngIf="record[column.data.field] == 1 ; else angle" >
+          <div *ngIf="record[column.data.field] == 1 ; else angle">
             Entrant
           </div>
           <ng-template #angle>
@@ -73,7 +75,8 @@
           {{ record[column.data.field] }} °
         </div>
 
-        <div class="text-center" *ngIf="column.type=='delete'" (click)="onDelete(this.url, column.endPoint, record['id'], column.source)">
+        <div class="text-left" *ngIf="column.type=='delete'"
+          (click)="onDelete(this.url, column.endPoint, record['id'], column.source)">
           <a class="text-center btn-md btnTrash" *ngIf="record[column.data.field]!=null">
             <i class="fa fa-trash"></i>
           </a>

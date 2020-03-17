@@ -387,7 +387,7 @@ input:disabled {
 }
 
 .green {
-  color: #249e00;
+  color: #249e00!important;
 }
 
 .iconesMenu {
@@ -414,4 +414,8 @@ input:disabled {
 .inputTexteContenuInvalide:active, .inputTexteContenuInvalide:focus {
   outline: 1px solid red;
   border: 1px solid red;
+}
+
+.faPlusListe {
+  margin-right: 5px;
 }

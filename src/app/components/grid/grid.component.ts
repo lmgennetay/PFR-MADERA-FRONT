@@ -2,11 +2,13 @@ import {Component, Injector, Input} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { ConfigService } from '../../services/config/config.service';
 import { ItemsService } from '../../services/items/items.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.css']
+  styleUrls: ['./grid.component.css'],
+  providers: [DatePipe]
 })
 export class GridComponent {
 

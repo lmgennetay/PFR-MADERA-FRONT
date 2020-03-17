@@ -36,27 +36,27 @@ export class ModulesListComponent extends PageListComponent {
       this.columns = [
         {
           type: 'num',
-          title: {caption: 'N°', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'N°', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'N°', class: 'text-info font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'N°', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
-          title: {caption: 'Id', class: 'text-info font-weight-bold text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'id', class: 'text-info text-center d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'Id', class: 'text-info font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'id', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
-          title: {caption: 'Nom', class: 'text-primary font-weight-bold'},
-          data: {field: 'modu_nom', class: 'text-primary font-weight-bold'}
+          title: {caption: 'Nom', class: 'text-info font-weight-bold'},
+          data: {field: 'modu_nom', class: 'text-info text-left'}
         },
         {
           type: 'euro',
-          title: {caption: 'Prix', class: 'text-primary font-weight-bold text-right'},
-          data: {field: 'modu_prix_unitaire', class: 'text-primary font-weight-bold text-right'}
+          title: {caption: 'Prix', class: 'text-info font-weight-bold text-left'},
+          data: {field: 'modu_prix_unitaire', class: 'text-info text-left'}
         },
         {
           type: 'delete',
           endPoint: 'module',
           source: 'modules/devis/' + localStorage.devis_id,
-          title: {caption: 'Prix', class: 'text-primary font-weight-bold text-right'},
+          title: {caption: 'Prix', class: 'text-info font-weight-bold text-left'},
           data: {field: 'id'}
         }
       ];
