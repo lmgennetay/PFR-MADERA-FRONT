@@ -24,7 +24,7 @@
     <!-- Modules -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="modu_id" class="labelForm">Module</label>
-      <select class="inputTexteContenu" name="modu_id"  formControlName="modu_id" id="modu_id" ng-model="modu_id">
+      <select (ngModelChange)="onChangeModule($event)" class="inputTexteContenu" name="modu_id"  formControlName="modu_id" id="modu_id" ng-model="modu_id">
         <option value="" disabled> Quel module ?</option>
         <option [value]="module.id" *ngFor="let module of listModules"> {{module.modu_nom}} </option>
       </select>

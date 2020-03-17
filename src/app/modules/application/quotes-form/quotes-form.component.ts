@@ -70,7 +70,7 @@ export class QuotesFormComponent extends PageFormComponent {
       resultat: null,
       etap_id: null,
       etat_id: null,
-      comm_id: null,
+      comm_id: localStorage.user_id,
       devi_nom: [null,
         [Validators.required]
       ],

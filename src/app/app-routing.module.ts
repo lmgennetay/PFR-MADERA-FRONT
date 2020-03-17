@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { HomeComponent } from './modules/general/home/home.component';
 import { AccueilComponent } from './modules/general/accueil/accueil.component';
-import { LoginFormComponent } from './modules/general/login/login-Form.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
 import { ConfigrationMenuComponent } from './modules/general/configuration-menu/configration-menu.component';
-import { GestionDevisMenuComponent } from './modules/general/gestion-devis-menu/gestion-devis-menu.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./modules/general/login/login-form.module').then(mod => mod.LoginFormModule)},
   { path: 'accueil', component: AccueilComponent },
   { path: 'configurateur', component: ConfigrationMenuComponent },
-  { path: 'gestionDevis', component: GestionDevisMenuComponent },
   {
     path: 'login',
     loadChildren: () => import('./modules/general/login/login-form.module').then(mod => mod.LoginFormModule)

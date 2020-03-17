@@ -38,3 +38,16 @@
 <!--    </div>-->
   </form>
 </div>
+
+<script>
+  $(function(){
+    if( localStorage.date === undefined || (Date.now() - new Date(localStorage.date).getTime()) >= 86400000 ) {
+      $('#nav').attr('hidden');
+      console.log(localStorage);
+    }
+    else {
+      $('#nav').removeAttr('hidden');
+      console.log(localStorage);
+    }
+  });
+</script>

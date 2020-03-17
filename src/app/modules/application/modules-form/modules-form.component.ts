@@ -28,6 +28,7 @@ export class ModulesFormComponent extends PageFormComponent {
   listCoupesPrincipeUrl: any;
   listCouvertures: any;
   listCouverturesUrl: any;
+  itemModules: any;
 
   constructor(injector: Injector, private location: Location) {
     super(injector);
@@ -42,26 +43,32 @@ export class ModulesFormComponent extends PageFormComponent {
   }
 
   initialize() {
-    this.endpoint = 'module';
-    this.titleForm = 'Formulaire Module';
-    this.icon = 'fas fa-file-medical';
-    this.listModules = '';
-    this.listModulesUrl = 'module/liste/gamme/' + localStorage.gamme + '/type/1';
-    this.listFamillesModules = '';
-    this.listFamillesModulesUrl = 'type_module/liste';
-    this.listIsolants = '';
-    this.listIsolantsUrl = 'isolant/liste';
-    this.listFinitionsInterieures = '';
-    this.listFinitionsInterieuresUrl = 'finitionInterieur/liste';
-    this.listFinitionsExterieures = '';
-    this.listFinitionsExterieuresUrl = 'finitionExterieur/liste';
-    this.listCouvertures = '';
-    this.listCouverturesUrl = 'couverture/liste';
-    this.listCoupesPrincipe = '';
-    this.listCoupesPrincipeUrl = 'cctp/liste';
-    super.initialize();
-  }
+    if (localStorage.date === undefined || (Date.now() - new Date(localStorage.date).getTime()) >= 86400000) {
+      this.router.navigateByUrl('/');
+    } else {
+      this.endpoint = 'module';
+      this.titleForm = 'Formulaire Module';
+      this.icon = 'fas fa-file-medical';
 
+      this.listModules = '';
+      this.listModulesUrl = 'module/liste/gamme/' + localStorage.gamme + '/type/1';
+
+      this.listFamillesModules = '';
+      this.listFamillesModulesUrl = 'type_module/liste';
+
+      this.listIsolants = '';
+      this.listIsolantsUrl = 'isolant/liste';
+      this.listFinitionsInterieures = '';
+      this.listFinitionsInterieuresUrl = 'finitionInterieur/liste';
+      this.listFinitionsExterieures = '';
+      this.listFinitionsExterieuresUrl = 'finitionExterieur/liste';
+      this.listCouvertures = '';
+      this.listCouverturesUrl = 'couverture/liste';
+      this.listCoupesPrincipe = '';
+      this.listCoupesPrincipeUrl = 'cctp/liste';
+      super.initialize();
+    }
+  }
   createForm() {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listModulesUrl).subscribe(data => {
       this.listModules = data.listeModule;
@@ -236,6 +243,19 @@ export class ModulesFormComponent extends PageFormComponent {
           this.form.controls.modu_id.setValue(newValue);
         }
       );
+    }
+  }
+
+  onChangeModule(newValue) {
+    if (newValue !== undefined ) {
+      this.itemsService.getItemSelect(this.api, this.configService.config.url + 'module/' + newValue ).subscribe(data => {
+        this.itemModules = data;
+        this.form.controls.isol_id.setValue(this.itemModules.isol_id);
+        this.form.controls.fiin_id.setValue(this.itemModules.fiin_id);
+        this.form.controls.fiex_id.setValue(this.itemModules.fiex_id);
+        this.form.controls.cctp_id.setValue(this.itemModules.cctp_id);
+        this.form.controls.couv_id.setValue(this.itemModules.couv_id);
+      });
     }
   }
 }

@@ -61,9 +61,11 @@ export class PageFormComponent {
               localStorage.token = data.token_utilisateur;
               localStorage.user_id = data.id;
               localStorage.date = data.datetoken_utilisateur;
+              $('#nav').removeAttr('hidden');
               this.router.navigate(['accueil']);
           } else {
               this.router.navigate(['']);
+            $('#nav').attr('hidden');
           }
       });
   }

@@ -15,6 +15,7 @@ export class LogoutFormComponent extends PageFormComponent {
   }
 
   initialize() {
+    $('#nav').attr('hidden');
     localStorage.clear();
     this.router.navigateByUrl('/');
   }
