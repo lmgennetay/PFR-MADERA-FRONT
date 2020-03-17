@@ -43,7 +43,7 @@ export class ModulesFormComponent extends PageFormComponent {
   }
 
   initialize() {
-    if (localStorage.date === undefined || (Date.now() - new Date(localStorage.date).getTime()) >= 86400000) {
+    if ( localStorage.user_id === undefined && localStorage.token === undefined ) {
       this.router.navigateByUrl('/');
     } else {
       this.endpoint = 'module';

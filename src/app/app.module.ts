@@ -10,7 +10,6 @@ import { HeaderModule } from './components/header/header.module';
 import { ConfigService } from './services/config/config.service';
 import { PageFormComponent } from './components/page-form/page-form.component';
 import { PageListComponent } from './components/page-list/page-list.component';
-import { ConfigrationMenuComponent } from './modules/general/configuration-menu/configration-menu.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { ConfigrationMenuComponent } from './modules/general/configuration-menu/
     NotFoundComponent,
     AccueilComponent,
     PageFormComponent,
-    ConfigrationMenuComponent,
     PageListComponent
   ],
   imports: [

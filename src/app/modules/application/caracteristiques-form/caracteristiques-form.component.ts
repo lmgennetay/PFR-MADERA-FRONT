@@ -22,12 +22,16 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
   }
 
   initialize() {
-    this.endpoint = 'caracteristique';
-    this.titleForm = 'Formulaire Caractéristique';
-    this.icon = 'fas fa-file-medical';
-    this.listTypesAngles = '';
-    this.listTypesAnglesUrl = 'typesAngles/list';
-    super.initialize();
+    if ( localStorage.user_id === undefined && localStorage.token === undefined ) {
+      this.router.navigateByUrl('/');
+    } else {
+      this.endpoint = 'caracteristique';
+      this.titleForm = 'Formulaire Caractéristique';
+      this.icon = 'fas fa-file-medical';
+      this.listTypesAngles = '';
+      this.listTypesAnglesUrl = 'typesAngles/list';
+      super.initialize();
+    }
   }
 
   createForm() {
