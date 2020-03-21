@@ -20,7 +20,7 @@ export class ModulesListComponent extends PageListComponent {
     } else {
       this.endpoint = 'module/liste/devis/' + localStorage.devis_id;
       this.link = 'module';
-      this.linkRoute = 'modules';
+      this.linkRoute = 'modules/devis/' + localStorage.devis_id;
 
       this.placeholder = 'modules...';
       this.results = 'modules trouvés';

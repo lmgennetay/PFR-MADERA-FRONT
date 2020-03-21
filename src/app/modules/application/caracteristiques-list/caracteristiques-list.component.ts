@@ -20,7 +20,7 @@ export class CaracteristiquesListComponent extends PageListComponent {
     } else {
       this.endpoint = 'caracteristique/liste/module/' + localStorage.module_id;
       this.link = 'caracteristique';
-      this.linkRoute = 'caracteristiques';
+      this.linkRoute = 'caracteristiques/' + localStorage.module_id;
 
       this.placeholder = 'caracteristiques...';
       this.results = 'caracteristiques trouvés';
