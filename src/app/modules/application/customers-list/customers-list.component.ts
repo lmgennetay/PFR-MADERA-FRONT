@@ -20,7 +20,7 @@ export class CustomersListComponent extends PageListComponent {
     } else {
       this.endpoint = 'clients';
       this.link = 'client';
-      this.linkRoute = 'customers';
+      this.linkRoute = 'clients';
 
       this.placeholder = 'client...';
       this.results = 'clients trouvés';

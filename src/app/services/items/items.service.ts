@@ -101,7 +101,7 @@ export class ItemsService {
         page = 1;
       }
       if (page !== undefined) {
-        offset = (page - 1) * itemsPerPage;
+        offset = page ;
       }
       if (query !== undefined) {
         if ((query !== '') && (query !== null)) {
@@ -109,13 +109,13 @@ export class ItemsService {
         }
       }
       if (filter !== '') {
-        filter = filter + '&limit=' + limit + '&offset=' + offset;
+        filter = filter + '&limit=' + limit + '&page=' + offset;
       } else {
-        filter = '?limit=' + limit + '&offset=' + offset;
+        filter = '?limit=' + limit + '&page=' + offset;
       }
     }
-     // const urlParameter = url + filter;
-    const urlParameter = url;
+    const urlParameter = url + filter;
+    //const urlParameter = url;
     let result: Observable<any>;
     if (api) {
       result = this.http.get<any[]>(urlParameter)

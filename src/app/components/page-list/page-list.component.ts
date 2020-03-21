@@ -81,6 +81,7 @@ export class PageListComponent {
   getItems() {
     this.loaded = false;
     this.query = this.searchField;
+
     if (this.endpoint !== undefined || this.select !== undefined ) {
       this.itemsService.getItemsCount(this.api, this.url, this.query)
         .subscribe(item => {
@@ -96,7 +97,7 @@ export class PageListComponent {
           if (this.select !== undefined ) {
             this.url = this.configService.config.url + this.select;
           }
-
+          console.log(this);
           this.itemsService.getItems(
             this.api, this.url, this.itemsPerPage, this.itemsPage, this.query)
             .subscribe(items => {
