@@ -3,10 +3,13 @@
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="mail_utilisateur" class="labelForm">Adresse mail</label>
-      <input type="text" name="mail_utilisateur" formControlName="mail_utilisateur" id="mail_utilisateur" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': mail_utilisateur.invalid}" minlength="0">
+      <input type="text" name="mail_utilisateur" formControlName="mail_utilisateur" id="mail_utilisateur" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': mail_utilisateur.invalid}" minlength="0" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
       <div *ngIf="mail_utilisateur.invalid" class="alertFormulaire">
         <div *ngIf="mail_utilisateur.errors.required">
           Veuiller saisir un email.
+        </div>
+        <div *ngIf="mail_utilisateur.errors.pattern">
+          Le mail doit contenir un @ et un point avec un nom de domaine.
         </div>
       </div>
     </div>

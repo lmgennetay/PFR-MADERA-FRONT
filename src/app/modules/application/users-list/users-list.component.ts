@@ -1,5 +1,4 @@
 import { Component, Injector } from '@angular/core';
-
 import { PageListComponent } from '../../../components/page-list/page-list.component';
 import { Location } from '@angular/common';
 
@@ -36,31 +35,31 @@ export class UsersListComponent extends PageListComponent {
       this.columns = [
         {
           type: 'num',
-          title: {caption: 'N°', class: 'text-info green font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'N°', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'N°', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'N°', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
-          title: {caption: 'Id', class: 'text-info green font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'id', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'Id', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'id', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
-          title: {caption: 'Nom', class: 'text-info green font-weight-bold text-left'},
-          data: {field: 'pers_nom', class: 'text-info font-weight-bold text-left'}
+          title: {caption: 'Nom', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'pers_nom', class: 'text-info tdTableBorder font-weight-bold text-left'}
         },
         {
-          title: {caption: 'Prénom', class: 'text-info green font-weight-bold text-left'},
-          data: {field: 'pers_prenom', class: 'text-info font-weight-bold text-left'}
+          title: {caption: 'Prénom', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'pers_prenom', class: 'text-info tdTableBorder font-weight-bold text-left'}
         },
         {
-          title: {caption: 'Email', class: 'text-info green font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'pers_mail', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'Email', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'pers_mail', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
           type: 'delete',
           endPoint: 'commercial',
           source: 'commercials',
-          title: { caption: 'Action', class: 'text-info green font-weight-bold text-left' },
-          data: { field: 'id' }
+          title: { caption: 'Action', class: 'text-info thGreen font-weight-bold text-left' },
+          data: { field: 'id', class: 'text-info tdTableBorder font-weight-bold text-left' }
         }
       ];
 

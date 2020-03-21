@@ -28,7 +28,7 @@ export class LoginFormComponent extends PageFormComponent {
   createForm() {
     this.form = this.fb.group({
       mail_utilisateur:  [null,
-        [Validators.required]
+        [Validators.required, Validators.pattern]
       ],
       mdp_utilisateur: [null,
         [Validators.required, Validators.minLength]

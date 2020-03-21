@@ -35,19 +35,19 @@ export class UsersFormComponent extends PageFormComponent {
         [Validators.required]
       ],
       pers_mail: [null,
-        [Validators.required]
+        [Validators.required, Validators.pattern]
         ],
       pers_tel: [null,
         [Validators.required]
       ],
       comm_mdp: [null,
-        [Validators.required]
+        [Validators.required, Validators.minLength]
       ],
       pers_sexe: [null,
         [Validators.required]
       ],
       comm_confirm_mdp: [null,
-        [Validators.required]
+        [Validators.required, Validators.minLength]
       ]
     });
     super.createForm();

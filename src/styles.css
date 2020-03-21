@@ -147,10 +147,10 @@ label {
   padding: 0px 10px;
 }
 
-nav {
+/* nav {
   width: 90%;
   margin-left: 10px;
-}
+} */
 
 /* a, a:hover {
   width: 90%;
@@ -360,6 +360,7 @@ input:disabled {
 /** ########################################
  * Tableau
  * ######################################## */
+
 .table-style {
   width: 100%;
 }
@@ -388,6 +389,23 @@ input:disabled {
 
 .green {
   color: #249e00!important;
+}
+
+.thGreen {
+  color: white!important;
+  background-color: #249e00;
+  border: 1px solid #249e00!important;
+}
+
+.tdTableBorder {
+  border-left: 1px solid gray!important;
+  border-right: 1px solid gray!important;
+}
+
+.tdLastTableBorder {
+  border-left: 1px solid gray!important;
+  border-right: 1px solid gray!important;
+  border-bottom: 1px solid gray!important;
 }
 
 .iconesMenu {

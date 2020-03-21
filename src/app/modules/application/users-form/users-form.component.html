@@ -27,19 +27,25 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_mail" class="labelForm">Email</label>
-      <input type="email" name="pers_mail" formControlName="pers_mail" id="pers_mail" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_mail.invalid}" maxlength="100">
+      <input type="email" name="pers_mail" formControlName="pers_mail" id="pers_mail" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_mail.invalid}" maxlength="100" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
       <div *ngIf="pers_mail.invalid" class="alertFormulaire">
         <div *ngIf="pers_mail.errors.required">
           Veuillez saisir un mail.
+        </div>
+        <div *ngIf="pers_mail.errors.pattern">
+          Le mail doit contenir un @ et un point avec un nom de domaine.
         </div>
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_tel" class="labelForm">Téléphone</label>
-      <input type="text" name="pers_tel" formControlName="pers_tel" id="pers_tel" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_tel.invalid}" maxlength="10">
+      <input type="text" name="pers_tel" formControlName="pers_tel" id="pers_tel" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': pers_tel.invalid}" maxlength="10" pattern="[0-9]*">
       <div *ngIf="pers_tel.invalid" class="alertFormulaire">
         <div *ngIf="pers_tel.errors.required">
           Veuillez saisir un numéro de téléphone.
+        </div>
+        <div *ngIf="pers_tel.errors.pattern">
+          Le numéro de téléphone ne peut pas contenir d'autres caractères que des chiffres.
         </div>
       </div>
     </div>
@@ -50,6 +56,9 @@
         <div *ngIf="comm_mdp.errors.required">
           Veuillez saisir un mot de passe.
         </div>
+        <div *ngIf="comm_mdp.errors.minlength">
+          Le mot de passe nécessite un minimum de 8 caractères.
+        </div>
       </div>
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
@@ -59,13 +68,16 @@
         <div *ngIf="comm_confirm_mdp.errors.required">
           Veuillez confirmer votre mot de passe.
         </div>
+        <div *ngIf="comm_confirm_mdp.errors.minlength">
+          Le mot de passe nécessite un minimum de 8 caractères.
+        </div>
       </div>
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_sexe" class="labelForm">Genre</label>
       <select class="inputTexteContenu" name="genre" formControlName="pers_sexe" id="pers_sexe" ng-model="genre" [ngClass]="{'inputTexteContenuInvalide': pers_sexe.invalid}">
-        <option value="" disabled> Quel est votre sexe ?</option>
+        <option value="-1" disabled> Quel est votre sexe ?</option>
         <option value="homme" >Homme</option>
         <option value="femme" >Femme</option>
       </select>

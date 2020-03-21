@@ -36,39 +36,39 @@ export class CustomersListComponent extends PageListComponent {
       this.columns = [
         {
           type: 'num',
-          title: {caption: 'N°', class: 'text-info green text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'N°', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'N°', class: 'text-info thGreen text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'N°', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
-          title: {caption: 'Id', class: 'text-info green font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'id', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'Id', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'id', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
-          title: {caption: 'Nom', class: 'text-info green font-weight-bold text-left'},
-          data: {field: 'pers_nom', class: 'text-info text-left'}
+          title: {caption: 'Nom', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'pers_nom', class: 'text-info tdTableBorder text-left'}
         },
         {
-          title: {caption: 'Prénom', class: 'text-info green font-weight-bold text-left'},
-          data: {field: 'pers_prenom', class: 'text-info text-left'}
+          title: {caption: 'Prénom', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'pers_prenom', class: 'text-info tdTableBorder text-left'}
         },
         // {
-        //   title: {caption: 'Ville', class: 'text-info green font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+        //   title: {caption: 'Ville', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
         //   data: {field: 'adre_ville', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         // },
         {
-          title: {caption: 'Email', class: 'text-info green font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'pers_mail', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'Email', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'pers_mail', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         // {
-        //   title: {caption: 'Tel', class: 'text-info green font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+        //   title: {caption: 'Tel', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
         //   data: {field: 'pers_tel', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         // },
         {
           type: 'delete',
           endPoint: 'client',
           source: 'clients',
-          title: { caption: 'Action', class: 'text-info green font-weight-bold text-left' },
-          data: { field: 'id' }
+          title: { caption: 'Action', class: 'text-info thGreen font-weight-bold text-left' },
+          data: { field: 'id', class: 'text-info tdTableBorder text-left' }
         }
       ];
       super.initialize();
