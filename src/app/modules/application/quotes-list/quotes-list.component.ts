@@ -36,33 +36,33 @@ export class QuotesListComponent extends PageListComponent {
       this.columns = [
         {
           type: 'num',
-          title: {caption: 'N°', class: 'text-info green font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'N°', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'N°', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'N°', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
-          title: {caption: 'Id', class: 'text-info green font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'id', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'Id', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'id', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
-          title: {caption: 'Nom', class: 'text-info green font-weight-bold text-left'},
-          data: {field: 'devi_nom', class: 'text-info text-left'}
+          title: {caption: 'Nom', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'devi_nom', class: 'text-info tdTableBorder text-left'}
         },
         {
           type: 'date',
-          title: {caption: 'Date', class: 'text-info green font-weight-bold text-left'},
-          data: {field: 'devi_date', class: 'text-info text-left'}
+          title: {caption: 'Date', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'devi_date', class: 'text-info tdTableBorder text-left'}
         },
         {
           type: 'euro',
-          title: {caption: 'Prix', class: 'text-info green font-weight-bold text-left'},
-          data: {field: 'devi_prix', class: 'text-info text-left'}
+          title: {caption: 'Prix', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'devi_prix', class: 'text-info tdTableBorder text-left'}
         },
         {
           type: 'delete',
           endPoint: 'devis',
           source: 'devis',
-          title: { caption: 'Action', class: 'text-info green font-weight-bold text-left'},
-          data: { field: 'id', class: 'text-info text-left' },
+          title: {caption: 'Action', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'id', class: 'text-info tdTableBorder text-left'},
           count: this.itemsCount
         }
       ];

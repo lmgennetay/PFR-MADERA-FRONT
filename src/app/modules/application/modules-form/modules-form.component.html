@@ -2,15 +2,15 @@
   <div class="titreSection">MODULE</div>
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <!-- Champs cache -->
-    <input type="text" name="devi_id" hidden formControlName="devi_id" id="devi_id" class="inputTexteContenu text-right" >
+    <input type="hidden" name="devi_id" formControlName="devi_id" id="devi_id" class="inputTexteContenu text-right" >
     <!-- Familles de module -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <div class="row">
-        <div class="col-lg-1"><label for="id" class="labelForm">N°</label></div>
-        <div class="col-lg-3"><input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu text-right" maxlength="50" disabled></div>
-      </div>
+      <label for="id" class="labelForm">N°</label>
+      <input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50" disabled>
+    </div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="tymo_id" class="labelForm">Type de module</label>
-      <select  (ngModelChange)="onChangeTypeModule($event)" class="inputTexteContenu" name="tymo_id"  formControlName="tymo_id" id="tymo_id" ng-model="tymo_id">
+      <select  (ngModelChange)="onChangeTypeModule($event)" class="inputTexteContenu" name="tymo_id"  formControlName="tymo_id" id="tymo_id" ng-model="tymo_id" [ngClass]="{'inputTexteContenuInvalide': tymo_id.invalid}">
         <option value="" disabled> Quelle famille de module ?</option>
         <option [value]="familleModule.id" *ngFor="let familleModule of listFamillesModules"> {{familleModule.tymo_nom}} </option>
       </select>
@@ -24,7 +24,7 @@
     <!-- Modules -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="modu_id" class="labelForm">Module</label>
-      <select (ngModelChange)="onChangeModule($event)" class="inputTexteContenu" name="modu_id"  formControlName="modu_id" id="modu_id" ng-model="modu_id">
+      <select (ngModelChange)="onChangeModule($event)" class="inputTexteContenu" name="modu_id"  formControlName="modu_id" id="modu_id" ng-model="modu_id" [ngClass]="{'inputTexteContenuInvalide': modu_id.invalid}">
         <option value="" disabled> Quel module ?</option>
         <option [value]="module.id" *ngFor="let module of listModules"> {{module.modu_nom}} </option>
       </select>
@@ -40,9 +40,16 @@
       <label for="modu_nom" class="labelForm">Nom du module</label>
       <input type="text" name="modu_nom" formControlName="modu_nom" id="modu_nom" class="inputTexteContenu" maxlength="100">
     </div>
-    <div class="flexColumnStart inputTexte inputTextTaille2">
+    <!-- <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="modu_prix_unitaire" class="labelForm">Prix unitaire du module</label>
       <input type="text" name="modu_prix_unitaire" formControlName="modu_prix_unitaire" id="modu_prix_unitaire" class="inputTexteContenu" maxlength="100">
+    </div> -->
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="modu_prix_unitaire">Prix</label>
+      <div class="flexSpaceBetween section">
+        <input type="text" name="modu_prix_unitaire" formControlName="modu_prix_unitaire" id="modu_prix_unitaire" class="inputTexteContenu" maxlength="100" disabled>
+        <label class="prixSpec">€</label>
+      </div>
     </div>
     <br>
     <div class="titreSection">PERSONNALISATION DU MODULE</div>
@@ -107,7 +114,7 @@
     <div class="flexColumnStart inputTexte inputTextTaille2" *ngIf="hiddenCustomOptions">
       <label for="couv_id" class="labelForm">Sélection de la couverture</label>
       <select class="inputTexteContenu" name="couv_id"  formControlName="couv_id" id="couv_id" ng-model="couv_id">
-        <option value="" disabled> Quelle coupe de principe ?</option>
+        <option value="" disabled> Quelle couverture ?</option>
         <option [value]="couverture.id" *ngFor="let couverture of listCouvertures"> {{couverture.couv_nom}}</option>
       </select>
     </div>

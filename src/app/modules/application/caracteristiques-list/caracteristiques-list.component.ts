@@ -22,8 +22,8 @@ export class CaracteristiquesListComponent extends PageListComponent {
       this.link = 'caracteristique';
       this.linkRoute = 'caracteristiques/' + localStorage.module_id;
 
-      this.placeholder = 'caracteristiques...';
-      this.results = 'caracteristiques trouvés';
+      this.placeholder = 'caractéristiques...';
+      this.results = 'caractéristiques trouvées';
       this.found = 'caracteristiques';
       this.creation = 'Caracteristique';
 
@@ -36,44 +36,44 @@ export class CaracteristiquesListComponent extends PageListComponent {
       this.columns = [
         {
           type: 'num',
-          title: {caption: 'N°', class: 'text-info font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'N°', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+          title: {caption: 'N°', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'N°', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
-          title: {caption: 'Id', class: 'text-info font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-          data: {field: 'id', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
-        },
-        {
-          type: 'mm',
-          title: {caption: 'Section', class: 'text-info font-weight-bold'},
-          data: {field: 'cara_section', class: 'text-info text-left'}
+          title: {caption: 'Id', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'id', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
           type: 'mm',
-          title: {caption: 'Hauteur', class: 'text-info font-weight-bold'},
-          data: {field: 'cara_hauteur', class: 'text-info text-left'}
+          title: {caption: 'Section', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'cara_section', class: 'text-info tdTableBorder text-left'}
         },
         {
           type: 'mm',
-          title: {caption: 'Longueur', class: 'text-info font-weight-bold'},
-          data: {field: 'cara_longueur', class: 'text-info text-left'}
+          title: {caption: 'Hauteur', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'cara_hauteur', class: 'text-info tdTableBorder text-left'}
+        },
+        {
+          type: 'mm',
+          title: {caption: 'Longueur', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'cara_longueur', class: 'text-info tdTableBorder text-left'}
         },
         {
           type: 'angle',
-          title: {caption: 'Type angle', class: 'text-info font-weight-bold'},
-          data: {field: 'cara_type_angle', class: 'text-info text-left'}
+          title: {caption: 'Type angle', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'cara_type_angle', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
           type: 'd',
-          title: {caption: 'Degré angle', class: 'text-info font-weight-bold'},
-          data: {field: 'cara_degre_angle', class: 'text-info text-left'}
+          title: {caption: 'Degré angle', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          data: {field: 'cara_degre_angle', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
           type: 'delete',
           endPoint: 'caracteristique',
           source: 'caracteristiques/' + localStorage.module_id,
-          title: {caption: '', class: 'text-info font-weight-bold text-left'},
-          data: {field: 'id'}
+          title: {caption: 'Action', class: 'text-info thGreen font-weight-bold text-left'},
+          data: {field: 'id', class: 'text-info tdTableBorder text-left'}
         }
       ];
 

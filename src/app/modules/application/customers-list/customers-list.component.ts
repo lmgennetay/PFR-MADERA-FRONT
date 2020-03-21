@@ -36,7 +36,7 @@ export class CustomersListComponent extends PageListComponent {
       this.columns = [
         {
           type: 'num',
-          title: {caption: 'N°', class: 'text-info thGreen text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
+          title: {caption: 'N°', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
           data: {field: 'N°', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         },
         {
@@ -53,7 +53,7 @@ export class CustomersListComponent extends PageListComponent {
         },
         // {
         //   title: {caption: 'Ville', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-        //   data: {field: 'adre_ville', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+        //   data: {field: 'adre_ville', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         // },
         {
           title: {caption: 'Email', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
@@ -61,7 +61,7 @@ export class CustomersListComponent extends PageListComponent {
         },
         // {
         //   title: {caption: 'Tel', class: 'text-info thGreen font-weight-bold text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'},
-        //   data: {field: 'pers_tel', class: 'text-info text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
+        //   data: {field: 'pers_tel', class: 'text-info tdTableBorder text-left d-none d-md-table-cell d-lg-table-cell d-xl-table-cell'}
         // },
         {
           type: 'delete',
