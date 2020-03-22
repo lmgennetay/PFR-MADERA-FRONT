@@ -1,8 +1,9 @@
 <div class="corpsPage flexColumnCenter col-xs-12 col-md-10 col-lg-10">
 	<h1>GESTION DES UTILISATEURS</h1><br>
 	<app-search-bar [searchField]="searchField" [itemsCount]="itemsCount" [icon]="icon" [results]="results"
-	[placeholder]="placeholder" (search)="onSearch($event)"></app-search-bar><br>
-	<div class="row" *ngIf="loaded && itemsCount==0">
+	[placeholder]="placeholder" (search)="onSearch($event)"></app-search-bar>
+	<br>
+	<div class="row" *ngIf="loaded && itemsCount!=0">
 		<div class="col">
 			<app-search-result [searchField]="searchField" [found]="found" [creation]="creation" [link]="link"></app-search-result>
 		</div>
@@ -20,7 +21,7 @@
 		</button>
 		<a href="#" routerLink="/ajoutCommercial" style="border: 0 solid ">
 			<button [disabled]="!api" class="button">
-				<i class="fas fa-plus fa-lg"></i>
+				<i class="fas fa-plus fa-lg faPlusListe"></i>
 				<!-- <label class="d-none d-md-block"> Ajouter un utilisateur</label> -->
 			</button>
 		</a>
