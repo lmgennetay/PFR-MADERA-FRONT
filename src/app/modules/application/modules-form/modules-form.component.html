@@ -10,7 +10,7 @@
         <div class="col-lg-3"><input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu text-right" maxlength="50" disabled></div>
       </div>
       <label for="tymo_id" class="labelForm">Type de module</label>
-      <select  (ngModelChange)="onChangeTypeModule($event)" class="inputTexteContenu" name="tymo_id"  formControlName="tymo_id" id="tymo_id" ng-model="tymo_id">
+      <select  (change)="onChangeTypeModule($event)" class="inputTexteContenu" name="tymo_id"  formControlName="tymo_id" id="tymo_id" ng-model="tymo_id">
         <option value="" disabled> Quelle famille de module ?</option>
         <option [value]="familleModule.id" *ngFor="let familleModule of listFamillesModules"> {{familleModule.tymo_nom}} </option>
       </select>
@@ -24,7 +24,7 @@
     <!-- Modules -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="modu_id" class="labelForm">Module</label>
-      <select (ngModelChange)="onChangeModule($event)" class="inputTexteContenu" name="modu_id"  formControlName="modu_id" id="modu_id" ng-model="modu_id">
+      <select (change)="onChangeModule($event)" class="inputTexteContenu" name="modu_id"  formControlName="modu_id" id="modu_id" ng-model="modu_id">
         <option value="" disabled> Quel module ?</option>
         <option [value]="module.id" *ngFor="let module of listModules"> {{module.modu_nom}} </option>
       </select>
@@ -115,7 +115,7 @@
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="section flexCenter flexWrap">
       <button class="button" (click)="backClicked()"><i class="fas fa-arrow-left fa-lg"></i></button>
-      <button class="button" (click)="onUpdate()"  type="submit"><i class="fas fa-save fa-lg"></i></button>
+      <button class="button" (click)="onUpdate();backClicked()"  type="submit"><i class="fas fa-save fa-lg"></i></button>
       <button class="button" (click)="onCopy()" [disabled]="form.invalid || !api"><i class="fas fa-copy fa-lg"></i></button>
       <button class="button" (click)="goCarac()"><i class="fas fa-arrow-right fa-lg"></i></button>
     </div>

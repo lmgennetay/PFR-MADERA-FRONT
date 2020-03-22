@@ -235,6 +235,7 @@ export class ModulesFormComponent extends PageFormComponent {
 
   onChangeTypeModule(newValue) {
     if (newValue !== undefined ) {
+      console.log('TypeModule : '+ newValue);
       this.itemsService.getItemSelect(this.api,
         this.configService.config.url + 'module/liste/gamme/' + localStorage.gamme + '/type/' + newValue).subscribe(
         data => {
@@ -248,6 +249,7 @@ export class ModulesFormComponent extends PageFormComponent {
 
   onChangeModule(newValue) {
     if (newValue !== undefined ) {
+      console.log('module : '+ newValue);
       this.itemsService.getItemSelect(this.api, this.configService.config.url + 'module/' + newValue ).subscribe(data => {
         this.itemModules = data;
         this.form.controls.isol_id.setValue(this.itemModules.isol_id);

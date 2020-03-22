@@ -2,7 +2,10 @@
   <div class="titreSection">CARACTÉRISTIQUE DU MODULE</div>
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <input type="text" name="modu_id" hidden formControlName="modu_id" id="modu_id" class="inputTexteContenu text-right" >
-    <div class="separateurHorizontal">&nbsp;</div>
+    <div class="flexColumnStart inputTexte inputTextTaille2">
+      <label for="cara_section" class="labelForm">id</label>
+      <input type="text" name="id" disabled formControlName="id" id="id" class="inputTexteContenu text-right" >
+    </div>
     <!-- Section -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cara_section" class="labelForm">Section</label>
@@ -29,8 +32,8 @@
     </div>
     <!-- Degré -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="cara_angle" class="labelForm">Degré</label>
-      <input type="text" name="cara_angle" formControlName="cara_angle" id="cara_angle" class="inputTexteContenu" maxlength="100">
+      <label for="cara_degre_angle" class="labelForm">Degré</label>
+      <input type="text" name="cara_degre_angle" formControlName="cara_degre_angle" id="cara_degre_angle" class="inputTexteContenu" maxlength="100">
     </div>
     <br>
     <div class="separateurHorizontal">&nbsp;</div>

@@ -56,7 +56,7 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
       cara_type_angle: [null,
         [Validators.required]
       ],
-      cara_angle: [null,
+      cara_degre_angle: [null,
         [Validators.required]
       ],
     });
@@ -64,24 +64,28 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
     console.log(localStorage);
   }
   resetForm() {
-    this.item.modu_id = null;
+    if ( this.item.modu_id === undefined) {
+      this.item.modu_id = localStorage.module_id;
+    } else {
+      this.item.modu_id = null;
+    }
     this.item.id = null;
     this.item.cara_section = null;
     this.item.cara_hauteur = null;
     this.item.cara_longueur = null;
     this.item.cara_type_angle = null;
-    this.item.cara_angle = null;
+    this.item.cara_degre_angle = null;
     super.resetForm();
   }
 
   setFormValue(item: any) {
-    item.modu_id = localStorage.modules_id;
     this.form.controls.id.setValue(item.id);
+    this.form.controls.modu_id.setValue(item.modu_id);
     this.form.controls.cara_section.setValue(item.cara_section);
     this.form.controls.cara_hauteur.setValue(item.cara_hauteur);
     this.form.controls.cara_longueur.setValue(item.cara_longueur);
     this.form.controls.cara_type_angle.setValue(item.cara_type_angle);
-    this.form.controls.cara_angle.setValue(item.cara_angle);
+    this.form.controls.cara_degre_angle.setValue(item.cara_degre_angle);
     super.setFormValue(item);
   }
 
@@ -100,8 +104,8 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
   get cara_type_angle() {
     return this.form.get('cara_type_angle');
   }
-  get cara_angle() {
-    return this.form.get('cara_angle');
+  get cara_degre_angle() {
+    return this.form.get('cara_degre_angle');
   }
   get modu_id() {
     return this.form.get('modu_id');
