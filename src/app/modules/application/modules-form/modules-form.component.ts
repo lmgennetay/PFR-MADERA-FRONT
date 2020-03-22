@@ -166,6 +166,7 @@ export class ModulesFormComponent extends PageFormComponent {
   setFormValue(item: any) {
     // console.log(item);
     item.devi_id = localStorage.devis_id;
+    item.modu_id = item.id;
     localStorage.module_id = item.id;
     this.form.controls.devi_id.setValue(item.devi_id);
     this.form.controls.id.setValue(item.id);
