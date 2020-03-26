@@ -112,7 +112,7 @@ export class ModulesFormComponent extends PageFormComponent {
     });
 
     this.form = this.fb.group({
-      id: new FormControl({value: null, disabled: true}),
+      id: null,
       resultat: null,
       modu_prix_total: null,
       devi_id: localStorage.devis_id,
@@ -125,7 +125,7 @@ export class ModulesFormComponent extends PageFormComponent {
       modu_nom: [null,
         [Validators.required]
       ],
-      modu_prix_unitaire: new FormControl({value: null, disabled: true}),
+      modu_prix_unitaire: null,
       listIsolants: null,
       isol_id: null,
       listFinitionsInterieures: null,

@@ -98,6 +98,7 @@ export class PageFormComponent {
 
   onUpdate() {
       this.item = this.form.value;
+      this.item = this.form.value;
       if ((this.item.id === null) || (this.item.id === undefined)) {
          this.createItem(this.url, this.item);
       } else {
