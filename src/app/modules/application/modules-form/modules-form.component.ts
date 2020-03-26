@@ -3,6 +3,7 @@ import { Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PageFormComponent } from '../../../components/page-form/page-form.component';
 import { Location } from '@angular/common';
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-modules-form',
@@ -236,7 +237,7 @@ export class ModulesFormComponent extends PageFormComponent {
 
   onChangeTypeModule(newValue) {
     if (newValue !== undefined ) {
-      console.log('TypeModule : '+ newValue);
+      console.log('TypeModule : ' + newValue);
       this.itemsService.getItemSelect(this.api,
         this.configService.config.url + 'module/liste/gamme/' + localStorage.gamme + '/type/' + newValue).subscribe(
         data => {
@@ -248,10 +249,10 @@ export class ModulesFormComponent extends PageFormComponent {
     }
   }
 
-  onChangeModule(newValue) {
+  onChangeModule(newValue: any ) {
     if (newValue !== undefined ) {
-      console.log('module : '+ newValue);
       this.itemsService.getItemSelect(this.api, this.configService.config.url + 'module/' + newValue ).subscribe(data => {
+        console.log('Module : ' + newValue);
         this.itemModules = data;
         this.form.controls.isol_id.setValue(this.itemModules.isol_id);
         this.form.controls.fiin_id.setValue(this.itemModules.fiin_id);

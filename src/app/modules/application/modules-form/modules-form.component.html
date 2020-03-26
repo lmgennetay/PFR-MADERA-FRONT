@@ -10,7 +10,7 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="tymo_id" class="labelForm">Type de module</label>
-      <select  (change)="onChangeTypeModule($event)" class="inputTexteContenu" name="tymo_id"  formControlName="tymo_id" id="tymo_id" ng-model="tymo_id">
+      <select  (change)="onChangeTypeModule($event.target.value)" class="inputTexteContenu" name="tymo_id"  formControlName="tymo_id" id="tymo_id" ng-model="tymo_id">
         <option value="" disabled> Quelle famille de module ?</option>
         <option [value]="familleModule.id" *ngFor="let familleModule of listFamillesModules"> {{familleModule.tymo_nom}} </option>
       </select>
@@ -24,7 +24,7 @@
     <!-- Modules -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="modu_id" class="labelForm">Module</label>
-      <select (change)="onChangeModule($event)" class="inputTexteContenu" name="modu_id"  formControlName="modu_id" id="modu_id" ng-model="modu_id">
+      <select (change)="onChangeModule($event.target.value)" class="inputTexteContenu" name="modu_id"  formControlName="modu_id" id="modu_id" ng-model="modu_id">
         <option value="" disabled> Quel module ?</option>
         <option [value]="module.id" *ngFor="let module of listModules"> {{module.modu_nom}} </option>
       </select>
