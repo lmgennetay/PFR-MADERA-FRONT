@@ -90,7 +90,7 @@ export class QuotesViewComponent extends PageFormComponent {
 
   createForm() {
     this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listCommercialsUrl).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.listCommercials = data.listeCommercials;
       this.listCommercials = this.listCommercials;
     });

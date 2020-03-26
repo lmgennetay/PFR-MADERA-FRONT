@@ -63,7 +63,7 @@ export class ModulesListComponent extends PageListComponent {
 
       super.initialize();
       localStorage.source = 'devis';
-      console.log(localStorage);
+      // console.log(localStorage);
     }
   }
 

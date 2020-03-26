@@ -1,5 +1,5 @@
 import { Component, Injector } from '@angular/core';
-import { Validators } from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import { Location } from '@angular/common';
 
 import { PageFormComponent } from '../../../components/page-form/page-form.component';
@@ -27,7 +27,7 @@ export class UsersFormComponent extends PageFormComponent {
 
   createForm() {
     this.form = this.fb.group({
-      id: null,
+      id: new FormControl({value: null, disabled: true}),
       pers_nom: [null,
         [Validators.required]
       ],

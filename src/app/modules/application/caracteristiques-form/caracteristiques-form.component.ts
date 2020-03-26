@@ -1,5 +1,5 @@
 import { Component, Injector } from '@angular/core';
-import { Validators } from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PageFormComponent } from '../../../components/page-form/page-form.component';
 import { Location } from '@angular/common';
@@ -41,7 +41,7 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
     // });
 
     this.form = this.fb.group({
-      id: null,
+      id: new FormControl({value: null, disabled: true}),
       modu_id: localStorage.module_id,
       cara_section: [null,
         [Validators.required]
@@ -61,7 +61,7 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
       ],
     });
     super.createForm();
-    console.log(localStorage);
+    // console.log(localStorage);
   }
   resetForm() {
     if ( this.item.modu_id === undefined) {

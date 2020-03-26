@@ -176,7 +176,7 @@ export class ItemsService {
   }
 
   updateItem(item: object, id: number, url: any): Observable<any> {
-    console.log(item);
+    // console.log(item);
     return this.http.put(url, item, httpOptions).pipe(
       tap(_ => this.log(`updated item id=${id}`)),
       catchError(this.handleError<any>('updateItem'))
@@ -186,7 +186,7 @@ export class ItemsService {
   deleteItem(url: any, id: any): Observable<any> {
     // alert('delete ' + url + '/' + id);
     return this.http.delete<any>(url + '/' + id).pipe(
-      tap(_ => console.log(_)),
+      // tap(_ => console.log(_)),
       catchError( this.handleError<any>('deleteItem'))
     );
   }

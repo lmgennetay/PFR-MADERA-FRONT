@@ -1,5 +1,5 @@
 import { Component, Injector } from '@angular/core';
-import { Validators } from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PageFormComponent } from '../../../components/page-form/page-form.component';
 import { Location } from '@angular/common';
@@ -112,7 +112,7 @@ export class ModulesFormComponent extends PageFormComponent {
     });
 
     this.form = this.fb.group({
-      id: null,
+      id: new FormControl({value: null, disabled: true}),
       resultat: null,
       modu_prix_total: null,
       devi_id: localStorage.devis_id,
@@ -125,7 +125,7 @@ export class ModulesFormComponent extends PageFormComponent {
       modu_nom: [null,
         [Validators.required]
       ],
-      modu_prix_unitaire: null,
+      modu_prix_unitaire: new FormControl({value: null, disabled: true}),
       listIsolants: null,
       isol_id: null,
       listFinitionsInterieures: null,
@@ -191,7 +191,7 @@ export class ModulesFormComponent extends PageFormComponent {
     this.form.controls.listCouvertures.setValue(item.listCouvertures);
     this.form.controls.couv_id.setValue(item.couv_id);
     super.setFormValue(item);
-    console.log(localStorage);
+    // console.log(localStorage);
   }
 
   get id() {
@@ -237,7 +237,7 @@ export class ModulesFormComponent extends PageFormComponent {
 
   onChangeTypeModule(newValue) {
     if (newValue !== undefined ) {
-      console.log('TypeModule : ' + newValue);
+      // console.log('TypeModule : ' + newValue);
       this.itemsService.getItemSelect(this.api,
         this.configService.config.url + 'module/liste/gamme/' + localStorage.gamme + '/type/' + newValue).subscribe(
         data => {
@@ -252,7 +252,7 @@ export class ModulesFormComponent extends PageFormComponent {
   onChangeModule(newValue: any ) {
     if (newValue !== undefined ) {
       this.itemsService.getItemSelect(this.api, this.configService.config.url + 'module/' + newValue ).subscribe(data => {
-        console.log('Module : ' + newValue);
+        // console.log('Module : ' + newValue);
         this.itemModules = data;
         this.form.controls.isol_id.setValue(this.itemModules.isol_id);
         this.form.controls.fiin_id.setValue(this.itemModules.fiin_id);

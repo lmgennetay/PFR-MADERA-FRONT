@@ -28,11 +28,11 @@ export class AccueilComponent implements OnInit {
     else {
       if( localStorage.date === undefined || (Date.now() - new Date(localStorage.date).getTime()) >= 86400000 ) {
         $('#nav').attr('hidden');
-        console.log(localStorage);
+        // console.log(localStorage);
       }
       else {
         $('#nav').removeAttr('hidden');
-        console.log(localStorage);
+        // console.log(localStorage);
       }
     }
   }

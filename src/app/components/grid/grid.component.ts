@@ -52,7 +52,7 @@ export class GridComponent {
   }
 
   onDelete(url: any, endPoint: any, id: any, source: any) {
-    console.log(source);
+    // console.log(source);
     // alert(source);
     this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
     if ((id !== undefined) && (id != null)) {

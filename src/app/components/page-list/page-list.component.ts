@@ -97,7 +97,7 @@ export class PageListComponent {
           if (this.select !== undefined ) {
             this.url = this.configService.config.url + this.select;
           }
-          console.log(this);
+          // console.log(this);
           this.itemsService.getItems(
             this.api, this.url, this.itemsPerPage, this.itemsPage, this.query)
             .subscribe(items => {

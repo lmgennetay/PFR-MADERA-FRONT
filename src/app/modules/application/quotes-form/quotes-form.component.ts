@@ -1,5 +1,5 @@
 import { Component, Injector } from '@angular/core';
-import { Validators } from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PageFormComponent } from '../../../components/page-form/page-form.component';
 import { Location } from '@angular/common';
@@ -66,15 +66,15 @@ export class QuotesFormComponent extends PageFormComponent {
     });
 
     this.form = this.fb.group({
-      id: null,
+      id: new FormControl({value: null, disabled: true}),
       resultat: null,
       etap_id: null,
       etat_id: null,
-      comm_id: localStorage.user_id,
+      comm_id: new FormControl({value: localStorage.user_id, disabled: true}),
       devi_nom: [null,
         [Validators.required]
       ],
-      devi_date: null,
+      devi_date: new FormControl({value: null, disabled: true}),
       listClients: null,
       clie_id: [null,
         [Validators.required]
@@ -105,7 +105,7 @@ export class QuotesFormComponent extends PageFormComponent {
       ],
       adre_complement: null,
       adre_info: null,
-      devi_prix: 0.00,
+      devi_prix: new FormControl({value: 0.00, disabled: true}),
     });
     super.createForm();
   }
@@ -161,7 +161,7 @@ export class QuotesFormComponent extends PageFormComponent {
     this.form.controls.devi_prix.setValue(item.devi_prix);
     super.setFormValue(item);
     localStorage.devis_id = this.form.get('id').value;
-    console.log(localStorage);
+    // console.log(localStorage);
   }
 
   get id() {

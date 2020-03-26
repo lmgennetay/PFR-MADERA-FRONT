@@ -127,7 +127,7 @@ export class PageFormComponent {
   createItem(url: any, item: any) {
     this.item.connection = {loginId : localStorage.user_id, loginToken : localStorage.token};
     delete this.item.id;
-    console.log(url);
+    // console.log(url);
     this.itemsService.addItem(url, item)
       .subscribe(data => {
         this.item = data;
@@ -140,7 +140,7 @@ export class PageFormComponent {
     this.itemsService.updateItem(item, id, url)
       .subscribe(data => {
         this.item = data;
-        console.log(data);
+        // console.log(data);
         this.form.setValue(this.item);
         // alert('les données ont été modifiées');
       });

@@ -43,24 +43,24 @@ export class PaginationService {
       endPage = totalPages;
     } else {
       if (currentPage <= visiblePages) {
-        console.log('getPagination1:' + totalPages + ':' + currentPage);
+        // console.log('getPagination1:' + totalPages + ':' + currentPage);
         startPage = 1;
         endPage = visiblePages;
       } else {
-        console.log('getPagination2:' + totalPages + ':' + currentPage);
+        // console.log('getPagination2:' + totalPages + ':' + currentPage);
         if (currentPage + 1 >= totalPages) {
           startPage = totalPages - visiblePages + 1;
           endPage = totalPages;
-          console.log('getPagination3:' + startPage + ':' + endPage);
+          // console.log('getPagination3:' + startPage + ':' + endPage);
           if (currentPage < startPage) {
             startPage = currentPage + 1;
             endPage = currentPage + 1;
-            console.log('getPagination4:' + startPage + ':' + endPage);
+            // console.log('getPagination4:' + startPage + ':' + endPage);
           }
         } else {
           endPage = currentPage;
           startPage = endPage - visiblePages + 1;
-          console.log('getPagination5:' + startPage + ':' + endPage);
+          // console.log('getPagination5:' + startPage + ':' + endPage);
         }
       }
     }
