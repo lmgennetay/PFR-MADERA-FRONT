@@ -16,7 +16,7 @@ export class UsersFormComponent extends PageFormComponent {
   }
 
   initialize() {
-    if ( localStorage.user_id === undefined && localStorage.token === undefined ) {
+    if ( localStorage.comm_id === undefined && localStorage.token === undefined ) {
       this.router.navigateByUrl('/');
     }
     this.endpoint = 'commercial';

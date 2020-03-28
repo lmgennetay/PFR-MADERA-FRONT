@@ -15,7 +15,7 @@ export class ModulesListComponent extends PageListComponent {
   }
 
   initialize() {
-    if ( localStorage.user_id === undefined && localStorage.token === undefined ) {
+    if ( localStorage.comm_id === undefined && localStorage.token === undefined ) {
       this.router.navigateByUrl('/');
     } else {
       this.endpoint = 'module/liste/devis/' + localStorage.devis_id;
@@ -50,7 +50,7 @@ export class ModulesListComponent extends PageListComponent {
         {
           type: 'euro',
           title: {caption: 'Prix', class: 'text-info thGreen font-weight-bold text-left'},
-          data: {field: 'modu_prix_unitaire', class: 'text-info tdTableBorder text-left'}
+          data: {field: 'modu_prix_total', class: 'text-info tdTableBorder text-left'}
         },
         {
           type: 'delete',

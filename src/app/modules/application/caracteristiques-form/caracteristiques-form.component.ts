@@ -22,7 +22,7 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
   }
 
   initialize() {
-    if ( localStorage.user_id === undefined && localStorage.token === undefined ) {
+    if ( localStorage.comm_id === undefined && localStorage.token === undefined ) {
       this.router.navigateByUrl('/');
     } else {
       this.endpoint = 'caracteristique';
@@ -35,11 +35,6 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
   }
 
   createForm() {
-    // this.itemsService.getItemSelect(this.api, this.configService.config.url + this.listTypesAnglesUrl).subscribe(data => {
-    //   this.listTypesAngles = data.listTypesAngles;
-    //   this.setFormValue(this.listTypesAngles);
-    // });
-
     this.form = this.fb.group({
       id: new FormControl({value: null, disabled: true}),
       modu_id: localStorage.module_id,
