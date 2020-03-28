@@ -79,13 +79,13 @@
         <thead>
           <tr>
             <th class="text-info thGreen font-weight-bold text-left"><span>Nom du module</span></th>
-            <th class="text-info thGreen font-weight-bold text-left"><span>Prix U.</span></th>
+            <th class="text-info thGreen font-weight-bold text-left"><span>Prix total</span></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let module of listModules">
             <td><span>{{module.modu_nom}}</span></td>
-            <td><span>{{module.modu_prix_unitaire}}</span></td>
+            <td><span>{{module.modu_prix_total}}</span></td>
           </tr>
         </tbody>
       </table>

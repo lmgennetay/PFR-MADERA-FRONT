@@ -23,7 +23,7 @@
 
     <!-- Modules -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="modu_reference_id" class="labelForm">Module</label>
+      <label for="modu_reference_id" class="labelForm">Module de référence</label>
       <select (change)="onChangeModule($event.target.value)" class="inputTexteContenu" name="modu_reference_id"  formControlName="modu_reference_id" id="modu_reference_id" ng-model="modu_id">
         <option value="" disabled> Quel module ?</option>
         <option [value]="module.id" *ngFor="let module of listModules"> {{module.modu_nom}} </option>

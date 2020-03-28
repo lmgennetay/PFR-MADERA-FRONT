@@ -136,7 +136,7 @@ export class QuotesViewComponent extends PageFormComponent {
     this.id = item.id;
     this.comm_id = item.comm_id;
     this.devi_nom = item.devi_nom;
-    this.devi_date = item.devi_date;
+    this.devi_date = this.formatDate(item.devi_date);
     this.clie_id = item.clie_id;
     this.mais_id = item.mais_id;
     this.gamm_id = item.gamm_id;
@@ -207,5 +207,19 @@ export class QuotesViewComponent extends PageFormComponent {
 
   backClicked() {
     this.location.back();
+  }
+
+  formatDate(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
+
+    return [day, month, year].join('/');
   }
 }
