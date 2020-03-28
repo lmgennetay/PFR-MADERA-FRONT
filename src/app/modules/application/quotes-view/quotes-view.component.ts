@@ -160,7 +160,7 @@ export class QuotesViewComponent extends PageFormComponent {
     const client = this.listClients;
     Array.prototype.forEach.call( client, obj => {
       if (obj.id === item.clie_id) {
-        this.clientN = obj.pers_prenom;
+        this.clientN = obj.pers_nom;
         this.clientP = obj.pers_prenom;
       }
     });
