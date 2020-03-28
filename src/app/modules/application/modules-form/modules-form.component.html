@@ -10,7 +10,7 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="tymo_id" class="labelForm">Type de module</label>
-      <select  (change)="onChangeTypeModule($event.target.value)" class="inputTexteContenu" name="tymo_id"  formControlName="tymo_id" id="tymo_id" ng-model="tymo_id">
+      <select  (change)="onChangeTypeModule($event.target.value)" class="inputTexteContenu" name="tymo_id"  formControlName="tymo_id" id="tymo_id" ng-model="tymo_id" [ngClass]="{'inputTexteContenuInvalide': tymo_id.invalid}">
         <option value="" disabled> Quelle famille de module ?</option>
         <option [value]="familleModule.id" *ngFor="let familleModule of listFamillesModules"> {{familleModule.tymo_nom}} </option>
       </select>
@@ -24,7 +24,7 @@
     <!-- Modules -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="modu_reference_id" class="labelForm">Module</label>
-      <select (change)="onChangeModule($event.target.value)" class="inputTexteContenu" name="modu_reference_id"  formControlName="modu_reference_id" id="modu_reference_id" ng-model="modu_id">
+      <select (change)="onChangeModule($event.target.value)" class="inputTexteContenu" name="modu_reference_id"  formControlName="modu_reference_id" id="modu_reference_id" ng-model="modu_id" [ngClass]="{'inputTexteContenuInvalide': modu_reference_id.invalid}">
         <option value="" disabled> Quel module ?</option>
         <option [value]="module.id" *ngFor="let module of listModules"> {{module.modu_nom}} </option>
       </select>
