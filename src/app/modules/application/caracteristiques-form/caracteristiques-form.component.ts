@@ -36,7 +36,7 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
 
   createForm() {
     this.form = this.fb.group({
-      id: new FormControl({value: null, disabled: true}),
+      id: null,
       modu_id: localStorage.module_id,
       cara_section: [null,
         [Validators.required, Validators.pattern]

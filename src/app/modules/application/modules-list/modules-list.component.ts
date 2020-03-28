@@ -56,7 +56,7 @@ export class ModulesListComponent extends PageListComponent {
           type: 'delete',
           endPoint: 'module',
           source: 'modules/devis/' + localStorage.devis_id,
-          title: {caption: 'Prix', class: 'text-info thGreen font-weight-bold text-left'},
+          title: {caption: 'Actions', class: 'text-info thGreen font-weight-bold text-left'},
           data: {field: 'id', class: 'text-info tdTableBorder text-left'}
         }
       ];
