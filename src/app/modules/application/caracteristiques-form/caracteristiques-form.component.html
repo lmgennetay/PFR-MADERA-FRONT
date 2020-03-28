@@ -9,31 +9,68 @@
     <!-- Section -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cara_section" class="labelForm">Section</label>
-      <input type="text" name="cara_section" formControlName="cara_section" id="cara_section" class="inputTexteContenu" maxlength="100">
+      <input type="number" name="cara_section" formControlName="cara_section" id="cara_section" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_section.invalid}" maxlength="100" pattern="[0-9]*,?[0-9]*">
+      <div *ngIf="cara_section.invalid" class="alertFormulaire">
+        <div *ngIf="cara_section.errors.required">
+          Veuillez saisir la section.
+        </div>
+        <div *ngIf="cara_section.errors.pattern">
+          La section ne peut pas contenir d'autres caractères que des chiffres et une virgules.
+        </div>
+      </div>
     </div>
     <!-- Hauteur -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cara_hauteur" class="labelForm">Hauteur</label>
-      <input type="text" name="cara_hauteur" formControlName="cara_hauteur" id="cara_hauteur" class="inputTexteContenu" maxlength="100">
+      <input type="number" name="cara_hauteur" formControlName="cara_hauteur" id="cara_hauteur" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_hauteur.invalid}" maxlength="100" pattern="[0-9]*,?[0-9]*">
+      <div *ngIf="cara_hauteur.invalid" class="alertFormulaire">
+        <div *ngIf="cara_hauteur.errors.required">
+          Veuillez saisir la hauteur.
+        </div>
+        <div *ngIf="cara_hauteur.errors.pattern">
+          La hauteur ne peut pas contenir d'autres caractères que des chiffres et une virgules.
+        </div>
+      </div>
     </div>
     <!-- Longueur -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cara_longueur" class="labelForm">Longueur</label>
-      <input type="text" name="cara_longueur" formControlName="cara_longueur" id="cara_longueur" class="inputTexteContenu" maxlength="100">
+      <input type="number" name="cara_longueur" formControlName="cara_longueur" id="cara_longueur" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_longueur.invalid}" maxlength="100" pattern="[0-9]*,?[0-9]*">
+      <div *ngIf="cara_longueur.invalid" class="alertFormulaire">
+        <div *ngIf="cara_longueur.errors.required">
+          Veuillez saisir la longueur.
+        </div>
+        <div *ngIf="cara_longueur.errors.pattern">
+          La longueur ne peut pas contenir d'autres caractères que des chiffres et une virgules.
+        </div>
+      </div>
     </div>
     <!-- Type d'angle -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cara_type_angle" class="labelForm">Type d'angle</label>
-      <select class="inputTexteContenu" name="cara_type_angle"  formControlName="cara_type_angle" id="cara_type_angle" ng-model="cara_type_angle">
+      <select class="inputTexteContenu" name="cara_type_angle"  formControlName="cara_type_angle" id="cara_type_angle" ng-model="cara_type_angle" [ngClass]="{'inputTexteContenuInvalide': cara_type_angle.invalid}">
         <option value="" disabled> Quel type d'angle ?</option>
         <option value="1">Entrant</option>
         <option value="2">Sortant</option>
       </select>
+      <div *ngIf="cara_type_angle.invalid" class="alertFormulaire">
+        <div *ngIf="cara_type_angle.errors.required">
+          Veuillez saisir le type d'angle.
+        </div>
+      </div>
     </div>
     <!-- Degré -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cara_degre_angle" class="labelForm">Degré</label>
-      <input type="text" name="cara_degre_angle" formControlName="cara_degre_angle" id="cara_degre_angle" class="inputTexteContenu" maxlength="100">
+      <input type="number" name="cara_degre_angle" formControlName="cara_degre_angle" id="cara_degre_angle" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_degre_angle.invalid}" maxlength="100" pattern="[0-9]*,?[0-9]*">
+      <div *ngIf="cara_degre_angle.invalid" class="alertFormulaire">
+        <div *ngIf="cara_degre_angle.errors.required">
+          Veuillez saisir le degré d'angle.
+        </div>
+        <div *ngIf="cara_degre_angle.errors.pattern">
+          Le degré d'angle ne peut pas contenir d'autres caractères que des chiffres et une virgules.
+        </div>
+      </div>
     </div>
     <br>
     <div class="separateurHorizontal">&nbsp;</div>

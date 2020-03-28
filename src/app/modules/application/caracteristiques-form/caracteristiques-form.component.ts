@@ -44,20 +44,20 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
       id: new FormControl({value: null, disabled: true}),
       modu_id: localStorage.module_id,
       cara_section: [null,
-        [Validators.required]
+        [Validators.required, Validators.pattern]
       ],
       cara_hauteur: [null,
-        [Validators.required]
+        [Validators.required, Validators.pattern]
       ],
       cara_longueur: [null,
-        [Validators.required]
+        [Validators.required, Validators.pattern]
       ],
       listTypesAngles: 0,
       cara_type_angle: [null,
         [Validators.required]
       ],
       cara_degre_angle: [null,
-        [Validators.required]
+        [Validators.required, Validators.pattern]
       ],
     });
     super.createForm();
