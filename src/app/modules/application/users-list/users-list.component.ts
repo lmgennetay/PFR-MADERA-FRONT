@@ -14,7 +14,7 @@ export class UsersListComponent extends PageListComponent {
   }
 
   initialize() {
-    if ( localStorage.user_id === undefined && localStorage.token === undefined ) {
+    if ( localStorage.comm_id === undefined && localStorage.token === undefined ) {
       this.router.navigateByUrl('/');
     } else {
       this.endpoint = 'commercials';

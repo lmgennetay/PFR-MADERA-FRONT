@@ -44,7 +44,7 @@ export class ModulesFormComponent extends PageFormComponent {
   }
 
   initialize() {
-    if ( localStorage.user_id === undefined && localStorage.token === undefined ) {
+    if ( localStorage.comm_id === undefined && localStorage.token === undefined ) {
       this.router.navigateByUrl('/');
     } else {
       this.endpoint = 'module';
@@ -121,7 +121,7 @@ export class ModulesFormComponent extends PageFormComponent {
         [Validators.required]
       ],
       listModules: null,
-      modu_id: null,
+      modu_reference_id: null,
       modu_nom: [null,
         [Validators.required]
       ],
@@ -144,11 +144,11 @@ export class ModulesFormComponent extends PageFormComponent {
     this.item.resultat = null;
     this.item.modu_prix_total = null;
     this.item.devi_id = null;
-    this.item.comm_id = localStorage.user_id;
+    this.item.comm_id = localStorage.comm_id;
     this.listFamillesModules = null;
     this.item.tymo_id = null;
     this.listModules = null;
-    this.item.modu_id = null;
+    this.item.modu_reference_id = null;
     this.item.modu_nom = null;
     this.item.modu_prix_unitaire = null;
     this.listIsolants = null;
@@ -165,21 +165,33 @@ export class ModulesFormComponent extends PageFormComponent {
   }
 
   setFormValue(item: any) {
-    // console.log(item);
     item.devi_id = localStorage.devis_id;
-    item.modu_id = item.id;
+    // item.modu_reference_id = item.id;
     localStorage.module_id = item.id;
+
     this.form.controls.devi_id.setValue(item.devi_id);
     this.form.controls.id.setValue(item.id);
-    this.form.controls.listFamillesModules.setValue(item.listFamillesModules);
+
+    // type
+    this.form.controls.listFamillesModules.setValue(this.listFamillesModules);
     this.form.controls.tymo_id.setValue(item.tymo_id);
 
-    this.form.controls.listModules.setValue(item.listModules);
-    this.form.controls.modu_id.setValue(item.modu_id);
+    // module de reference
+    // new liste
+    if ( item.modu_reference_id !== null ){
+      this.itemsService.getItemSelect(this.api, this.configService.config.url + 'module/liste/gamme/' + localStorage.gamme + '/type/' + item.tymo_id).subscribe(data => {
+        this.listModules = data.listeModule;
+        this.form.controls.listModules.setValue(this.listModules);
+      });
+    }
+
+    this.form.controls.listModules.setValue(this.listModules);
+    this.form.controls.modu_reference_id.setValue(item.modu_reference_id);
 
     this.form.controls.modu_nom.setValue(item.modu_nom);
-    this.form.controls.modu_prix_unitaire.setValue(item.modu_prix_unitaire);
+    this.form.controls.modu_prix_total.setValue(item.modu_prix_total);
 
+    // caracteristique du module
     this.form.controls.listIsolants.setValue(item.listIsolants);
     this.form.controls.isol_id.setValue(item.isol_id);
     this.form.controls.listFinitionsInterieures.setValue(item.listFinitionsInterieures);
@@ -203,14 +215,14 @@ export class ModulesFormComponent extends PageFormComponent {
   get devi_id() {
     return this.form.get('devi_id');
   }
-  get modu_id() {
-    return this.form.get('modu_id');
+  get modu_reference_id() {
+    return this.form.get('modu_reference_id');
   }
   get modu_nom() {
     return this.form.get('modu_nom');
   }
-  get modu_prix_unitaire() {
-    return this.form.get('modu_prix_unitaire');
+  get modu_prix_total() {
+    return this.form.get('modu_prix_total');
   }
   get isol_id() {
     return this.form.get('isol_id');
@@ -243,7 +255,7 @@ export class ModulesFormComponent extends PageFormComponent {
         data => {
           this.listModules = data.listeModule;
           this.form.controls.listModules.setValue(this.listModules);
-          this.form.controls.modu_id.setValue(newValue);
+          this.form.controls.modu_reference_id.setValue(newValue);
         }
       );
     }
@@ -254,6 +266,7 @@ export class ModulesFormComponent extends PageFormComponent {
       this.itemsService.getItemSelect(this.api, this.configService.config.url + 'module/' + newValue ).subscribe(data => {
         // console.log('Module : ' + newValue);
         this.itemModules = data;
+        this.form.controls.tymo_id.setValue(this.itemModules.tymo_id);
         this.form.controls.isol_id.setValue(this.itemModules.isol_id);
         this.form.controls.fiin_id.setValue(this.itemModules.fiin_id);
         this.form.controls.fiex_id.setValue(this.itemModules.fiex_id);

@@ -6,7 +6,7 @@
     <!-- Familles de module -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="id" class="labelForm">N°</label>
-      <input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50">
+      <input disabled type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50">
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="tymo_id" class="labelForm">Type de module</label>
@@ -23,13 +23,13 @@
 
     <!-- Modules -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="modu_id" class="labelForm">Module</label>
-      <select (change)="onChangeModule($event.target.value)" class="inputTexteContenu" name="modu_id"  formControlName="modu_id" id="modu_id" ng-model="modu_id">
+      <label for="modu_reference_id" class="labelForm">Module</label>
+      <select (change)="onChangeModule($event.target.value)" class="inputTexteContenu" name="modu_reference_id"  formControlName="modu_reference_id" id="modu_reference_id" ng-model="modu_id">
         <option value="" disabled> Quel module ?</option>
         <option [value]="module.id" *ngFor="let module of listModules"> {{module.modu_nom}} </option>
       </select>
-      <div *ngIf="modu_id.invalid" class="alertFormulaire">
-        <div *ngIf="modu_id.errors.required">
+      <div *ngIf="modu_reference_id.invalid" class="alertFormulaire">
+        <div *ngIf="modu_reference_id.errors.required">
           Veuillez sélectionner un module.
         </div>
       </div>
@@ -45,9 +45,9 @@
       <input type="text" name="modu_prix_unitaire" formControlName="modu_prix_unitaire" id="modu_prix_unitaire" class="inputTexteContenu" maxlength="100">
     </div> -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
-      <label for="modu_prix_unitaire">Prix</label>
+      <label for="modu_prix_total">Prix</label>
       <div class="flexSpaceBetween section">
-        <input type="text" name="modu_prix_unitaire" formControlName="modu_prix_unitaire" id="modu_prix_unitaire" class="inputTexteContenu" maxlength="100">
+        <input disabled type="text" name="modu_prix_total" formControlName="modu_prix_total" id="modu_prix_total" class="inputTexteContenu" maxlength="100">
         <label class="prixSpec">€</label>
       </div>
     </div>

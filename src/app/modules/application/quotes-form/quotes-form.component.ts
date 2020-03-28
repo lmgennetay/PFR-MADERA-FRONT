@@ -66,15 +66,15 @@ export class QuotesFormComponent extends PageFormComponent {
     });
 
     this.form = this.fb.group({
-      id: new FormControl({value: null, disabled: true}),
+      id: null,
       resultat: null,
       etap_id: null,
       etat_id: null,
-      comm_id: new FormControl({value: localStorage.user_id, disabled: true}),
+      comm_id: localStorage.comm_id,
       devi_nom: [null,
         [Validators.required]
       ],
-      devi_date: new FormControl({value: null, disabled: true}),
+      devi_date: null,
       listClients: null,
       clie_id: [null,
         [Validators.required]
@@ -115,7 +115,7 @@ export class QuotesFormComponent extends PageFormComponent {
     this.item.resultat = null;
     this.item.etap_id = null;
     this.item.etat_id = null;
-    this.item.comm_id = localStorage.user_id;
+    this.item.comm_id = localStorage.comm_id;
     this.item.devi_date = null;
     this.item.devi_nom = null;
     this.listClients = null;
@@ -137,11 +137,16 @@ export class QuotesFormComponent extends PageFormComponent {
   }
 
   setFormValue(item: any) {
+    // console.log(item);
     this.form.controls.resultat.setValue('');
     this.form.controls.etap_id.setValue(item.etap_id);
     this.form.controls.etat_id.setValue(item.etat_id);
     this.form.controls.id.setValue(item.id);
-    this.form.controls.comm_id.setValue(item.comm_id);
+    if ( item.comm_id == undefined ) {
+      this.form.controls.comm_id.setValue( localStorage.comm_id );
+    } else {
+      this.form.controls.comm_id.setValue(item.comm_id);
+    }
     this.form.controls.devi_date.setValue(item.devi_date);
     this.form.controls.devi_nom.setValue(item.devi_nom);
     this.form.controls.listClients.setValue(item.listClients);
