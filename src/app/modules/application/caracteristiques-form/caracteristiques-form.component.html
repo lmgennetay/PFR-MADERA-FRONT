@@ -9,7 +9,7 @@
     <!-- Section -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cara_section" class="labelForm">Section</label>
-      <input type="text" name="cara_section" formControlName="cara_section" id="cara_section" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_section.invalid}" maxlength="100" pattern="[0-9]+((\,|\.)[0-9]{1,2})?">
+      <input type="text" name="cara_section" formControlName="cara_section" id="cara_section" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_section.invalid}" maxlength="100" pattern="[0-9]+((\,|\.)[0-9]{1,3})?">
       <div *ngIf="cara_section.invalid" class="alertFormulaire">
         <div *ngIf="cara_section.errors.required">
           Veuillez saisir la section.
@@ -22,7 +22,7 @@
     <!-- Hauteur -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cara_hauteur" class="labelForm">Hauteur</label>
-      <input type="text" name="cara_hauteur" formControlName="cara_hauteur" id="cara_hauteur" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_hauteur.invalid}" maxlength="100" pattern="[0-9]+((\,|\.)[0-9]{1,2})?">
+      <input type="text" name="cara_hauteur" formControlName="cara_hauteur" id="cara_hauteur" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_hauteur.invalid}" maxlength="100" pattern="[0-9]+((\,|\.)[0-9]{1,3})?">
       <div *ngIf="cara_hauteur.invalid" class="alertFormulaire">
         <div *ngIf="cara_hauteur.errors.required">
           Veuillez saisir la hauteur.
@@ -35,7 +35,7 @@
     <!-- Longueur -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cara_longueur" class="labelForm">Longueur</label>
-      <input type="text" name="cara_longueur" formControlName="cara_longueur" id="cara_longueur" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_longueur.invalid}" maxlength="100" pattern="[0-9]+((\,|\.)[0-9]{1,2})?">
+      <input type="text" name="cara_longueur" formControlName="cara_longueur" id="cara_longueur" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_longueur.invalid}" maxlength="100" pattern="[0-9]+((\,|\.)[0-9]{1,3})?">
       <div *ngIf="cara_longueur.invalid" class="alertFormulaire">
         <div *ngIf="cara_longueur.errors.required">
           Veuillez saisir la longueur.
@@ -62,7 +62,7 @@
     <!-- Degré -->
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="cara_degre_angle" class="labelForm">Degré</label>
-      <input type="text" name="cara_degre_angle" formControlName="cara_degre_angle" id="cara_degre_angle" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_degre_angle.invalid}" maxlength="100" pattern="[0-9]+((\,|\.)[0-9]{1,2})?">
+      <input type="text" name="cara_degre_angle" formControlName="cara_degre_angle" id="cara_degre_angle" class="inputTexteContenu" [ngClass]="{'inputTexteContenuInvalide': cara_degre_angle.invalid}" maxlength="100" pattern="[0-9]+((\,|\.)[0-9]{1,3})?">
       <div *ngIf="cara_degre_angle.invalid" class="alertFormulaire">
         <div *ngIf="cara_degre_angle.errors.required">
           Veuillez saisir le degré d'angle.
