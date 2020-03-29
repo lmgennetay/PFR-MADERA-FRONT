@@ -27,7 +27,7 @@ export class UsersFormComponent extends PageFormComponent {
 
   createForm() {
     this.form = this.fb.group({
-      id: new FormControl({value: null, disabled: true}),
+      id: null,
       pers_nom: [null,
         [Validators.required]
       ],

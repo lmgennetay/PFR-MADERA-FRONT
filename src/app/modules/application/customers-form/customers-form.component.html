@@ -3,7 +3,7 @@
   <form [formGroup]="form" novalidate="" class="section flexColumnCenter form">
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="id" class="labelForm">Référence</label>
-      <input type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50">
+      <input disabled type="text" name="id" formControlName="id" id="id" class="inputTexteContenu" maxlength="50">
     </div>
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
@@ -26,10 +26,10 @@
     </div>
     <div class="flexColumnStart inputTexte inputTextTaille2">
       <label for="pers_sexe" class="labelForm">Genre</label>
-      <select name="genre" class="inputTexteContenu" formControlName="pers_sexe" id="pers_sexe" ng-model="genre" [ngClass]="{'inputTexteContenuInvalide': pers_sexe.invalid}">
+      <select name="pers_sexe" class="inputTexteContenu" formControlName="pers_sexe" id="pers_sexe" ng-model="pers_sexe" [ngClass]="{'inputTexteContenuInvalide': pers_sexe.invalid}">
         <option value="" disabled> Quel est votre sexe ?</option>
-        <option value="homme" >Homme</option>
-        <option value="femme" >Femme</option>
+        <option value="Homme" >Homme</option>
+        <option value="Femme" >Femme</option>
       </select>
       <div *ngIf="pers_sexe.invalid" class="alertFormulaire">
         <div *ngIf="pers_sexe.errors.required">
