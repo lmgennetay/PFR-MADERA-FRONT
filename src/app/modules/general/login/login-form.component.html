@@ -26,31 +26,9 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="flexStart inputTexte inputTextTaille2">
-        <input type="checkbox" id="remember">
-        <label for="remember"> Se souvenir de moi  </label>
-    </div> -->
-
     <div class="separateurHorizontal">&nbsp;</div>
     <div class="section flexCenter flexWrap">
       <button class="button" (click)="onLogin()" [disabled]="form.invalid || !api" type="submit">SE CONNECTER</button>
     </div>
-<!--    <div class="section flexCenter flexWrap">-->
-<!--      <button class="button"  type="submit"><i class=""></i>Mot de passe oublié</button>-->
-<!--    </div>-->
   </form>
 </div>
-
-<script>
-  $(function(){
-    if( localStorage.date === undefined || (Date.now() - new Date(localStorage.date).getTime()) >= 86400000 ) {
-      $('#nav').attr('hidden');
-      // console.log(localStorage);
-    }
-    else {
-      $('#nav').removeAttr('hidden');
-      // console.log(localStorage);
-    }
-  });
-</script>

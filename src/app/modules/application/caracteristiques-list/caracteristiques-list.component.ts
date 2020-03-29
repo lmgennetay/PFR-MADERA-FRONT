@@ -76,7 +76,6 @@ export class CaracteristiquesListComponent extends PageListComponent {
           data: {field: 'id', class: 'text-info tdTableBorder text-left'}
         }
       ];
-
       super.initialize();
     }
   }

@@ -17,14 +17,15 @@ export class LoginFormComponent extends PageFormComponent {
     this.endpoint = 'login';
     this.titleForm = 'Formulaire login';
     this.icon = 'fas fas fa-sign-in-alt';
+    localStorage.clear();
     super.initialize();
   }
 
   onLogin() {
     localStorage.clear();
     super.login();
-    // this.resetForm();
   }
+
   createForm() {
     this.form = this.fb.group({
       mail_utilisateur:  [null,
