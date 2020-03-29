@@ -76,36 +76,63 @@ export class CaracteristiquesFormComponent extends PageFormComponent {
   setFormValue(item: any) {
     this.form.controls.id.setValue(item.id);
     this.form.controls.modu_id.setValue(item.modu_id);
-    this.form.controls.cara_section.setValue(item.cara_section);
-    this.form.controls.cara_hauteur.setValue(item.cara_hauteur);
-    this.form.controls.cara_longueur.setValue(item.cara_longueur);
-    this.form.controls.cara_type_angle.setValue(item.cara_type_angle);
-    this.form.controls.cara_degre_angle.setValue(item.cara_degre_angle);
+    this.form.controls.cara_section.setValue( item.cara_section.toString().replace('.', ',') );
+    this.form.controls.cara_hauteur.setValue( item.cara_hauteur.toString().replace('.', ',') );
+    this.form.controls.cara_longueur.setValue( item.cara_longueur.toString().replace('.', ',') );
+    this.form.controls.cara_type_angle.setValue( item.cara_type_angle.toString().replace('.', ',') );
+    this.form.controls.cara_degre_angle.setValue( item.cara_degre_angle.toString().replace('.', ',') );
     super.setFormValue(item);
   }
 
   get id() {
     return this.form.get('id');
   }
+
   get cara_section() {
-    return this.form.get('cara_section');
+     return this.form.get('cara_section');
   }
+
   get cara_hauteur() {
     return this.form.get('cara_hauteur');
   }
+
   get cara_longueur() {
     return this.form.get('cara_longueur');
   }
+
   get cara_type_angle() {
     return this.form.get('cara_type_angle');
   }
+
   get cara_degre_angle() {
     return this.form.get('cara_degre_angle');
   }
+
   get modu_id() {
     return this.form.get('modu_id');
   }
+
   backClicked() {
     this.location.back();
+  }
+
+  befforUpdate(){
+    if( this.form.get('cara_section').value !== null || this.form.get('cara_section').value !== undefined ) {
+      const test = this.form.get('cara_section').value.replace(',', '.');
+      this.form.controls.cara_section.setValue(test);
+    }
+    if( this.form.get('cara_hauteur').value !== null || this.form.get('cara_hauteur').value !== undefined ) {
+      const test = this.form.get('cara_hauteur').value.replace(',', '.');
+      this.form.controls.cara_hauteur.setValue(test);
+    }
+    if( this.form.get('cara_longueur').value !== null || this.form.get('cara_longueur').value !== undefined ) {
+      const test = this.form.get('cara_longueur').value.replace(',', '.');
+      this.form.controls.cara_longueur.setValue(test);
+    }
+    if( this.form.get('cara_degre_angle').value !== null || this.form.get('cara_degre_angle').value !== undefined ) {
+      const test = this.form.get('cara_degre_angle').value.replace(',', '.');
+      this.form.controls.cara_degre_angle.setValue(test);
+    }
+    this.onUpdate();
   }
 }
