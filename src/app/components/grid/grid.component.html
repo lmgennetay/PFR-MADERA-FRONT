@@ -23,8 +23,12 @@
           {{ i + 1 }}
         </div>
 
-        <div *ngIf="column.type=='euro'" (click)="selectItem(record['id'])" style="cursor: pointer">
+        <div *ngIf="(column.type=='euro' && record[column.data.field]!=null)" (click)="selectItem(record['id'])" style="cursor: pointer">
           {{ record[column.data.field]+' €' }}
+        </div>
+
+        <div *ngIf="(column.type=='euro' && record[column.data.field]==null)" (click)="selectItem(record['id'])" style="cursor: pointer">
+          {{ 'n.c.' }}
         </div>
 
         <div *ngIf="column.type=='date'" (click)="selectItem(record['id'])" style="cursor: pointer">
